@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html,
+body {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #000000;
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+}
+
+.navimage {
+    width: 100%;
+    height: auto;
+    background: none;
+    height: 80%;
+}
+
+.top {
+    z-index: 9999;
+    /* Check if this high z-index is necessary */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: #000000;
+    width: 100%;
+    height: 15%;
+    /* Adjust height to fill the top properly */
+    font-size: 1.5em;
+    font-family: Consolas;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.top h1 {
+    color: #F0EBD8;
+}
+
+.top h2 {
+    color: #F0EBD8;
+}
+
+li{
+    color: #1e2733; 
+}
+
+h2{
+    color: #000000; 
+}
+
+.sidebar {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    flex-direction: column;
+    background-color: #1e2733;
+    top: 15%;
+    /* Ensure the sidebar fills from the top properly */
+    left: 0;
+    width: 5%;
+    height: 100%;
+    /* Adjust height to fill the sidebar properly */
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    /* Adjust to fill the viewport height */
+    padding: 0;
+    margin: 0;
+}
+
+section h2 {
+    list-style-type: none;
+    width: 60%;
+    text-align: left;
+    margin-top: 3.0em;
+    font-size: 4.5em;
+    z-index: 999;
+    /* Check if high z-index is necessary */
+    font-family: 'Montserrat';
+}
+
+section ul {
+    font-size: 2em;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+
+    width: 60%;
+    text-align: left;
+    z-index: 999;
+    /* Check if high z-index is necessary */
+}
+
+#textpanel {
+    display: flex;
+    position: fixed;
+    background-color: #748CAB;
+    width: 100%;
+    height: 100%;
+    opacity: 0.65;
+    /* Adjust opacity with a decimal value */
+}
+
+.parallax {
+    background-image: url("img_parallax.jpg");
+    /* Check path */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#ifsc {
+    background-image: url('./imgs/ifsc.jpeg');
+    /* Check path */
+}
+
+#ufsc {
+    background-image: url('./imgs/ufsc.jpg');
+    /* Check path */
+}
+
+#prog {
+    background-image: url('./imgs/prog.jpg');
+    /* Check path */
+}
+
+#damas {
+    background-image: url('./imgs/damas.webp');
+    /* Check path */
+}
+
+.cover {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    background-color: #1e2733;
+    opacity: 80%;
+    z-index: 9999999999999;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: none;
+}
