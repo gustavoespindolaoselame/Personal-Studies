@@ -10,11 +10,25 @@
 
 <body>
     <header class="navbar">
-        <a class="top">
-            <h1> &#60;/gustavoEspindolaOselame&#062;</h1>
+        <div class="top">
+            <h1 > &#60;/gustavoEspindolaOselame&#062;</h1>
             <div id="titlebracket"></div>
-        </a>
+        </div>
     </header>
+
+    <div class="titleLinks">
+        <button onclick="blurButtonImg(githubLink)" type="submit">
+            <a href="https://github.com/gustavoespindolaoselame" title="Visitar perfil github.">
+                <img alt="IMG" src="./imgs/git.png" id="githubLink">
+            </a>
+        </button>
+        <button onclick="copyText('gustavo.e.oselame@gmail.com'), blurButtonImg(gmailLink)" type="submit"  title="Copiar e-mail para área de transferência.">
+            <img alt="IMG" src="./imgs/mail.png" id="gmailLink">
+        </button>
+        <button onclick="copyText('4899176-8972'), blurButtonImg(phoneLink)" type="submit"  title="Copiar número para área de transferência.">
+            <img alt="IMG" src="./imgs/phone.png" id="phoneLink">
+        </button>
+    </div>
 
     <nav class="sidebar">
         <button type="submit" class="navbutton">
@@ -88,14 +102,14 @@
                 </li>
                 <li>
                     <button type="submit" onclick="toggleOverlay('overlay7')">
-                    ● Curriculum Vitae Web - Html/Css/Javascript - Incompleto
+                    ● Curriculum Vitae Web - Html/Css/Javascript - Completo
                     </button>
                 </li>
                 <li>
                 </li>
                 <li>
                     <button type="submit" onclick="toggleOverlay('overlay8')">
-                    ● Sistema de Planejamento de Projetos - Html/Css/Javascript/Tailwind/React||NextJS - Incompleto
+                    ● Calcucraft - Html/Css/Javascript/Tailwind/React||NextJS - Incompleto
                     </button>
                 </li>
             </ul>
@@ -112,11 +126,6 @@
                 </li>
                 <li>
                     <button type="submit" onclick="toggleOverlay('overlay10')">
-                    ● Aws e Sebrae
-                    </button>
-                </li>
-                <li>
-                    <button type="submit" onclick="toggleOverlay('overlay11')">
                     ● COD3R Java Udemy
                     </button>
                 </li>
@@ -232,8 +241,117 @@
                 </p>
             </div>
         </div>
+        <div class="overlay" id="overlay6">
+            <div class="overlay-content">
+                <h2>
+                    Damas
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay6')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <p>
+                    Projeto com finalidade de aprender POO
+                </p>
+                <p>
+                    Incompleto
+                </p>
+                <p>
+                    Técnologias Usadas: Java, Swing
+                </p>
+                <p>
+                    Recriação do jogo de tabuleiro usando as funções básicas do java para me aprofundar na programação orientada a objeto.
+                </p>
+            </div>
+        </div>
+        <div class="overlay" id="overlay7">
+            <div class="overlay-content">
+                <h2>
+                    Curriculum Vitae Web
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay7')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <p>
+                    Projeto com finalidade de servir como hub para informações sobre mim
+                </p>
+                <p>
+                    Completo**
+                </p>
+                <p>
+                    Técnologias Usadas: HTML/ CSS/ Javacript
+                </p>
+                <p>
+                    Criação de um perfil meu para interessados nos meus serviços e estudos, busco atualizar conforme me desenvolvo.
+                </p>
+            </div>
+        </div>
+        <div class="overlay" id="overlay8">
+            <div class="overlay-content">
+                <h2>
+                    Calcucraft
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay8')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <p>
+                    Projeto com finalidade de aprofundar meu conhecimento web
+                </p>
+                <p>
+                    Em planejamento
+                </p>
+                <p>
+                    Técnologias Usadas: HTML/ CSS/ Javacript/ Tailwind||Bootstrap/ React||NextJS
+                </p>
+                <p>
+                    Twist na ideia do projeto calculadora, quero fazer um jogo em que você tem que atingir um número aleatório utilizando uma calculadora com valores faltando
+                </p>
+            </div>
+        </div>
+        <div class="overlay" id="overlay9">
+            <div class="overlay-content">
+                <h2>
+                    Oracle & Alura
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay9')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <p>
+                    Curso de desenvolvimento web
+                </p>
+                <p>
+                    Duração: 2024/05 - 2024/08
+                </p>
+                <p>
+                    Atividades realizadas: Projeto encriptador, desenvolvimento próprio.
+                </p>
+                <p>
+                    Consolidou meu conhecimento web e me incentivou a me investir na área.
+                </p>
+            </div>
+        </div>
+        <div class="overlay" id="overlay10">
+            <div class="overlay-content">
+                <h2>
+                    COD3R Java Udemy
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay10')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <p>
+                    Técnico Assistente
+                </p>
+                <p>
+                    Duração: 2024/10 - Em andamento
+                </p>
+                <p>
+                    Atividades realizadas: Programação orientada a objeto, webapps, libraries.
+                </p>
+                <p>
+                    Curso aprofundadíssimo em java, ainda estou trabalhando em completar.
+                </p>
+            </div>
+        </div>
     </main>
     <script src="Scripts.js"></script>
 </body>
-
 </html>
