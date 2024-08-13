@@ -40,9 +40,15 @@
                 Educação
             </h2>
             <ul>
-                <li class="overlayOpener">IFSC - Instituto Federal de Santa Catarina - Eletrônica integrado
+                <li>
+                <button type="submit" onclick="toggleOverlay('overlay1')">
+                    ● IFSC - Instituto Federal de Santa Catarina - Eletrônica integrado
+                </button>
                 </li>
-                <li>SENAC - Serviço Nacional de Aprendizagem Comercial - Análise e Desenvolvimento de Sistemas
+                <li>
+                <button type="submit" onclick="toggleOverlay('overlay2')">
+                    ● SENAC - Serviço Nacional de Aprendizagem Comercial - Análise e Desenvolvimento de Sistemas
+                </button>
                 </li>
             </ul>
         </section>
@@ -52,13 +58,19 @@
             </h2>
             <ul>
                 <li>
-                    Wier Ozônio - Estágio Obrigatório - 5 Mêses - Concluído
+                    <button type="submit" onclick="toggleOverlay('overlay3')">
+                    ● Wier Ozônio - Estágio Obrigatório - 5 Mêses - Concluído
+                    </button>
                 </li>
                 <li>
-                    Maglab - Estágio Não Obrigatório - 8/12 Mêses - Em Andamento
+                    <button type="submit" onclick="toggleOverlay('overlay4')">
+                    ● Maglab - Estágio Não Obrigatório - 8/12 Mêses - Em Andamento
+                    </button>
                 </li>
                 <li>
-                    LND Informática - Técnico Asistente - 4 Mêses - Terminado
+                    <button type="submit" onclick="toggleOverlay('overlay5')">
+                    ● LND Informática - Técnico Asistente - 4 Mêses - Terminado
+                    </button>
                 </li>
             </ul>
         </section>
@@ -68,17 +80,23 @@
             </h2>
             <ul>
                 <li>
-                    Damas - Java com swing - Incompleto
+                    <button type="submit" onclick="toggleOverlay('overlay6')">
+                    ● Damas - Java com swing - Incompleto
+                    </button>
                 </li>
                 <li>
                 </li>
                 <li>
-                    Curriculum Vitae Web - Html/Css/Javascript - Incompleto
+                    <button type="submit" onclick="toggleOverlay('overlay7')">
+                    ● Curriculum Vitae Web - Html/Css/Javascript - Incompleto
+                    </button>
                 </li>
                 <li>
                 </li>
                 <li>
-                    Sistema de Planejamento de Projetos - Html/Css/Javascript/Tailwind/React||NextJS - Incompleto
+                    <button type="submit" onclick="toggleOverlay('overlay8')">
+                    ● Sistema de Planejamento de Projetos - Html/Css/Javascript/Tailwind/React||NextJS - Incompleto
+                    </button>
                 </li>
             </ul>
         </section>
@@ -88,23 +106,29 @@
             </h2>
             <ul>
                 <li>
-                    Oracle &amp; Alura
+                    <button type="submit" onclick="toggleOverlay('overlay9')">
+                    ● Oracle &amp; Alura
+                    </button>
                 </li>
                 <li>
-                    Aws e Sebrae
+                    <button type="submit" onclick="toggleOverlay('overlay10')">
+                    ● Aws e Sebrae
+                    </button>
                 </li>
                 <li>
-                    COD3R Java Udemy
+                    <button type="submit" onclick="toggleOverlay('overlay11')">
+                    ● COD3R Java Udemy
+                    </button>
                 </li>
             </ul>
         </section>
-        <div class="overlay" id="1">
-            <div class="overlay-content" data-index="0">
+        <div class="overlay" id="overlay1">
+            <div class="overlay-content">
                 <h2>
-                    IFSC - Instituto Federal de Santa Catarina - Eletrônica integrado
+                    IFSC - Instituto Federal de Santa Catarina
                 </h2>
-                <button>
-                    <img src="./imgs/school.png">
+                <button type="submit" onclick="toggleOverlay('overlay1')">
+                    <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <p>
                     Ensino médio téncico integrado em Eletrônica
@@ -117,6 +141,94 @@
                 </p>
                 <p>
                     Formação em conceitos da elétrica, eletromagnetismo, motores, engenharia elétrica, design de placas, projetos eletronicos, programação e uso de microcontroladores, entre outros.
+                </p>
+            </div>
+        </div>
+        <div class="overlay" id="overlay2">
+            <div class="overlay-content">
+                <h2>
+                    SENAC - Serviço Nacional de Aprendizagem Comercial
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay2')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <p>
+                    Ensino superior técnologo em análise e desenvolvimento de sistemas
+                </p>
+                <p>
+                    Duração: 2024 - atualmente
+                </p>
+                <p>
+                    Projetos notáveis: Em andamento.
+                </p>
+                <p>
+                    Formação em conceitos de algoritmos, lógica da programação, front e back-end, desenvolvimento web e mobile, banco de dados entre outros.
+                </p>
+            </div>
+        </div>
+        <div class="overlay" id="overlay3">
+            <div class="overlay-content">
+                <h2>
+                    WIER - Lazer & Ozônio
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay3')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <p>
+                    Estágio Obrigatório
+                </p>
+                <p>
+                    Duração: 2022/10 - 2023/02
+                </p>
+                <p>
+                    Atividades realizadas: Montagem, manutenção e desenvolvimento de geradores de ozônio.
+                </p>
+                <p>
+                    Importante primeiros paços no mercado de trabalho, crítico na definição da minha ética de trabalho e relações interpessoais.
+                </p>
+            </div>
+        </div>
+        <div class="overlay" id="overlay4">
+            <div class="overlay-content">
+                <h2>
+                    MagLab - Laboratório de Eletromagnetismo e Compatibilidade Eletromagnética
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay4')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <p>
+                    Estágio não obrigatório
+                </p>
+                <p>
+                    Duração: 2023/11 - Em andamento.
+                </p>
+                <p>
+                    Atividades realizadas: Práticas e manutenção de laboratório, programação em python, uso de ferramentas de análise e geração de frequências eletromagnética e teste de segurança elétrica.
+                </p>
+                <p>
+                    Definitivo na minha responsabilização dentro do ambiente de trabalho, aqui aprendi como me relacionar de forma formal mas produtiva com empresas.
+                </p>
+            </div>
+        </div>
+        <div class="overlay" id="overlay5">
+            <div class="overlay-content">
+                <h2>
+                    LND - Informática e Assistência Técnica em Palhoça
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay5')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <p>
+                    Técnico Assistente
+                </p>
+                <p>
+                    Duração: 2023/05 - 2023/09
+                </p>
+                <p>
+                    Atividades realizadas: Manutenção e montagem de computadores, instalação de softwares e de sistemas operacionais.
+                </p>
+                <p>
+                    Me aproximou das práticas de trabalho contratados, me familiarizando com o mundo do trabalho.
                 </p>
             </div>
         </div>

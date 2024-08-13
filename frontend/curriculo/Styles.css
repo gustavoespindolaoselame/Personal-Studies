@@ -26,8 +26,11 @@ html,
     font-size: 160%;
 }
 
-li{
-    color: #1e2733; 
+button {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: none;
 }
 
 .sidebar {
@@ -64,15 +67,18 @@ section h2 {
 }
 
 section ul {
-    font-size: 2em;
     list-style-type: none;
-    display: flex;
-    flex-direction: column;
+    width: 61.5%;
     font-family: Helvetica; 
-    width: 60%;
     margin-top: 0%; 
-    text-align: left;
     z-index: 999;
+}
+
+section button{
+    font-size: 150%;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 0.333%;
 }
 
 #textpanel {
@@ -108,13 +114,6 @@ section ul {
     background-image: url('./imgs/damas.webp');
 }
 
-button {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    background: none;
-}
-
 .overlay {
     position: fixed;
     top: 25%;
@@ -140,19 +139,10 @@ button {
     padding-bottom: 5%;
 }
 
-.overlay-content img{
+.overlay img{
     position: fixed;
-    top: 26.5%;
-    right: 24%;
+    top: 28%;
+    right: 24.5%;
+    height: 3%;
     width: auto;
-    height: 5%;
-}
-
-.overlay-content p{
-    text-align: left;
-    width: 90%;
-    padding-left: 5%;
-    font-size: 180%;
-    z-index: 999;
-    font-family: 'Helvetica';
 }

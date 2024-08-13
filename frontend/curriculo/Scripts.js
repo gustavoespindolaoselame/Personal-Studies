@@ -8,8 +8,9 @@ class navButtonClass {
 }
 
 const navButton = new navButtonClass(document.querySelectorAll('.navimage'), [], [], [])
-const overlayOpener = document.querySelectorAll('.overlayOpener');
 const sections = document.querySelectorAll('section');
+
+const button = document.querySelectorAll('button');
 
 document.addEventListener('DOMContentLoaded', () => {
     navButton.isscrolled[0]=true;
@@ -18,13 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('click', () => {
-    for (let index = 0; index < overlayOpener.length; index++) {
-        overlayOpener[index].addEventListener('click', () => {
-            const test = this.getAttribute('data-index');
-            document.getElementById('overlay-' + test).style.display = 'flex';
-            console.log("que");
-        });
-    }
     for (let index = 0; index < navButton.navimage.length; index++) {
         navButton.navimage[index].addEventListener('click', () => {
             window.scrollTo({
@@ -39,10 +33,16 @@ window.addEventListener('click', () => {
 });
 
 window.addEventListener('mouseover', () => {
+    
+    for (let index = 0; index < button.length; index++) {
+        button[index].addEventListener('mouseover', () => {        
+            button[index].style.cursor = 'pointer';
+        });   
+    }
+
     for (let index = 0; index < navButton.navimage.length; index++) {
         navButton.navimage[index].addEventListener('mouseover', () => {        
             navButton.ishovered[index]=true;
-            navButton.navimage[index].style.cursor = 'pointer';
         });   
         navButton.navimage[index].addEventListener('mouseout', () => {        
                 navButton.ishovered[index]=false;
@@ -87,4 +87,13 @@ function titleOpenTextBracket(){
     setInterval(() => {
         newSpan.style.visibility = newSpan.style.visibility === 'hidden' ? 'visible' : 'hidden';
     }, 500);
+}
+
+function toggleOverlay(overlayId) {
+    var overlay = document.getElementById(overlayId);
+    if (overlay.style.display === 'none' || overlay.style.display === '') {
+        overlay.style.display = 'block';
+    } else {
+        overlay.style.display = 'none';
+    }
 }
