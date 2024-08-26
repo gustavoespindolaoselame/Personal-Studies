@@ -1,5 +1,5 @@
 class navButtonClass {
-    constructor(navimage, ishovered, isscrolled, isclicked){
+    constructor(navimage, ishovered, isscrolled, isclicked) {
         this.navimage = navimage;
         this.ishovered = ishovered;
         this.isscrolled = isscrolled;
@@ -9,11 +9,12 @@ class navButtonClass {
 
 const navButton = new navButtonClass(document.querySelectorAll('.navimage'), [], [], [])
 const sections = document.querySelectorAll('section');
+let isSubPageShown = false;
 
 document.addEventListener('DOMContentLoaded', () => {
 
     // On page load;
-    navButton.isscrolled[0]=true;
+    navButton.isscrolled[0] = true;
     titleOpenTextBracket();
     drawOpacityChange();
 });
@@ -27,9 +28,9 @@ window.addEventListener('click', () => {
                 top: `${sections[index].offsetTop}`,
                 behavior: 'smooth'
             });
-            navButton.isclicked[index]=true;
+            navButton.isclicked[index] = true;
         });
-        navButton.isclicked[index]=false;
+        navButton.isclicked[index] = false;
     }
     drawOpacityChange();
 });
@@ -38,11 +39,11 @@ window.addEventListener('mouseover', () => {
 
     // Defines the current hovered location on the ishovered array and runs the draw function for it
     for (let index = 0; index < navButton.navimage.length; index++) {
-        navButton.navimage[index].addEventListener('mouseover', () => {        
-            navButton.ishovered[index]=true;
-        });   
-        navButton.navimage[index].addEventListener('mouseout', () => {        
-                navButton.ishovered[index]=false;
+        navButton.navimage[index].addEventListener('mouseover', () => {
+            navButton.ishovered[index] = true;
+        });
+        navButton.navimage[index].addEventListener('mouseout', () => {
+            navButton.ishovered[index] = false;
         });
     }
     drawOpacityChange();
@@ -52,92 +53,96 @@ window.addEventListener('scroll', () => {
 
     // Defines the current scroll location on the isscrolled array and runs the draw function for it
     for (let index = 0; index < navButton.navimage.length; index++) {
-        if (window.scrollY > `${sections[index].offsetTop}`-`${sections[index].clientHeight}`/2)
-        {   
-            navButton.isscrolled[index+1]=false;
-            navButton.isscrolled[index]=true;
-            navButton.isscrolled[index-1]=false;
-        }  else{
-            navButton.isscrolled[index]=false;
+        if (window.scrollY > `${sections[index].offsetTop}` - `${sections[index].clientHeight}` / 2) {
+            navButton.isscrolled[index + 1] = false;
+            navButton.isscrolled[index] = true;
+            navButton.isscrolled[index - 1] = false;
+        } else {
+            navButton.isscrolled[index] = false;
         }
-    }   
+    }
     drawOpacityChange();
 });
 
-function drawOpacityChange(){
+function drawOpacityChange() {
 
     // Defines the opacity for the various conditions on the side nav bar buttons
     for (let index = 0; index < navButton.navimage.length; index++) {
         navButton.navimage[index].style.opacity = '0.1';
-        if(navButton.isscrolled[index]){
-            navButton.navimage[index].style.opacity = '1';
-        } 
-        else if(navButton.ishovered[index]){
-            navButton.navimage[index].style.opacity = '0.333';
-        } 
-        else if(navButton.isclicked[index]){
+        if (navButton.isscrolled[index]) {
             navButton.navimage[index].style.opacity = '1';
         }
-    }   
+        else if (navButton.ishovered[index]) {
+            navButton.navimage[index].style.opacity = '0.333';
+        }
+        else if (navButton.isclicked[index]) {
+            navButton.navimage[index].style.opacity = '1';
+        }
+    }
 }
 
-function titleOpenTextBracket(){
+function titleOpenTextBracket() {
 
     // Creates title text bracket
-    let titlebracket = document.getElementById('titlebracket');
-    let newDiv = document.createElement('div');
-    newDiv.textContent = '|';
-    titlebracket.appendChild(newDiv);
+    let titleBracket = document.getElementById('titleBracket');
 
     // Sets the interval for it showing and hiding
     setInterval(() => {
-        newDiv.style.visibility = newDiv.style.visibility === 'hidden' ? 'visible' : 'hidden';
-    }, 500);
+        titleBracket.textContent += '|';
+        setTimeout(() => {
+            titleBracket.textContent = titleBracket.textContent.replace('|', '');
+        }, 500);
+    }, 1000);
 }
 
-function toggleOverlay(overlayId) {
-    
+function toggleOverlay(overlayId, ovSettingId) {
+
     // Creates overlay and a check for current scroll bracket for closing on scroll
     var overlay = document.getElementById(overlayId);
-    var currentScrollBracket;
-
-    // On/Off switch for display
-    if (overlay.style.display === 'none' || overlay.style.display === '') {
-        currentScrollBracket=window.scrollY;
-        overlay.style.display = 'block';
-    } else {
-        overlay.style.display = 'none';
+    // On/Off switch for subpage
+    if (ovSettingId === 0 && !isSubPageShown) {
+            overlay.style.display = 'block';
+            isSubPageShown = true;
     }
 
-    // Closes overlay on scroll
-    window.addEventListener('scroll', () => {
-        if(window.scrollY>currentScrollBracket+`${sections[0].clientHeight}`/1.5||
-            window.scrollY<currentScrollBracket-`${sections[0].clientHeight}`/1.5){
-            overlay.style.display = 'none';
-            currentScrollBracket=window.scrollY;
-        } 
-    });
+    if (ovSettingId===1 && isSubPageShown){
+        overlay.style.display = 'none';
+        isSubPageShown = false;
+    }
 
-    // Closer overlay on esc
-    window.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' || event.key === 'Esc') {
+    // On/Off switch for message box
+    if (ovSettingId === 2) {
+        if (overlay.style.display === 'none' || overlay.style.display === '') {
+            overlay.style.display = 'block';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 1000);
+        } else {
             overlay.style.display = 'none';
         }
-    });
-    
-}
+    }
 
+    // Closer overlay on esc
+    window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' || event.key === 'Esc') {
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
+            isSubPageShown = false;
+        }
+    });
+
+}
 function copyText(textToCopy) {
 
     // Recebe o valor para a área de transferência e transfere para a mesma
-    navigator.clipboard.writeText(textToCopy).then(function() {
+    navigator.clipboard.writeText(textToCopy).then(function () {
         console.log('Copiado para área de transferência');
     });
 }
 
-function blurButtonImg(buttonImgID){
-    buttonImgID.style.opacity='50%';
-        setTimeout(() => {
-            buttonImgID.style.opacity='100%';  
-        }, 500);
+function blurButtonImg(buttonImgID) {
+    buttonImgID.style.opacity = '50%';
+    setTimeout(() => {
+        buttonImgID.style.opacity = '100%';
+    }, 500);
 }
