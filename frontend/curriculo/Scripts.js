@@ -68,15 +68,15 @@ function drawOpacityChange() {
 
     // Defines the opacity for the various conditions on the side nav bar buttons
     for (let index = 0; index < navButton.navimage.length; index++) {
-        navButton.navimage[index].style.opacity = '0.1';
+        navButton.navimage[index].style.opacity = '0.08';
         if (navButton.isscrolled[index]) {
-            navButton.navimage[index].style.opacity = '1';
+            navButton.navimage[index].style.opacity = '0.8';
         }
         else if (navButton.ishovered[index]) {
             navButton.navimage[index].style.opacity = '0.333';
         }
         else if (navButton.isclicked[index]) {
-            navButton.navimage[index].style.opacity = '1';
+            navButton.navimage[index].style.opacity = '0.8';
         }
     }
 }
