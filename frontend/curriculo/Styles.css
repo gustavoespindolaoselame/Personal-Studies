@@ -35,8 +35,9 @@ body {
 .top{
     display: flex;
     flex: 3;
-    max-width: 82.5%;
-    margin-left: 2.5%;
+    max-width: 86%;
+    align-items: center;
+    margin-left: 1%;
     box-sizing: border-box;
 }
 
@@ -157,6 +158,13 @@ section button {
     background-image: url('./imgs/damas.webp');
 }
 
+#gaming {
+    background-image: url('imgs/gaming.jpg');
+}
+
+#family {
+    background-image: url('imgs/family.jpeg');
+}
 .overlay {
     border-radius: 1%;
     border-style: solid;
@@ -172,8 +180,6 @@ section button {
     z-index: 1000;
     resize: none;
     position: fixed;
-    box-sizing: border-box;
-    
 }
 
 .overlay-content hr{
@@ -184,8 +190,12 @@ section button {
 .overlay-content button {
     position: absolute;
     top: 2.6655%;
-    right: 1.5%;
+    right: 0%;
     opacity: 20%;
+}
+
+.overlay-content button img{
+    width: 50%;
 }
 
 .overlay-content button:hover {
@@ -194,22 +204,21 @@ section button {
 
 .overlay-content h2 {
     text-align: center; 
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     font-size: 260%;
     z-index: 999;
     color: #F0EBD8;
     font-family: 'Montserrat';
-    margin-bottom: 3.25%;
 }
 
 .overlay-content p {
-    text-align: left;
+    text-align: center;
     height: 0%;
     width: 90%;
     font-family: Helvetica;
     font-size: 150%;
-    padding-top: 0%;
-    margin: 0% 0% 0% 5%;
+    margin: 2% 0% 0% 5%;
     color: #F0EBD8;
 }
 
@@ -219,7 +228,6 @@ section button {
     position: fixed;
     top: 40%;
     left: 25%;
-    height: 35%;
     width: 50%;
     z-index: 999999999999999999;
     overflow-y: auto;

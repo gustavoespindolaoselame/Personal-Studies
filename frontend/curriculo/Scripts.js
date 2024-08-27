@@ -88,7 +88,7 @@ function titleOpenTextBracket() {
 
     // Sets the interval for it showing and hiding
     setInterval(() => {
-        titleBracket.textContent += '|';
+        titleBracket.textContent = titleBracket.textContent.concat('|');
         setTimeout(() => {
             titleBracket.textContent = titleBracket.textContent.replace('|', '');
         }, 500);
@@ -100,20 +100,20 @@ function toggleOverlay(overlayId, ovSettingId) {
     // Creates overlay and a check for current scroll bracket for closing on scroll
     var overlay = document.getElementById(overlayId);
     // On/Off switch for subpage
-    if (ovSettingId === 0 && !isSubPageShown) {
+    if (ovSettingId === 'subPageOn' && !isSubPageShown) {
             overlay.style.display = 'block';
             isSubPageShown = true;
     }
 
-    if (ovSettingId===1 && isSubPageShown){
+    if (ovSettingId==='subPageOff' && isSubPageShown){
         overlay.style.display = 'none';
         isSubPageShown = false;
     }
 
     // On/Off switch for message box
-    if (ovSettingId === 2) {
+    if (ovSettingId === 'msBoxOn') {
         if (overlay.style.display === 'none' || overlay.style.display === '') {
-            overlay.style.display = 'block';
+            overlay.style.display = 'flex';
             setTimeout(() => {
                 overlay.style.display = 'none';
             }, 1000);

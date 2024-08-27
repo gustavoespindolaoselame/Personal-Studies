@@ -11,9 +11,7 @@
 <body>
     <header class="navbar">
         <div class="top">
-            <h1 id="titleBracket">
-                &#60;/gustavoEspindolaOselame&#062;
-            </h1>
+            <h1 id="titleBracket">&#60;/gustavoEspindolaOselame&#062;</h1>
         </div>
         <div class="titleLinks">
             <button onclick="blurButtonImg(githubLink)" type="submit">
@@ -21,11 +19,11 @@
                     <img alt="IMG" src="./imgs/git.png" id="githubLink">
                 </a>
             </button>
-            <button onclick="copyText('gustavo.e.oselame@gmail.com'), blurButtonImg(gmailLink), toggleOverlay('msgBox1', 2)"
+            <button onclick="copyText('gustavo.e.oselame@gmail.com'), blurButtonImg(gmailLink), toggleOverlay('msgBox1', 'msBoxOn')"
                 type="submit" title="Copiar e-mail para área de transferência.">
                 <img alt="IMG" src="./imgs/mail.png" id="gmailLink">
             </button>
-            <button onclick="copyText('4899176-8972'), blurButtonImg(phoneLink), toggleOverlay('msgBox2', 2)" type="submit"
+            <button onclick="copyText('4899176-8972'), blurButtonImg(phoneLink), toggleOverlay('msgBox2', 'msBoxOn')" type="submit"
                 title="Copiar número para área de transferência.">
                 <img alt="IMG" src="./imgs/phone.png" id="phoneLink">
             </button>
@@ -45,6 +43,12 @@
         <button type="submit" class="navbutton">
             <img src="./imgs/course.png" alt="buttonpng" class="navimage">
         </button>
+        <button type="submit" class="navbutton">
+            <img src="./imgs/hobbies.png" alt="buttonpng" class="navimage">
+        </button>
+        <button type="submit" class="navbutton">
+            <img src="./imgs/family.png" alt="buttonpng" class="navimage">
+        </button>
     </nav>
     <main>
         <section class="parallax" id="ifsc">
@@ -55,12 +59,12 @@
             </h2>
             <ul>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay1', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay1', 'subPageOn')">
                         ● IFSC - Instituto Federal de Santa Catarina - Eletrônica integrado
                     </button>
                 </li>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay2', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay2', 'subPageOn')">
                         ● SENAC - Serviço Nacional de Aprendizagem Comercial - Análise e Desenvolvimento de Sistemas
                     </button>
                 </li>
@@ -72,17 +76,17 @@
             </h2>
             <ul>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay3', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay3', 'subPageOn')">
                         ● Wier Ozônio - Estágio Obrigatório - 5 Mêses - Concluído
                     </button>
                 </li>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay4', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay4', 'subPageOn')">
                         ● Maglab - Estágio Não Obrigatório - 8/12 Mêses - Em Andamento
                     </button>
                 </li>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay5', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay5', 'subPageOn')">
                         ● LND Informática - Técnico Asistente - 4 Mêses - Terminado
                     </button>
                 </li>
@@ -94,21 +98,21 @@
             </h2>
             <ul>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay6', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay6', 'subPageOn')">
                         ● Damas - Java com swing - Incompleto
                     </button>
                 </li>
                 <li>
                 </li>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay7', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay7', 'subPageOn')">
                         ● Curriculum Vitae Web - Html/Css/Javascript - Completo
                     </button>
                 </li>
                 <li>
                 </li>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay8', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay8', 'subPageOn')">
                         ● Calcucraft - Html/Css/Javascript/Tailwind/React||NextJS - Incompleto
                     </button>
                 </li>
@@ -120,13 +124,62 @@
             </h2>
             <ul>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay9', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay9', 'subPageOn')">
                         ● T7 One - Oracle &amp; Alura
                     </button>
                 </li>
                 <li>
-                    <button type="submit" onclick="toggleOverlay('overlay10', 0)">
+                    <button type="submit" onclick="toggleOverlay('overlay10', 'subPageOn')">
                         ● COD3R Java Udemy - Udemy
+                    </button>
+                </li>
+            </ul>
+        </section>
+        <section class="parallax" id="gaming">
+            <h2>
+                Hobbies &amp; Interesses
+            </h2>
+            <ul>
+                <li>
+                    <button type="submit" onclick="toggleOverlay('overlay11', 'subPageOn')">
+                        ● Música
+                    </button>
+                </li>
+                <li>
+                    <button type="submit" onclick="toggleOverlay('overlay12', 'subPageOn')">
+                        ● Gaming
+                    </button>
+                </li>
+                <li>
+                    <button type="submit" onclick="toggleOverlay('overlay13', 'subPageOn')">
+                        ● Cuidados Animais
+                    </button>
+                </li>
+            </ul>
+        </section>
+        <section class="parallax" id="family">
+            <h2>
+                Relações familiares
+            </h2>
+            <ul>
+                <li>
+                    <button type="submit" onclick="toggleOverlay('overlay14', 'subPageOn')">
+                        ● Mãe - Lidiane Alves Espindola Oselame
+                    </button>
+                </li>
+                <li>
+                    <button type="submit" onclick="toggleOverlay('overlay15', 'subPageOn')">
+                        ● Pai - Adriano Oselame
+                    </button>
+                </li>
+                <li>
+                    <button type="submit" onclick="toggleOverlay('overlay16', 'subPageOn')">
+                        ● Namorada - Beatriz Beccari de Anunciação
+                    </button>
+                </li>
+                <li>
+                    <button type="submit" onclick="toggleOverlay('overlay17', 'subPageOn')">
+                        ● Irmã - Adriana Espindola Oselame
                     </button>
                 </li>
             </ul>
@@ -136,7 +189,7 @@
                 <h2>
                     IFSC - Instituto Federal de Santa Catarina
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay1', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay1', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -165,7 +218,7 @@
                 <h2>
                     SENAC - Serviço Nacional de Aprendizagem Comercial
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay2', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay2', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -190,9 +243,9 @@
         <div class="overlay" id="overlay3">
             <div class="overlay-content">
                 <h2>
-                    WIER - Lazer &amp; Ozônio
+                    WIER - Laser &amp; Ozônio
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay3', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay3', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -219,7 +272,7 @@
                 <h2>
                     MagLab - Laboratório de Eletromagnetismo e Compatibilidade Eletromagnética
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay4', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay4', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -246,7 +299,7 @@
                 <h2>
                     LND - Informática e Assistência Técnica em Palhoça
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay5', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay5', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -273,7 +326,7 @@
                 <h2>
                     Damas
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay6', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay6', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -300,7 +353,7 @@
                 <h2>
                     Curriculum Vitae Web
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay7', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay7', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -327,7 +380,7 @@
                 <h2>
                     Calcucraft
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay8', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay8', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -353,7 +406,7 @@
                 <h2>
                     T7 One - Oracle &amp; Alura
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay9', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay9', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -378,7 +431,7 @@
                 <h2>
                     COD3R Java Udemy - Udemy
                 </h2>
-                <button type="submit" onclick="toggleOverlay('overlay10', 1)">
+                <button type="submit" onclick="toggleOverlay('overlay10', 'subPageOff')">
                     <img alt="IMG" src="./imgs/close.png">
                 </button>
                 <hr>
@@ -394,6 +447,160 @@
                     </p>
                     <p>
                         Curso aprofundadíssimo em java, ainda estou trabalhando em completar.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay11">
+            <div class="overlay-content">
+                <h2>
+                    Música / Sound Design
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay11', 'subPageOff')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <hr>
+                <div class="overlay-contentText">
+                    <p>
+                        Compositor/ Guitarrista/ Baixista
+                    </p>
+                    <p>
+                        Desde 2017
+                    </p>
+                    <p>
+                        Participei de bandas e compus músicas para vídeos do youtube e apresentações da escola, gostaria de atuar na criação de músicas para jogos.
+                    </p>
+                    <p>
+                        Componho ambient, lo-fi, heavy metal, thrash metal, experimental. Utilizando a plataforma FL Loops, Bandlab &amp; Audacity.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay12">
+            <div class="overlay-content">
+                <h2>
+                    Gaming / Gamemaking
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay12', 'subPageOff')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <hr>
+                <div class="overlay-contentText">
+                    <p>
+                        RPGS - MMORPGS - FPS
+                    </p>
+                    <p>
+                        Vídeos sobre desenvolvimento de Jogos
+                    </p>
+                    <p>
+                        World of Warcraft, Warcraft III, Diablo II, Destiny 2, Path of exile
+                    </p>
+                    <p>
+                        Conteúdo online sobre desenvolvimento de jogos (Miziziziz, Goiaba, Pirate Software)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay13">
+            <div class="overlay-content">
+                <h2>
+                    Cuidados Animais
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay13', 'subPageOff')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <hr>
+                <div class="overlay-contentText">
+                    <p>
+                        Possuo 6 gatos e 4 cachorros, dos quais cuido com muito amor.
+                    </p>
+                    <p>
+                        Os seis gatos; Miuda, Cinzinha, Branquinha, Mia, Raul &amp; Mauro
+                    </p>
+                    <p>
+                        OS quatro cachorros; Tedy, Chica, Cachorrinho &amp; Jujuba
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay14">
+            <div class="overlay-content">
+                <h2>
+                    Lidiane Alves Espindola Oselame
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay14', 'subPageOff')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <hr>
+                <div class="overlay-contentText">
+                    <p>
+                        Mãe
+                    </p>
+                    <p>
+                        Formada em administração e computação na UNISUL de Palhoça - SC.
+                    </p>
+                    <p>
+                        Atualmente funcionária pública na prefeitura de Santo Amaro da Imperatriz - SC
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay15">
+            <div class="overlay-content">
+                <h2>
+                    Adriano Oselame
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay15', 'subPageOff')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <hr>
+                <div class="overlay-contentText">
+                    <p>
+                        Pai
+                    </p>
+                    <p>
+                        Formado em computação na UNISUL de Palhoça - SC
+                    </p>
+                    <p>
+                        Desenvolvedor especialista - 1 na Softplan, fullstack &amp; sec/ops
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay16">
+            <div class="overlay-content">
+                <h2>
+                    Beatriz Beccari de Anunciação
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay16', 'subPageOff')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <hr>
+                <div class="overlay-contentText">
+                    <p>
+                        Namorada
+                    </p>
+                    <p>
+                        Atualmente se formando em design gráfico na Uniasselvi EaD.
+                    </p>
+                    <p>
+                        Estágiaria na Creci - SC.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay17">
+            <div class="overlay-content">
+                <h2>
+                    Adriana Espindola Oselame
+                </h2>
+                <button type="submit" onclick="toggleOverlay('overlay17', 'subPageOff')">
+                    <img alt="IMG" src="./imgs/close.png">
+                </button>
+                <hr>
+                <div class="overlay-contentText">
+                    <p>
+                        Atualmente se formando em design gráfico no SENAC - SC.
                     </p>
                 </div>
             </div>
