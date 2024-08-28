@@ -1,5 +1,29 @@
 html,
 
+#ifsc {
+    background-image: url('./imgs/ifsc.jpeg');
+}
+
+#ufsc {
+    background-image: url('./imgs/ufsc.jpg');
+}
+
+#prog {
+    background-image: url('./imgs/prog.jpg');
+}
+
+#damas {
+    background-image: url('./imgs/damas.webp');
+}
+
+#gaming {
+    background-image: url('imgs/gaming.jpg');
+}
+
+#family {
+    background-image: url('imgs/family.jpeg');
+}
+
 body {
     margin: 0;
     background-color: #273b44;
@@ -131,7 +155,6 @@ section button {
     opacity: 70%;
 }
 
-.section,
 .parallax {
     background-image: url("img_parallax.jpg");
     background-attachment: fixed;
@@ -142,29 +165,6 @@ section button {
     margin-left: 15%;
 }
 
-#ifsc {
-    background-image: url('./imgs/ifsc.jpeg');
-}
-
-#ufsc {
-    background-image: url('./imgs/ufsc.jpg');
-}
-
-#prog {
-    background-image: url('./imgs/prog.jpg');
-}
-
-#damas {
-    background-image: url('./imgs/damas.webp');
-}
-
-#gaming {
-    background-image: url('imgs/gaming.jpg');
-}
-
-#family {
-    background-image: url('imgs/family.jpeg');
-}
 .overlay {
     border-radius: 1%;
     border-style: solid;
@@ -250,3 +250,30 @@ section button {
     font-family: Consolas;
     font-size: 140%;
 }
+
+@media only screen and (min-width: 0px) and (max-width: 1280px){
+    .navbar{
+        height: 5%;
+    }
+    .top h1{
+        font-size: 100%;
+    }
+    .sidebar{
+        width: 10%;
+        top:5%;
+    }
+    .parallax{
+        margin-left: 20%;
+    }
+    section h2 {
+        font-size: 170%;
+    }
+    
+    section li {
+        font-size: 70%;
+    }
+    .titleLinks button{
+        margin-left: 5%;
+        box-sizing: border-box;
+    }
+    }
