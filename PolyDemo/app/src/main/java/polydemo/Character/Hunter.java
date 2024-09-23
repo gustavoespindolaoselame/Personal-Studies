@@ -1,7 +1,7 @@
 package polydemo.Character;
-import polydemo.Enemies.EnemyClasses;
+import polydemo.Enemies.EnemyCharacter;
 
-public final class Hunter extends CharacterClasses{
+public final class Hunter extends PlayerCharacter{
 
     public Hunter() {
         this.strength=2;
@@ -21,35 +21,35 @@ public final class Hunter extends CharacterClasses{
     }
 
     @Override
-    public final void ability1(EnemyClasses inimigo){
+    public final void ability1(EnemyCharacter inimigo){
         System.err.println(name + " Atirou rapidamente!");
         inimigo.setHealth(
             inimigo.getHealth() - (this.getStrength()+this.getDexterity()));
     }
 
     @Override
-    public final void ability2(EnemyClasses inimigo){
+    public final void ability2(EnemyCharacter inimigo){
         System.err.println(name + " Atirou longamente!");
         inimigo.setHealth(
             inimigo.getHealth() - (2*this.getDexterity()));
     }
 
     @Override
-    public final void ability3(EnemyClasses inimigo){
+    public final void ability3(EnemyCharacter inimigo){
         System.err.println(name + " Atirou desorientantemente!");
         inimigo.setHealth(
             inimigo.getHealth() - (5*this.getIntellect()));
     }
 
     @Override
-    public final void ability4(EnemyClasses inimigo){
+    public final void ability4(EnemyCharacter inimigo){
         System.err.println(name + " Atirou Fatalmente!");
         inimigo.setHealth(
             inimigo.getHealth() - ((10*this.getStrength())-(2*this.getDexterity())));
     }
 
     @Override
-    public final void ability5(EnemyClasses inimigo){
+    public final void ability5(EnemyCharacter inimigo){
         System.err.println(name + " Atirou Vampíricamente!");
         inimigo.setHealth(
             inimigo.getHealth() - (2*this.getDexterity()));

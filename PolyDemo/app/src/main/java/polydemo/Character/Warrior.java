@@ -1,8 +1,8 @@
 package polydemo.Character;
 
-import polydemo.Enemies.EnemyClasses;
+import polydemo.Enemies.EnemyCharacter;
 
-public final class Warrior extends CharacterClasses {
+public final class Warrior extends PlayerCharacter {
 
     public Warrior() {
         this.strength = 5;
@@ -22,7 +22,7 @@ public final class Warrior extends CharacterClasses {
     }
 
     @Override
-    public final void ability1(EnemyClasses inimigo) {
+    public final void ability1(EnemyCharacter inimigo) {
         System.err.println(name + " desferiu porrada!");
         inimigo.setHealth(
                 inimigo.getHealth() - ((this.getStrength() * 1.5)
@@ -30,7 +30,7 @@ public final class Warrior extends CharacterClasses {
     }
 
     @Override
-    public final void ability2(EnemyClasses inimigo) {
+    public final void ability2(EnemyCharacter inimigo) {
         System.err.println(name + " desferiu porrada violenta!");
         inimigo.setHealth(
                 inimigo.getHealth() - ((this.getStrength() * 2.5)
@@ -38,7 +38,7 @@ public final class Warrior extends CharacterClasses {
     }
 
     @Override
-    public final void ability3(EnemyClasses inimigo) {
+    public final void ability3(EnemyCharacter inimigo) {
         System.err.println(name + " desferiu porrada foda!");
         inimigo.setHealth(
                 inimigo.getHealth() - ((this.getStrength() * 2)
@@ -46,7 +46,7 @@ public final class Warrior extends CharacterClasses {
     }
 
     @Override
-    public final void ability4(EnemyClasses inimigo) {
+    public final void ability4(EnemyCharacter inimigo) {
         System.err.println(name + " desferiu porrada enlouquecida!");
         inimigo.setHealth(
                 inimigo.getHealth() - ((this.getStrength() * 0.5)
@@ -54,7 +54,7 @@ public final class Warrior extends CharacterClasses {
     }
 
     @Override
-    public final void ability5(EnemyClasses inimigo) {
+    public final void ability5(EnemyCharacter inimigo) {
         System.err.println(name + " desferiu porrada da hora!");
         inimigo.setHealth(
                 inimigo.getHealth() - ((this.getStrength() * 3)
