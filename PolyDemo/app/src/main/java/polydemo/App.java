@@ -2,7 +2,9 @@ package polydemo;
 
 import java.util.Scanner;
 
-import polydemo.Character.*;
+import polydemo.Character.Hunter;
+import polydemo.Character.Warrior;
+import polydemo.Character.Wizard;
 
 public class App {
     public static void clearScreen() {
@@ -21,65 +23,78 @@ public class App {
                 + " o que você fará?");
         while (true) {
             switch (AppVars.classe.displaySpells(AppVars)) {
-                case 1:
+                case 1 -> {
                     clearScreen();
                     AppVars.classe.defaultAttack();
                     AppVars.Inimigos.get(AppVars.currentEnemy).setHealth(
                             AppVars.Inimigos.get(AppVars.currentEnemy).getHealth() - AppVars.classe.getStrength());
-                    break;
+                }
 
-                case 2:
+                case 2 -> {
                     clearScreen();
                     if (AppVars.classe.getExp() >= 10) {
                         AppVars.classe.ability1(AppVars.Inimigos.get(AppVars.currentEnemy));
                     }
+                }
 
-                    break;
-
-                case 3:
+                case 3 -> {
                     clearScreen();
                     if (AppVars.classe.getExp() >= 20) {
                         AppVars.classe.ability2(AppVars.Inimigos.get(AppVars.currentEnemy));
                     }
+                }
 
-                    break;
-
-                case 4:
+                case 4 -> {
                     clearScreen();
                     if (AppVars.classe.getExp() >= 30) {
                         AppVars.classe.ability3(AppVars.Inimigos.get(AppVars.currentEnemy));
                     }
-                    break;
+                }
 
-                case 5:
+                case 5 -> {
                     clearScreen();
                     if (AppVars.classe.getExp() >= 40) {
                         AppVars.classe.ability4(AppVars.Inimigos.get(AppVars.currentEnemy));
                     }
-                    break;
+                }
 
-                case 6:
+                case 6 -> {
                     clearScreen();
                     if (AppVars.classe.getExp() >= 50) {
                         AppVars.classe.ability5(AppVars.Inimigos.get(AppVars.currentEnemy));
                     }
-                    break;
+                }
 
-                default:
-                    break;
+                default -> {
+                }
             }
 
             if (AppVars.Inimigos.get(AppVars.currentEnemy).getHealth() <= 0) {
-                System.out.println(AppVars.Inimigos.get(AppVars.currentEnemy).getName() + " Faleceu.");
+                System.out.println(AppVars.Inimigos.get(AppVars.currentEnemy).getName() + " faleceu.");
                 AppVars.currentEnemy++;
                 AppVars.classe.setExp(AppVars.classe.getExp() + 10);
             }
 
+            else {
+                AppVars.Inimigos.get(AppVars.currentEnemy).castSpell(AppVars);
+            }
+
+            if (AppVars.classe.getHealth()<=0){
+                System.out.println(AppVars.classe.getName() + " faleceu");
+                keepScreen(AppVars.scanner);
+                clearScreen();
+                System.out.println("Você perdeu.");
+                keepScreen(AppVars.scanner);
+                clearScreen();
+                break;
+            }
             keepScreen(AppVars.scanner);
             clearScreen();
 
             System.out.println(AppVars.Inimigos.get(AppVars.currentEnemy).getName() + " está com; "
                     + AppVars.Inimigos.get(AppVars.currentEnemy).getHealth() + " de vida");
+                    System.out.println(AppVars.classe.getName() + " está com; "
+                    + AppVars.classe.getHealth() + " de vida");
             System.out.println("O que você fará?");
         }
     }

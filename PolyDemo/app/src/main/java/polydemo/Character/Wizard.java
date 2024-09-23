@@ -2,12 +2,12 @@ package polydemo.Character;
 
 import polydemo.Enemies.EnemyClasses;
 
-public final class Wizard extends CharacterClasses{
-    
+public final class Wizard extends CharacterClasses {
+
     public Wizard() {
-        this.strength=1;
-        this.intellect=6;
-        this.dexterity=2;
+        this.strength = 1;
+        this.intellect = 6;
+        this.dexterity = 2;
         this.name = "Mago";
         this.spellNames[0] = "Foguinho";
         this.spellNames[1] = "Fogasso";
@@ -17,33 +17,46 @@ public final class Wizard extends CharacterClasses{
     }
 
     @Override
-    public void defaultAttack(){
-        System.err.println(name + " Enfeitiçou!");
+    public void defaultAttack() {
+        System.err.println(name + " enfeitiçou!");
     }
 
     @Override
-    public final void ability1(EnemyClasses inimigo){
-
-    }
-
-    @Override
-    public final void ability2(EnemyClasses inimigo){
-
-    }
-
-    @Override
-    public final void ability3(EnemyClasses inimigo){
+    public final void ability1(EnemyClasses inimigo) {
+        System.err.println(name + " lançou bola de fogo!");
+        inimigo.setHealth(
+                inimigo.getHealth() - (((this.getIntellect() * 2)
+                + (this.getDexterity() * 0.5))) / this.getStrength());
 
     }
 
     @Override
-    public final void ability4(EnemyClasses inimigo){
-
+    public final void ability2(EnemyClasses inimigo) {
+        System.err.println(name + " lançou bolão de fogo!");
+        inimigo.setHealth(
+                inimigo.getHealth() - (((this.getIntellect() * 2)
+                + (this.getDexterity() * 0.5))));
     }
 
     @Override
-    public final void ability5(EnemyClasses inimigo){
+    public final void ability3(EnemyClasses inimigo) {
+        System.err.println(name + " lançou jato d'água!");
+        inimigo.setHealth(
+                inimigo.getHealth() - (((this.getIntellect() * 3) / this.getStrength())));
+    }
 
+    @Override
+    public final void ability4(EnemyClasses inimigo) {
+        System.err.println(name + " lançou jatasso d'água!");
+        inimigo.setHealth(
+                inimigo.getHealth() - (this.getIntellect() * 3));
+    }
+
+    @Override
+    public final void ability5(EnemyClasses inimigo) {
+        System.err.println(name + " lançou armageddom");
+        inimigo.setHealth(-1);
+        this.setHealth(this.getHealth()-20);
     }
 
 }
