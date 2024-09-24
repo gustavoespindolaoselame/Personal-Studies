@@ -2,10 +2,11 @@ package polydemo.Enemies;
 
 import polydemo.AppConfig;
 
-public abstract class EnemySpells {
+public abstract class EnemySpells{
     public final void ability0(AppConfig appVars){
         appVars.player.setHealth(appVars.player.getHealth()-5);
         System.out.println(appVars.Inimigos.get(appVars.currentEnemy).name + " bicou");
+        appVars.player.effectsApply(new double[]{1.5, 1.4, 1.5, 1.5}, 20, true, "teste1;;teste2");
     }
     public final void ability1(AppConfig appVars){
         appVars.Inimigos.get(appVars.currentEnemy).setHealth(appVars.Inimigos.get(appVars.currentEnemy).getHealth()*1.5);

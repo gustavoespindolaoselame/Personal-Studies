@@ -6,7 +6,7 @@ import polydemo.Character.Hunter;
 import polydemo.Character.Warrior;
 import polydemo.Character.Wizard;
 
-public class App {
+public class App{
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -91,6 +91,8 @@ public class App {
             keepScreen(AppVars.scanner);
             clearScreen();
 
+            AppVars.player.effectsAppliedTick(AppVars);
+
             System.out.println(AppVars.Inimigos.get(AppVars.currentEnemy).getName() + " está com; "
                     + AppVars.Inimigos.get(AppVars.currentEnemy).getHealth() + " de vida");
                     System.out.println(AppVars.player.getName() + " está com; "
@@ -102,10 +104,6 @@ public class App {
     public static void main(String[] args) {
 
         AppConfig AppVars = new AppConfig();
-
-        AppVars.playerEffect.callEffect("poison", 10, 10);
-        AppVars.playerEffect.callEffect("fire", 10, 10);
-        AppVars.scanner.next();
 
         clearScreen();
         System.out.println("Qual sua classe");

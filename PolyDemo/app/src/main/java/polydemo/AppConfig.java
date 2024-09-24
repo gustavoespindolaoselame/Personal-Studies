@@ -8,21 +8,16 @@ import java.util.Scanner;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import polydemo.Character.PlayerCharacter;
-import polydemo.Character.PlayerEffect;
 import polydemo.Enemies.EnemyCharacter;
 
 public class AppConfig {
-
-    public PlayerEffect playerEffect = new PlayerEffect();  
     
     public PlayerCharacter player;
     public Scanner scanner = new Scanner(System.in);
     public List<EnemyCharacter> Inimigos = new ArrayList<>();
     public int currentEnemy = 0;
     public ObjectMapper objectMapper = new ObjectMapper();
-    
         
     {
         try {

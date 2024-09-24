@@ -1,9 +1,12 @@
 package polydemo.Character;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import polydemo.AppConfig;
 import polydemo.Enemies.EnemyCharacter;
 
-public abstract class PlayerCharacter {
+public abstract class PlayerCharacter extends AppConfig{
     protected double strength;
     protected double intellect;
     protected double dexterity;
@@ -11,6 +14,7 @@ public abstract class PlayerCharacter {
     protected double health = 100;
     protected String name;
     protected String[] spellNames = new String[6];
+    public List<EffectInstance> effectsApplied = new ArrayList<>(); 
     
     public abstract void defaultAttack();
 
@@ -22,6 +26,24 @@ public abstract class PlayerCharacter {
         }
 
         return AppVars.scanner.nextInt();
+    }
+
+    public void effectsApply(double[] change, int duration, boolean isPermanent, String effectText){
+        effectsApplied.add(new EffectInstance(change, duration, isPermanent, effectText));
+        System.out.println(Inimigos.get(currentEnemy).getName() + effectText.split(";;", 2)[0]);
+    }
+
+    public void effectsAppliedTick(AppConfig appVars){
+        for (int i = 0;i<effectsApplied.size();i++) {
+            if(effectsApplied.get(i).getDuration()<=0){
+                if(!effectsApplied.get(i).isPermanent()){
+                    effectsApplied.get(i).restitute(appVars);
+                }
+                effectsApplied.remove(i);
+            }
+            effectsApplied.get(i).effectTick(appVars);
+            System.out.println(Inimigos.get(currentEnemy).getName() + effectsApplied.get(i).getEffectText().split(";;", 2)[1]);
+        }
     }
 
     public abstract void ability1(EnemyCharacter inimigo);
@@ -80,5 +102,9 @@ public abstract class PlayerCharacter {
 
     public void setExp(int exp) {
         this.exp = exp;
+    }
+
+    public void effectsApply(double d, int i, boolean b, String testeteste) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
