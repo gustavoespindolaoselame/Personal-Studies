@@ -2,11 +2,9 @@ package polydemo;
 
 import java.util.Scanner;
 
-import polydemo.Character.Hunter;
-import polydemo.Character.Warrior;
-import polydemo.Character.Wizard;
+import polydemo.Classes.*;
 
-public class App{
+public class App {
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -18,50 +16,58 @@ public class App{
         scanner.nextLine();
     }
 
-    public static void enemyEncounter(AppConfig AppVars) {
-        System.out.println("Você se depara contra um " + AppVars.Inimigos.get(AppVars.currentEnemy).getName()
+    public static void enemyEncounter(AppConfig appVars) {
+        System.out.println("Você se depara contra um " + appVars.Inimigos.get(appVars.currentEnemy).getName()
                 + " o que você fará?");
         while (true) {
-            switch (AppVars.player.displaySpells(AppVars)) {
+
+            appVars.player.displaySpells(appVars);
+
+            int choice = appVars.scanner.nextInt();
+            while (choice < 1 || choice > (appVars.player.getExp() + 10) / 10) {
+                choice = appVars.scanner.nextInt();
+            }
+
+            switch (choice) {
                 case 1 -> {
                     clearScreen();
-                    AppVars.player.defaultAttack();
-                    AppVars.Inimigos.get(AppVars.currentEnemy).setHealth(
-                            AppVars.Inimigos.get(AppVars.currentEnemy).getHealth() - AppVars.player.getStrength());
+                    appVars.player.defaultAttack();
+                    appVars.Inimigos.get(appVars.currentEnemy).setHealth(
+                            appVars.Inimigos.get(appVars.currentEnemy).getHealth() - appVars.player.getStrength());
                 }
 
                 case 2 -> {
                     clearScreen();
-                    if (AppVars.player.getExp() >= 10) {
-                        AppVars.player.ability1(AppVars.Inimigos.get(AppVars.currentEnemy));
+                    if (appVars.player.getExp() >= 10) {
+                        appVars.player.ability1(appVars.Inimigos.get(appVars.currentEnemy));
                     }
                 }
 
                 case 3 -> {
                     clearScreen();
-                    if (AppVars.player.getExp() >= 20) {
-                        AppVars.player.ability2(AppVars.Inimigos.get(AppVars.currentEnemy));
+                    if (appVars.player.getExp() >= 20) {
+                        appVars.player.ability2(appVars.Inimigos.get(appVars.currentEnemy));
                     }
                 }
 
                 case 4 -> {
                     clearScreen();
-                    if (AppVars.player.getExp() >= 30) {
-                        AppVars.player.ability3(AppVars.Inimigos.get(AppVars.currentEnemy));
+                    if (appVars.player.getExp() >= 30) {
+                        appVars.player.ability3(appVars.Inimigos.get(appVars.currentEnemy));
                     }
                 }
 
                 case 5 -> {
                     clearScreen();
-                    if (AppVars.player.getExp() >= 40) {
-                        AppVars.player.ability4(AppVars.Inimigos.get(AppVars.currentEnemy));
+                    if (appVars.player.getExp() >= 40) {
+                        appVars.player.ability4(appVars.Inimigos.get(appVars.currentEnemy));
                     }
                 }
 
                 case 6 -> {
                     clearScreen();
-                    if (AppVars.player.getExp() >= 50) {
-                        AppVars.player.ability5(AppVars.Inimigos.get(AppVars.currentEnemy));
+                    if (appVars.player.getExp() >= 50) {
+                        appVars.player.ability5(appVars.Inimigos.get(appVars.currentEnemy));
                     }
                 }
 
@@ -69,34 +75,44 @@ public class App{
                 }
             }
 
-            if (AppVars.Inimigos.get(AppVars.currentEnemy).getHealth() <= 0) {
-                System.out.println(AppVars.Inimigos.get(AppVars.currentEnemy).getName() + " faleceu.");
-                AppVars.currentEnemy++;
-                AppVars.player.setExp(AppVars.player.getExp() + 10);
+            if (appVars.Inimigos.get(appVars.currentEnemy).getHealth() <= 0) {
+                System.out.println(appVars.Inimigos.get(appVars.currentEnemy).getName() + " faleceu.");
+                if (appVars.currentEnemy != appVars.Inimigos.size() - 1) {
+                    appVars.currentEnemy++;
+                } else if (appVars.currentEnemy == appVars.Inimigos.size() - 1) {
+                    keepScreen(appVars.scanner);
+                    clearScreen();
+                    System.out.println("Você venceu.");
+                    keepScreen(appVars.scanner);
+                    clearScreen();
+                }
+                appVars.player.setExp(appVars.player.getExp() + 10);
             }
 
             else {
-                AppVars.Inimigos.get(AppVars.currentEnemy).castSpell(AppVars);
+                appVars.Inimigos.get(appVars.currentEnemy).castSpell(appVars);
             }
 
-            if (AppVars.player.getHealth()<=0){
-                System.out.println(AppVars.player.getName() + " faleceu");
-                keepScreen(AppVars.scanner);
+            if (appVars.player.getHealth() <= 0) {
+                System.out.println(appVars.player.getName() + " faleceu");
+                keepScreen(appVars.scanner);
                 clearScreen();
                 System.out.println("Você perdeu.");
-                keepScreen(AppVars.scanner);
+                keepScreen(appVars.scanner);
                 clearScreen();
                 break;
             }
-            keepScreen(AppVars.scanner);
+            keepScreen(appVars.scanner);
             clearScreen();
 
-            AppVars.player.effectsAppliedTick(AppVars);
+            if (!appVars.player.effectsApplied.isEmpty()) {
+                appVars.player.effectsAppliedTick(appVars);
+            }
 
-            System.out.println(AppVars.Inimigos.get(AppVars.currentEnemy).getName() + " está com; "
-                    + AppVars.Inimigos.get(AppVars.currentEnemy).getHealth() + " de vida");
-                    System.out.println(AppVars.player.getName() + " está com; "
-                    + AppVars.player.getHealth() + " de vida");
+            System.out.println(appVars.Inimigos.get(appVars.currentEnemy).getName() + " está com; "
+                    + appVars.Inimigos.get(appVars.currentEnemy).getHealth() + " de vida");
+            System.out.println(appVars.player.getName() + " está com; "
+                    + appVars.player.getHealth() + " de vida");
             System.out.println("O que você fará?");
         }
     }
@@ -110,19 +126,17 @@ public class App{
         System.out.println("(1) - Guerreiro;");
         System.out.println("(2) - Mago;");
         System.out.println("(3) - Caçador;");
-
-        switch (AppVars.scanner.nextInt()) {
-            case 1:
-                AppVars.player = new Warrior();
-                break;
-            case 2:
-                AppVars.player = new Wizard();
-                break;
-            case 3:
-                AppVars.player = new Hunter();
-                break;
-            default:
-                break;
+        {
+            int choice = AppVars.scanner.nextInt();
+            while (choice < 0 || choice > 3) {
+                choice = AppVars.scanner.nextInt();
+            }
+            switch (choice) {
+                case 1 -> AppVars.player = new Warrior();
+                case 2 -> AppVars.player = new Wizard();
+                case 3 -> AppVars.player = new Hunter();
+                default -> throw new AssertionError();
+            }
         }
         keepScreen(AppVars.scanner);
         clearScreen();

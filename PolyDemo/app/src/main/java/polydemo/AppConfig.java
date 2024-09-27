@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import polydemo.Character.PlayerCharacter;
+
+import polydemo.Effects.EffectDefinition;
 import polydemo.Enemies.EnemyCharacter;
 
 public class AppConfig {
@@ -18,10 +19,11 @@ public class AppConfig {
     public List<EnemyCharacter> Inimigos = new ArrayList<>();
     public int currentEnemy = 0;
     public ObjectMapper objectMapper = new ObjectMapper();
-        
+    public EffectDefinition effectDefinition;
+
     {
         try {
-            File jsonFile = new File("/home/maglab/Desktop/PersonalStudies/Personal-Studies/PolyDemo/app/src/main/java/polydemo/Resources/Enemies.json");
+            File jsonFile = new File("app/src/main/java/polydemo/Resources/Enemies.json");
             List<EnemyCharacter> enemies = objectMapper.readValue(jsonFile, new TypeReference<List<EnemyCharacter>>() {});
             Inimigos.addAll(enemies);
         } catch (IOException e) {
