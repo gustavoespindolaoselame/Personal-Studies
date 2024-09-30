@@ -4,9 +4,10 @@ This here is my personal repository for studying purposes, be it html, java, rea
 This repository's trello follows;
 https://trello.com/invite/b/662980544d565502d51154cf/ATTI2f7639aad14248ec373200cb3de687e858E07AFC/personal-studies
 
-PolyDemo Here i applied object-oriented-programming to develop a pseudogame A lot of it is just proofs of concept and not actually finished
+## PolyDemo 
+Here i applied object-oriented-programming to develop a pseudogame A lot of it is just proofs of concept and not actually finished
 
-## THINGS I DID 
+### THINGS I DID 
 * String splitting 
 * Json and json parsing 
 * Different parametrisation 
@@ -15,13 +16,13 @@ PolyDemo Here i applied object-oriented-programming to develop a pseudogame A lo
 * Final arguments 
 * Enum arguments
 
-## OBJECTIVE 
+### OBJECTIVE 
 Develop a further understanding of java object-oriented-programming
 
-## LANGUAGES USED 
+### LANGUAGES USED 
 Java
 
-## Features 
+### Features 
 * Choose class 
 * Choose abilities 
 * Defeat different enemies 
