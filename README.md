@@ -8,7 +8,8 @@ https://trello.com/invite/b/662980544d565502d51154cf/ATTI2f7639aad14248ec373200c
 
 
 # PolyDemo 
-Here i applied object-oriented-programming to develop a pseudogame A lot of it is just proofs of concept and not actually finished
+Here i applied object-oriented-programming to develop a pseudogame 
+A lot of it is just proofs of concept and not actually finished
 
 ### THINGS I DID 
 * String splitting 
