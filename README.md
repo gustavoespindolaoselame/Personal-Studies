@@ -81,3 +81,22 @@ Java
 * Pieces follow a movement pattern
 * Variable pieces amount and placement
 * Variable board size
+
+  ------------------------------------------------------------------------------------------------------------
+
+# LambdaFunction
+Simple project to display for myself how lambda functions work
+
+### THINGS I DID 
+* Learn about Interfaces
+* Learn about Lambda Functions
+
+### OBJECTIVE 
+Develop a further understanding of lambda functions.
+
+### LANGUAGES USED 
+Java
+
+### Features 
+* Choose operator
+* Choose Values
