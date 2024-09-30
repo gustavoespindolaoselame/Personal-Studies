@@ -31,7 +31,7 @@ Java
 * Defeat different enemies 
 * Have different effects applied to self
 
-  ------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
 
 # Currículo 
 Here i used basic Javascript, Css and Html to display information about me
@@ -55,7 +55,7 @@ HTML
 * Functional NavBar
 * Individual Buttons for each element.
 
-  ------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
 
 # Damas 
 Here i made a basic checkers game in java with swing
