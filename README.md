@@ -30,3 +30,52 @@ Java
 * Choose abilities 
 * Defeat different enemies 
 * Have different effects applied to self
+
+  ------------------------------------------------------------------------------------------------------------
+
+# Currículo 
+Here i used basic Javascript, Css and Html to display information about me
+
+### THINGS I DID 
+* Learned about ids and classes and how to get them and work with them
+* Change CSS through Javascript
+* Move variables from html to Javascript
+
+### OBJECTIVE 
+Develop a further understanding of javascript.
+
+### LANGUAGES USED 
+Javascript
+CSS
+HTML
+
+### Features 
+* Parallax background
+* Interactive sidebar
+* Functional NavBar
+* Individual Buttons for each element.
+
+  ------------------------------------------------------------------------------------------------------------
+
+# Damas 
+Here i made a basic checkers game in java with swing
+But quit half-way through it seeing i could have been doing more important things
+
+### THINGS I DID 
+* Learned about classes and objects
+* Learned about swing.
+* Learned about event handling
+* Made movable entities that follow checkers' default
+
+### OBJECTIVE 
+Develop a further understanding of java, java classes and objects.
+
+### LANGUAGES USED 
+Java
+
+### Features 
+* Individual pieces that move
+* Pieces "eat" each other
+* Pieces follow a movement pattern
+* Variable pieces amount and placement
+* Variable board size
