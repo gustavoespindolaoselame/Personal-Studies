@@ -100,3 +100,23 @@ Java
 ### Features 
 * Choose operator
 * Choose Values
+
+------------------------------------------------------------------------------------------------------------
+
+# JavaDatabaseTest
+
+My first steps into JDBC
+
+### THINGS I DID 
+* Learned how to implement a database into a gradle enviroment
+* Learned a couple SQL functions
+
+### OBJECTIVE 
+Start Learning about SQL
+
+### LANGUAGES USED 
+Java, SQLite, DBeaver(Not a language i know)
+
+### Features 
+* Insert different alphabets into a table
+* Select table and display it
