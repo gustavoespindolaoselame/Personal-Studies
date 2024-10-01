@@ -115,7 +115,7 @@ My first steps into JDBC
 Start Learning about SQL
 
 ### LANGUAGES USED 
-Java, SQLite, DBeaver(Not a language i know)
+Java, SQLite
 
 ### Features 
 * Insert different alphabets into a table
