@@ -6,7 +6,7 @@ Here i restarted my github development in favor of a more streamlined design and
 This repository's trello follows;
 https://trello.com/invite/b/662980544d565502d51154cf/ATTI2f7639aad14248ec373200cb3de687e858E07AFC/personal-studies
 
-# ------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
 
 # PolyDemo 
 Here i applied object-oriented-programming to develop a pseudogame 
