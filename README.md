@@ -1,12 +1,12 @@
 # Personal Studies
 This here is my personal repository for studying purposes, be it java, javascript, react etc.
 
-Here i restarted my github development in favor of a more steramlined design and learning course.
+Here i restarted my github development in favor of a more streamlined design and learning course. I look forward to constant additions to this here repository as to display constant growth and learning.
 
 This repository's trello follows;
 https://trello.com/invite/b/662980544d565502d51154cf/ATTI2f7639aad14248ec373200cb3de687e858E07AFC/personal-studies
 
-------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------
 
 # PolyDemo 
 Here i applied object-oriented-programming to develop a pseudogame 
