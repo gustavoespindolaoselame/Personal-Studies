@@ -120,3 +120,24 @@ Java, SQLite
 ### Features 
 * Insert different alphabets into a table
 * Select table and display it
+
+------------------------------------------------------------------------------------------------------------
+
+# JavaDatabaseTest
+
+My main course into development of JDBC
+
+### THINGS I DID 
+* Learn and implement all queries
+* Implement clean code
+
+### OBJECTIVE 
+Deepen my learning of SQL
+
+### LANGUAGES USED 
+Java, SQLite, DBeaver(I know, not a language)
+
+### Features 
+* Create tables
+* Utilize queries to change those tables
+* Implement buttons for everything
