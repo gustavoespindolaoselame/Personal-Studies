@@ -123,7 +123,7 @@ Java, SQLite
 
 ------------------------------------------------------------------------------------------------------------
 
-# JavaDatabaseTest
+# JavaDatabaseTest2
 
 My main course into development of JDBC
 
