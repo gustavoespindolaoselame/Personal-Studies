@@ -3,14 +3,11 @@
  */
 package javadatabasetest2;
 
-
 public class App {
+
     public static void main(String[] args) {
-        ParClass parClass = new ParClass();
-        Queries query = new Queries(parClass);
-        query.Create(parClass);
-        query.InsertInto(parClass);
-        query.InsertInto(parClass);
-        query.Select();
+        GeneralTypeMethods.ClearScreen();
+        GeneralTypeVariables parClass = new GeneralTypeVariables();
+        GeneralTypeMethods.mainLoop(parClass);
     }
 }

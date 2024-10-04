@@ -6,24 +6,41 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.Scanner;
 
-public class Queries {
-    private String tableName;
-    private HashMap<String, String> columns = new HashMap<String, String>();
+public final class Queries {
+    private final String tableName;
+    private final HashMap<String, String> columns = new HashMap<>();
     private ResultSet rs;
 
-    public Queries(ParClass parClass) {
+    public static String defineName(Scanner scanner) {
+        GeneralTypeMethods.ClearScreen();
         System.out.println("Give your table a name");
-        tableName = parClass.getScanner().nextLine();
+        scanner.nextLine();
+        return scanner.nextLine();
     }
 
-    public boolean Create(ParClass parClass) {
+    public Queries(GeneralTypeVariables parClass, String tableName){
+        this.tableName=tableName;
+    }
+
+    public void instanciateExistingTable(GeneralTypeVariables parClass){
+        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + this.tableName + ".db", "gustavo", "745231968");
+                Statement statement = connection.createStatement();) {
+                    System.out.println("access");
+            statement.setQueryTimeout(30);
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
+        }
+        GeneralTypeMethods.PressToProceed(parClass.getScanner());
+    }
+
+    public void Create(GeneralTypeVariables parClass) {
         try (
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:" + this.tableName + ".db");
                 Statement statement = connection.createStatement();) {
             statement.setQueryTimeout(30);
             statement.executeUpdate("drop table if exists " + this.tableName);
-
             while (true) {
                 System.out.println("Add column name and variable type: (Press x to move on)");
                 String scannerChoice = parClass.getScanner().nextLine();
@@ -38,14 +55,13 @@ public class Queries {
         } catch (SQLException e) {
             e.printStackTrace(System.err);
         }
-        return true;
+        GeneralTypeMethods.PressToProceed(parClass.getScanner());
     }
 
-    public boolean Alter() {
-        return true;
+    public void Alter() {
     }
 
-    public boolean InsertInto(ParClass parClass) {
+    public void InsertInto(GeneralTypeVariables parClass) {
         try (
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:" + this.tableName + ".db");
                 Statement statement = connection.createStatement();) {
@@ -77,22 +93,19 @@ public class Queries {
         } catch (SQLException e) {
             e.printStackTrace(System.err);
         }
-        return true;
+        GeneralTypeMethods.PressToProceed(parClass.getScanner());
     }
 
-    public boolean Update() {
-        return true;
+    public void Update() {
     }
 
-    public boolean Delete() {
-        return true;
+    public void Delete() {
     }
 
-    public boolean Join() {
-        return true;
+    public void Join() {
     }
 
-    public boolean Select() {
+    public void Select(GeneralTypeVariables parClass) {
         try (
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:" + this.tableName + ".db");
                 Statement statement = connection.createStatement();) {
@@ -107,6 +120,6 @@ public class Queries {
         } catch (SQLException e) {
             e.printStackTrace(System.err);
         }
-        return true;
+        GeneralTypeMethods.PressToProceed(parClass.getScanner());
     }
 }
