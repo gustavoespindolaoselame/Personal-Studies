@@ -37,9 +37,9 @@ public class DesafioStreamCod3r {
             for (int i = 0; i < length; i++) {
                 result += (binary.charAt(length - i - 1) - '0') * (int)Math.pow(2, i);
             }
-            
             return result;
-        };        
+        };
+        
         nums.stream().
         map(toStringbuilderBinary).
         map(reverseStringbuilderBinary).
