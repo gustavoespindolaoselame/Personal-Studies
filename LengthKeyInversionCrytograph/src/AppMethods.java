@@ -42,8 +42,9 @@ public class AppMethods {
         AppConfig.resultList.addAll(AppConfig.intList.stream().
                 map(AppFunctions.intToBinaryString).
                 map(str -> AppFunctions.lengthKeyMapping.apply(str, AppConfig.key)).
-                map(AppFunctions.reverseString).
-                map(AppFunctions.binaryToString).
+                map(AppFunctions.stringReverse).
+                map(AppFunctions.binaryStringToBigInteger).
+                map(AppFunctions.bigIntegerToASCIIString).
                 collect(Collectors.toList()));
         for (String string : AppConfig.resultList) {
             AppConfig.resultString = AppConfig.resultString.concat(string);
@@ -52,20 +53,5 @@ public class AppMethods {
     }
 
     public static void decrypt() {
-        AppConfig.intList.addAll(AppConfig.stringExample.chars().
-                mapToObj(c -> (int) c
-                ).
-                toList()
-        );
-        AppConfig.resultList = AppConfig.intList.stream().
-                map(AppFunctions.intToBinaryString).
-                map(str -> AppFunctions.lengthKeyMapping.apply(str, AppConfig.key)).
-                map(AppFunctions.reverseString).
-                map(AppFunctions.binaryToString).
-                collect(Collectors.toList());
-        for (String string : AppConfig.resultList) {
-            AppConfig.resultString = AppConfig.resultString.concat(string);
-        }
-        System.out.println(AppConfig.resultString);
     }
 }
