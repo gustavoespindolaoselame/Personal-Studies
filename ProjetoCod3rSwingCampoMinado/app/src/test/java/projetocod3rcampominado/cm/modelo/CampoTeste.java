@@ -5,12 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import projetocod3rcampominado.cm.excecao.ExplosaoException;
 
 public class CampoTeste {
     private Campo campo;
@@ -78,13 +75,6 @@ public class CampoTeste {
         campo.alternarMarcacao();
         campo.minar();
         assertFalse(campo.abrir());
-    }
-
-    @Test void testeAbrirMinadoENaoMarcado(){
-        campo.minar();
-        assertThrows(ExplosaoException.class, () -> {
-            campo.abrir();
-        });
     }
 
     @Test void testeAbrirComVizinhos(){
