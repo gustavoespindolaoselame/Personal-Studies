@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>group</groupId>
+  <artifactId>Cod3JPA</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Archetype - Cod3JPA</name>
+  <dependencies>
+    <!-- JPA API -->
+    <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version> <!-- You can adjust the version based on your setup -->
+    </dependency>
+
+    <!-- Hibernate Core -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.6.15.Final</version> <!-- Use the latest version of Hibernate -->
+    </dependency>
+
+    <!-- Database JDBC Driver (e.g., MySQL) -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.28</version> <!-- Use the appropriate version for your database -->
+    </dependency>
+</dependencies>
+  <url>http://maven.apache.org</url>
+</project>
