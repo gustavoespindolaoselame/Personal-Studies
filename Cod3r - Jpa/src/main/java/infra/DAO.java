@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import modelo.consulta.NotaFilme;
+
 public class DAO<E> {
 	private static EntityManagerFactory entityManagerFactory;
 	private EntityManager entityManager;
@@ -80,6 +82,20 @@ public class DAO<E> {
 		query.setMaxResults(limit);
 		query.setFirstResult(offset);
 		return query.getResultList();
+	}
+	
+	public List<E> consultar(String nomeConsulta, Object... params){
+		TypedQuery<E> query = entityManager.createNamedQuery(nomeConsulta, classe);
+		for(int i = 0; i < params.length; i +=2) {
+			System.out.println(params[i].toString() + " - " + params[i+1]);
+			query.setParameter(params[i].toString(), params[i+1]);
+		}
+		return query.getResultList();
+	}
+	
+	public E consultarUm(String nomeConsulta, Object... params){
+		List<E> lista = consultar(nomeConsulta, params);
+		return lista.isEmpty() ? null : lista.get(0);
 	}
 	
 	public void fechar(){
