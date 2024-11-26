@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="micplayback.Controller"
+	styleClass="styles"
+	hgap="15"
+	vgap="15">
+	
+	<padding>
+	<Insets left="10" right="10" top="10"/>
+	</padding>
+	
+	<columnConstraints>
+		<ColumnConstraints hgrow="ALWAYS" halignment="center"/>
+		<ColumnConstraints hgrow="ALWAYS"/>
+	</columnConstraints>
+	
+	<Label
+	text="LOOPBACK"
+	GridPane.columnIndex="0" 
+	GridPane.rowIndex="0"
+	GridPane.columnSpan="2"
+	styleClass="label"
+	>
+	</Label>
+	
+	<Button 
+		text="ON" 
+		GridPane.columnIndex="0" 
+		GridPane.rowIndex="1"
+		GridPane.halignment="CENTER"
+		onAction="#abilitarPlayback"
+		styleClass="botao">
+	</Button>
+	
+	<Button 
+		text="OFF" 
+		GridPane.columnIndex="1" 
+		GridPane.rowIndex="1"
+		GridPane.halignment="CENTER"
+		onAction="#desabilitarPlayback"
+		styleClass="botao">
+	</Button>
+	
+
+</GridPane>
