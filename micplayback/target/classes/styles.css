@@ -1,0 +1,24 @@
+.styles{
+	-fx-background-color: gray;
+}
+
+.botao{
+	-fx-background-color: #000;
+	-fx-font-size: 24px;
+	-fx-text-fill: gray;
+	-fx-padding: 10px 30px;
+	-fx-font-family: "Montserrat";
+	-fx-margin-top: 0px;
+}
+
+#offButton{
+	-fx-text-fill: #FFF;
+}
+
+.label{
+	-fx-font-size: 30px;
+	-fx-text-fill: #FFF;
+	-fx-font-family: "Verdana";
+	-fx-font-weight: bold;
+	-fx-margin-bottom: 0px;
+}
