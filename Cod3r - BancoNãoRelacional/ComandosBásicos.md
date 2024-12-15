@@ -25,24 +25,3 @@
 8 - Create Collection:
         db.createCollection('')
 
-9 - Remove Collection:
-        cb.collectionName.drop()
-
-10 - Insert Into Collection:
-        db.collectionName.insertOne({
-        var1: "1",
-        var2: 2,
-        var3: [
-          {_id: ObjectId(),
-          var4:4,
-          var5:5,
-          },
-          {_id: ObjectId(),
-          var6:6
-          }    
-        ]
-        })
-
-11 - Show Collection:
-        db.collectionName.find()
-
