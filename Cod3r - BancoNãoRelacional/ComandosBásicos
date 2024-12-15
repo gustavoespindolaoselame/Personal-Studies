@@ -1,0 +1,48 @@
+0 - Start MongoDb:
+        sudo systemctl start mongod
+
+1 - Stop MongoDb:
+        sudo systemctl stop mongod
+
+2 - Restart MongoDb:
+        sudo systemctl restart mongod
+
+3 - Verify MongoDb:
+        sudo systemctl status mongod
+
+4 - Begin MongoDb:
+        mongosh
+
+5 - Show dbs:
+        show dbs
+
+6 - Show Collections:
+        show collections
+
+7 - Use db:
+        use dbName
+
+8 - Create Collection:
+        db.createCollection('')
+
+9 - Remove Collection:
+        cb.collectionName.drop()
+
+10 - Insert Into Collection:
+        db.collectionName.insertOne({
+        var1: "1",
+        var2: 2,
+        var3: [
+          {_id: ObjectId(),
+          var4:4,
+          var5:5,
+          },
+          {_id: ObjectId(),
+          var6:6
+          }    
+        ]
+        })
+
+11 - Show Collection:
+        db.collectionName.find()
+
