@@ -61,5 +61,10 @@
 11 - Update registro:
         db.collectionName.update({var17: "var17"}, {$set: {var18: var18}})
 
-11 - Update add registro:
+12 - Update add registro:
         db.collectionName.update({var17: "var17"}, {$push: {newvar: newvar, newvar2: newvar2}})
+        
+
+13 - Remove registro:
+        db.collectionName.remove({var18:var18})
+
