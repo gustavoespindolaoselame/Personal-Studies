@@ -25,7 +25,6 @@ public class Main {
         String busca = leitura.nextLine();
         while(!busca.equalsIgnoreCase("sair")) {
             String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=" + chave;
-
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(endereco))
