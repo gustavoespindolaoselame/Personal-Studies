@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/Damas/gradle/wrapper/gradle-wrapper.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/gradle/wrapper/gradle-wrapper.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JavaDatabaseTest/gradle/wrapper/gradle-wrapper.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JavaDatabaseTest/sqlite-jdbc-3.46.1.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JavaDatabaseTest2/gradle/wrapper/gradle-wrapper.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/JavaDatabaseTest2/sqlite-jdbc-3.46.1.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/LambdaFunction/gradle/wrapper/gradle-wrapper.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/PolyDemo/gradle/wrapper/gradle-wrapper.jar!/" />
+    <libelement value="file://ProjetoCod3rCampoMinado/gradle/wrapper/gradle-wrapper.jar" />
+    <src_description expected_position="1">
+      <src_folder value="file://$MODULE_DIR$/Damas/app/src/main/java" expected_position="1" />
+      <src_folder value="file://$MODULE_DIR$/Damas/app/src/test/java/damas" expected_position="2" />
+      <src_folder value="file://$MODULE_DIR$/DesafioLambdaCod3r/src/main/java" expected_position="3" />
+      <src_folder value="file://$MODULE_DIR$/DesafioStreamCod3r/src/main/java" expected_position="4" />
+      <src_folder value="file://$MODULE_DIR$/DesafioStreamFilterCod3r/src/main/java" expected_position="5" />
+      <src_folder value="file://$MODULE_DIR$/FirstApi/src/main/java" expected_position="6" />
+      <src_folder value="file://$MODULE_DIR$/FirstApi/src/test/java" expected_position="7" />
+      <src_folder value="file://$MODULE_DIR$/JavaDatabaseTest/.gradle/8.10.2/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" expected_position="8" />
+      <src_folder value="file://$MODULE_DIR$/JavaDatabaseTest/app/src/main/java" expected_position="9" />
+      <src_folder value="file://$MODULE_DIR$/JavaDatabaseTest/app/src/test/java/javadatabasetest" expected_position="10" />
+      <src_folder value="file://$MODULE_DIR$/JavaDatabaseTest2/.gradle/8.10.2/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" expected_position="11" />
+      <src_folder value="file://$MODULE_DIR$/JavaDatabaseTest2/app/src/main/java" expected_position="12" />
+      <src_folder value="file://$MODULE_DIR$/JavaDatabaseTest2/app/src/test/java/javadatabasetest2" expected_position="13" />
+      <src_folder value="file://$MODULE_DIR$/LambdaFunction/app/src/main/java" expected_position="14" />
+      <src_folder value="file://$MODULE_DIR$/LambdaFunction/app/src/test/java/lambdafunction" expected_position="15" />
+      <src_folder value="file://$MODULE_DIR$/LengthKeyInversionCrytograph/src" expected_position="16" />
+      <src_folder value="file://$MODULE_DIR$/PolyDemo/.gradle/8.10.2/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" expected_position="17" />
+      <src_folder value="file://$MODULE_DIR$/PolyDemo/app/src/main/java" expected_position="18" />
+      <src_folder value="file://$MODULE_DIR$/PolyDemo/app/src/test/java/polydemo" expected_position="19" />
+      <src_folder value="file://$MODULE_DIR$/ProjetoCod3rCampoMinado/.gradle/8.10/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" expected_position="20" />
+      <src_folder value="file://$MODULE_DIR$/ProjetoCod3rCampoMinado/.gradle/8.8/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" expected_position="21" />
+      <src_folder value="file://$MODULE_DIR$/ProjetoCod3rCampoMinado/app/src/main/java" expected_position="22" />
+      <src_folder value="file://$MODULE_DIR$/ProjetoCod3rCampoMinado/app/src/test/java" expected_position="23" />
+      <src_folder value="file://$MODULE_DIR$/Springdemo/src/main/java" expected_position="24" />
+      <src_folder value="file://$MODULE_DIR$/Springdemo/src/test/java" expected_position="25" />
+      <src_folder value="file://$MODULE_DIR$/springdi/src/main/java" expected_position="26" />
+      <src_folder value="file://$MODULE_DIR$/springdi/src/test/java" expected_position="27" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/Damas/app/build/classes/java/main" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Damas/app/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Damas/app/src/test/java/damas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DesafioLambdaCod3r/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DesafioStreamCod3r/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DesafioStreamFilterCod3r/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FirstApi/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/FirstApi/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JavaDatabaseTest/.gradle/8.10.2/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JavaDatabaseTest/app/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JavaDatabaseTest/app/src/test/java/javadatabasetest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JavaDatabaseTest2/.gradle/8.10.2/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JavaDatabaseTest2/app/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/JavaDatabaseTest2/app/src/test/java/javadatabasetest2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LambdaFunction/app/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LambdaFunction/app/src/test/java/lambdafunction" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LengthKeyInversionCrytograph/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/PolyDemo/.gradle/8.10.2/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/PolyDemo/app/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/PolyDemo/app/src/test/java/polydemo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ProjetoCod3rCampoMinado/.gradle/8.10/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ProjetoCod3rCampoMinado/.gradle/8.8/dependencies-accessors/d7f838bb16dc243bdd05bfa8f75ef956f6209f3c/sources" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ProjetoCod3rCampoMinado/app/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ProjetoCod3rCampoMinado/app/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Springdemo/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Springdemo/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/springdi/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/springdi/src/test/java" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="gradle-wrapper.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/Damas/gradle/wrapper/gradle-wrapper.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gradle/wrapper/gradle-wrapper.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gradle/wrapper/gradle-wrapper.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="JavaDatabaseTest/gradle/wrapper/gradle-wrapper.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JavaDatabaseTest/gradle/wrapper/gradle-wrapper.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sqlite-jdbc-3.46.1.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JavaDatabaseTest/sqlite-jdbc-3.46.1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="JavaDatabaseTest2/gradle/wrapper/gradle-wrapper.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JavaDatabaseTest2/gradle/wrapper/gradle-wrapper.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="JavaDatabaseTest2/sqlite-jdbc-3.46.1.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/JavaDatabaseTest2/sqlite-jdbc-3.46.1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="LambdaFunction/gradle/wrapper/gradle-wrapper.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/LambdaFunction/gradle/wrapper/gradle-wrapper.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PolyDemo/gradle/wrapper/gradle-wrapper.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/PolyDemo/gradle/wrapper/gradle-wrapper.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ProjetoCod3rCampoMinado/gradle/wrapper/gradle-wrapper.jar">
+        <CLASSES>
+          <root url="file://ProjetoCod3rCampoMinado/gradle/wrapper/gradle-wrapper.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
