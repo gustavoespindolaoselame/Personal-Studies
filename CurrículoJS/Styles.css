@@ -39,22 +39,10 @@ body {
     margin-bottom: 10%;
 }
 
-.navbar{
-    z-index: 999999999999999999999999999999999999999;
+.sideBarMainContentContainer{
     display: flex;
-    flex-direction: row;
-    position: fixed;
-    width: 100%;
-    background-color: #0A0908;
-    color: #F0EBD8;
-    height: 10%;
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    font-size: 110%;
-    font-family: Consolas;
-    gap: 0;
 }
+
 
 .top{
     display: flex;
@@ -73,7 +61,6 @@ body {
 }
 
 .titleLinks{
-    display: block;
     justify-content: right; 
     display: flex;
     gap: 10%;
@@ -95,16 +82,34 @@ li button {
 }
 
 .sidebar {
-    z-index: 1;
+    z-index: 9;
     display: flex;
-    align-items: center;
-    position: fixed;
     flex-direction: column;
+    position: fixed;
+    max-width: 8vh;
     background-color: #0A0908;
-    top: 10%;
-    left: 0%;
-    width: 3.75%;
     height: 100%;
+    align-items: center;
+    left: 0%;
+    padding-top:10%;
+    top:-10%;
+}
+
+.navbar{
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 100%;
+    background-color: #0A0908;
+    color: #F0EBD8;
+    min-height:10%;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    font-size: 110%;
+    font-family: Consolas;
+    gap: 0;
 }
 
 section {
@@ -123,7 +128,7 @@ section h2 {
     text-align: left;
     margin-top: 30svh;
     font-size: 4.5em;
-    z-index: 999;
+    z-index: 9;
     font-family: 'Montserrat';
 }
 
@@ -132,7 +137,7 @@ section ul {
     width: 61.5%;
     font-family: Helvetica;
     margin-top: 0%;
-    z-index: 999;
+    z-index: 9;
 }
 
 section li {
@@ -150,19 +155,18 @@ section button {
     display: flex;
     position: fixed;
     background-color: #22333B;
-    width: 70%;
+    width: 100%;
     height: 100%;
     opacity: 70%;
 }
 
 .parallax {
-    background-image: url("img_parallax.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 70%;
-    margin-left: 15%;
+    width: 100%;
+    margin-left: 27.5vh;
 }
 
 .overlay {
@@ -177,7 +181,7 @@ section button {
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 11;
     resize: none;
     position: fixed;
 }
@@ -207,7 +211,7 @@ section button {
     width: 90%;
     margin-left: 5%;
     font-size: 260%;
-    z-index: 999;
+    z-index: 8;
     color: #F0EBD8;
     font-family: 'Montserrat';
 }
@@ -229,13 +233,17 @@ section button {
     top: 40%;
     left: 25%;
     width: 50%;
-    z-index: 999999999999999999;
+    z-index: 11;
     overflow-y: auto;
 }
 
 .overlay img {
     top: 28%;
     right: 24.5%;
+}
+
+#overlay2 .overlay-contentText{
+    padding-top: 2%;
 }
 
 .copied {
@@ -246,24 +254,33 @@ section button {
     background-color: #22333B;
     color: #F0EBD8;
     padding: 0% 2%;
-    z-index: 999999999999999999999999999;
+    z-index: 10;
     font-family: Consolas;
     font-size: 140%;
 }
 
 @media only screen and (min-width: 0px) and (max-width: 1280px){
-    .navbar{
-        height: 5%;
-    }
     .top h1{
         font-size: 100%;
     }
-    .sidebar{
-        width: 10%;
+
+    .sidebar {
+        max-width: 10vh;
+        height: 100%;
+        align-items: center;
+        left: 0%;
         top:5%;
     }
+    
+    .navbar{
+        text-align: center;
+        justify-content: center;
+        padding-left: 3%;
+        font-size: 140%;
+    }
+    
     .parallax{
-        margin-left: 20%;
+        margin-left: 5vh;
     }
     section h2 {
         font-size: 170%;
@@ -272,8 +289,58 @@ section button {
     section li {
         font-size: 70%;
     }
-    .titleLinks button{
-        margin-left: 5%;
-        box-sizing: border-box;
+
+    .titleLinks{
+        z-index: 99999999999;
+        margin-left: 0%;
+        justify-content: end; 
+        margin-top: 10%;
+        gap: 0%;
+
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        bottom:0;
+        max-width: 10vh;
+        left: 0%;
     }
+
+    .titleLinks img{
+        width: 8vh;
+    }
+
+    .overlay-content h2 {
+        font-size: 130%;
+    }
+    
+    .overlay-content p {
+        font-size: 100%;
+    }
+
+    #overlay1 p{
+        font-size: 90%;
+    }
+
+    #overlay2 p{
+        font-size: 70%;
+    }
+
+    #overlay2 .overlay-contentText{
+        padding-top: 20%;
+    }
+
+    #overlay4 p{
+        font-size: 70%;
+    }
+
+    #overlay4 .overlay-contentText{
+        padding-top: 20%;
+    }
+
+    .overlay-content button {
+        right:-5%;
+        top:1%;
+        width: 20%;
+    }
+    
     }
