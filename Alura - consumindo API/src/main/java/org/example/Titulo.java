@@ -97,6 +97,6 @@ public class Titulo {
 
     @Override
     public String toString() {
-        return  "Nome: '" + nome + "\nanoDeLancamento: " + anoDeLancamento + "\nDuração: " + duracaoEmMinutos;
+        return  "Nome: '" + nome + "\nanoDeLancamento: " + anoDeLancamento + "\nDuração: " + duracaoEmMinutos + "\n";
     }
 }
