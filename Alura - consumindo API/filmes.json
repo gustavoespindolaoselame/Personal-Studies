@@ -1,0 +1,26 @@
+[
+  {
+    "Title": "Matrix",
+    "Year": 1993,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalDasAvaliacoes": 0,
+    "DuracaoEmMinutos": 60
+  },
+  {
+    "Title": "The Avengers",
+    "Year": 2012,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalDasAvaliacoes": 0,
+    "DuracaoEmMinutos": 14
+  },
+  {
+    "Title": "Terminator",
+    "Year": 1991,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalDasAvaliacoes": 0,
+    "DuracaoEmMinutos": 39
+  }
+]
