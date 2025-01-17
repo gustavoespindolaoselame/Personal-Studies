@@ -1,0 +1,146 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 2025-01-10 14:13:09
+Description: Initializing game
+
+java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to errors, provided by 'untitled' at 'org.example.test.untitled.Untitled'!
+	at net.fabricmc.loader.impl.FabricLoaderImpl.lambda$invokeEntrypoints$2(FabricLoaderImpl.java:403)
+	at net.fabricmc.loader.impl.util.ExceptionUtil.gatherExceptions(ExceptionUtil.java:33)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:401)
+	at net.fabricmc.loader.impl.game.minecraft.Hooks.startClient(Hooks.java:52)
+	at knot//net.minecraft.client.MinecraftClient.<init>(MinecraftClient.java:543)
+	at knot//net.minecraft.client.main.Main.main(Main.java:204)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:480)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+Caused by: java.lang.ExceptionInInitializerError
+	at knot//org.example.test.untitled.Untitled.onInitialize(Untitled.java:14)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:399)
+	... 7 more
+Caused by: net.minecraft.util.InvalidIdentifierException: Non [a-z0-9/._-] character in path of location: untitled:Miuda
+	at knot//net.minecraft.util.Identifier.validatePath(Identifier.java:402)
+	at knot//net.minecraft.util.Identifier.<init>(Identifier.java:127)
+	at knot//org.example.test.untitled.client.item.ModItems.registerItem(ModItems.java:21)
+	at knot//org.example.test.untitled.client.item.ModItems.<clinit>(ModItems.java:14)
+	... 9 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.fabricmc.loader.impl.FabricLoaderImpl.lambda$invokeEntrypoints$2(FabricLoaderImpl.java:403)
+	at net.fabricmc.loader.impl.util.ExceptionUtil.gatherExceptions(ExceptionUtil.java:33)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:401)
+	at net.fabricmc.loader.impl.game.minecraft.Hooks.startClient(Hooks.java:52)
+	at knot//net.minecraft.client.MinecraftClient.<init>(MinecraftClient.java:543)
+
+-- Initialization --
+Details:
+	Modules: 
+Stacktrace:
+	at knot//net.minecraft.client.main.Main.main(Main.java:204)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:480)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.6
+	Minecraft Version ID: 1.20.6
+	Operating System: Linux (amd64) version 6.8.0-51-generic
+	Java Version: 23.0.1, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 146555312 bytes (139 MiB) / 427819008 bytes (408 MiB) up to 8384413696 bytes (7996 MiB)
+	CPUs: 12
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 5 5600G with Radeon Graphics
+	Identifier: AuthenticAMD Family 25 Model 80 Stepping 0
+	Microarchitecture: Zen 3
+	Frequency (GHz): 4.46
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: Navi 14 [Radeon RX 5500/5500M / Pro 5500M]
+	Graphics card #0 vendor: Advanced Micro Devices, Inc. [AMD/ATI] (0x1002)
+	Graphics card #0 VRAM (MB): 258.00
+	Graphics card #0 deviceId: 0x7340
+	Graphics card #0 versionInfo: unknown
+	Virtual memory max (MB): 18038.32
+	Virtual memory used (MB): 9789.74
+	Swap memory total (MB): 2048.00
+	Swap memory used (MB): 0.00
+	JVM Flags: 0 total; 
+	Fabric Mods: 
+		fabric-api: Fabric API 0.100.8+1.20.6
+		fabric-api-base: Fabric API Base 0.4.40+80f8cf51b0
+		fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 1.6.59+e9d2a72bb0
+		fabric-biome-api-v1: Fabric Biome API (v1) 13.0.25+be5d88beb0
+		fabric-block-api-v1: Fabric Block API (v1) 1.0.20+6dfe4c9bb0
+		fabric-block-view-api-v2: Fabric BlockView API (v2) 1.0.8+80f8cf51b0
+		fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.50+80f8cf51b0
+		fabric-client-tags-api-v1: Fabric Client Tags 1.1.12+7f945d5bb0
+		fabric-command-api-v1: Fabric Command API (v1) 1.2.45+f71b366fb0
+		fabric-command-api-v2: Fabric Command API (v2) 2.2.24+80f8cf51b0
+		fabric-commands-v0: Fabric Commands (v0) 0.2.62+df3654b3b0
+		fabric-content-registries-v0: Fabric Content Registries (v0) 8.0.6+b82b2392b0
+		fabric-convention-tags-v1: Fabric Convention Tags 2.0.7+7f945d5bb0
+		fabric-convention-tags-v2: Fabric Convention Tags (v2) 2.1.3+f4bfb622b0
+		fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.2.27+80f8cf51b0
+		fabric-data-attachment-api-v1: Fabric Data Attachment API (v1) 1.1.17+2a2c66b6b0
+		fabric-data-generation-api-v1: Fabric Data Generation API (v1) 19.2.5+a5d5299db0
+		fabric-dimensions-v1: Fabric Dimensions API (v1) 2.1.68+94793913b0
+		fabric-entity-events-v1: Fabric Entity Events (v1) 1.6.8+e9d2a72bb0
+		fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.7.6+c5fc38b3b0
+		fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.50+80f8cf51b0
+		fabric-gametest-api-v1: Fabric Game Test API (v1) 1.3.18+1172e897b0
+		fabric-item-api-v1: Fabric Item API (v1) 8.2.3+6e5bbc4ab0
+		fabric-item-group-api-v1: Fabric Item Group API (v1) 4.1.1+f4bfb622b0
+		fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.45+80f8cf51b0
+		fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.43+df3654b3b0
+		fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 2.3.4+c5fc38b3b0
+		fabric-loot-api-v2: Fabric Loot API (v2) 3.0.6+97f703dab0
+		fabric-message-api-v1: Fabric Message API (v1) 6.0.11+a7dc0e41b0
+		fabric-model-loading-api-v1: Fabric Model Loading API (v1) 1.0.12+80f8cf51b0
+		fabric-models-v0: Fabric Models (v0) 0.4.11+9386d8a7b0
+		fabric-networking-api-v1: Fabric Networking API (v1) 4.2.0+a916f7c5b0
+		fabric-object-builder-api-v1: Fabric Object Builder API (v1) 15.1.5+c5fc38b3b0
+		fabric-particles-v1: Fabric Particles (v1) 4.0.0+c5fc38b3b0
+		fabric-recipe-api-v1: Fabric Recipe API (v1) 5.0.6+9c745bbbb0
+		fabric-registry-sync-v0: Fabric Registry Sync (v0) 5.0.19+c7d49fa1b0
+		fabric-renderer-api-v1: Fabric Renderer API (v1) 3.3.0+81dac6a1b0
+		fabric-renderer-indigo: Fabric Renderer - Indigo 1.5.15+41791025b0
+		fabric-renderer-registries-v1: Fabric Renderer Registries (v1) 3.2.62+df3654b3b0
+		fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.3.46+73761d2eb0
+		fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 3.1.3+2c869dedb0
+		fabric-rendering-v0: Fabric Rendering (v0) 1.1.65+df3654b3b0
+		fabric-rendering-v1: Fabric Rendering (v1) 4.2.5+850ef40bb0
+		fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 4.2.0+a5d5299db0
+		fabric-resource-loader-v0: Fabric Resource Loader (v0) 1.1.1+f4bfb622b0
+		fabric-screen-api-v1: Fabric Screen API (v1) 2.0.21+7b70ea8ab0
+		fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.3.76+8c7b71c2b0
+		fabric-sound-api-v1: Fabric Sound API (v1) 1.0.21+c5fc38b3b0
+		fabric-transfer-api-v1: Fabric Transfer API (v1) 5.1.7+7fc4b352b0
+		fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 6.0.10+74e2f560b0
+		fabricloader: Fabric Loader 0.16.10
+		java: Java HotSpot(TM) 64-Bit Server VM 23
+		minecraft: Minecraft 1.20.6
+		mixinextras: MixinExtras 0.4.1
+		untitled: untitled 1.0-SNAPSHOT
+	Launched Version: Fabric
+	Backend library: LWJGL version 3.3.3-snapshot
+	Backend API: Unknown
+	Window size: <not initialized>
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: <disabled>
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fabric'
+	Universe: 404
+	Type: Client (map_client.txt)
+	Locale: en_US
+	CPU: <unknown>

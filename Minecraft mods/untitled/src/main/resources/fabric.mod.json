@@ -7,7 +7,7 @@
   "authors": [],
   "contact": {},
   "license": "All-Rights-Reserved",
-  "icon": "assets/untitled/icon.png",
+  "icon": "assets/untitled/textures/item/miuda.png",
   "environment": "*",
   "entrypoints": {
     "client": [

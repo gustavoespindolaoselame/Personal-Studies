@@ -1,4 +1,11 @@
-package alura.desafio.literalura;
+package alura.desafio.literalura.dto;
 
-public class ApiResponse {
-}
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record ApiResponseDTO(
+		int count, 
+		List<LivroDTO> results
+		) {}

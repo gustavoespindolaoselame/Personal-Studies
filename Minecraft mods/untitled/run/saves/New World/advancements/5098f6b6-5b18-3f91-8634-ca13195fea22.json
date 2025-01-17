@@ -1,0 +1,36 @@
+{
+  "minecraft:recipes/decorations/glow_item_frame": {
+    "criteria": {
+      "has_item_frame": "2025-01-10 14:41:57 -0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2025-01-10 14:36:20 -0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:flower_forest": "2025-01-10 14:38:46 -0300",
+      "minecraft:beach": "2025-01-10 14:38:11 -0300",
+      "minecraft:dark_forest": "2025-01-10 14:36:21 -0300",
+      "minecraft:forest": "2025-01-10 14:38:14 -0300",
+      "minecraft:ocean": "2025-01-10 14:38:08 -0300",
+      "minecraft:sunflower_plains": "2025-01-10 14:40:12 -0300",
+      "minecraft:swamp": "2025-01-10 14:39:01 -0300",
+      "minecraft:birch_forest": "2025-01-10 14:37:54 -0300",
+      "minecraft:windswept_hills": "2025-01-10 14:38:19 -0300",
+      "minecraft:plains": "2025-01-10 14:38:29 -0300"
+    },
+    "done": false
+  },
+  "minecraft:recipes/misc/mojang_banner_pattern": {
+    "criteria": {
+      "has_enchanted_golden_apple": "2025-01-10 14:39:44 -0300"
+    },
+    "done": true
+  },
+  "DataVersion": 3839
+}
