@@ -1,13 +1,11 @@
-package alura.chatforum.chatforum.model.entities;
+package alura.chatforum.chatforum.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
-@Entity
+@Table(name = "duvidas")
+@Entity(name = "duvida")
 public class Duvida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,13 +16,13 @@ public class Duvida {
 
     public Duvida() {
         super();
+        this.dataCriacao = new Date();
     }
 
-    public Duvida(int id, String titulo, String mensagem, Date dataCriacao) {
-        this.id = id;
+    public Duvida(String titulo, String mensagem) {
         this.titulo = titulo;
         this.mensagem = mensagem;
-        this.dataCriacao = dataCriacao;
+        this.dataCriacao = new Date();
     }
 
     public int getId() {

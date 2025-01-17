@@ -1,0 +1,13 @@
+spring:
+  application:
+    name:chatforum
+  datasource:
+    url: jdbc:mysql://localhost:3306/chatforum
+    username: root
+    password: 745231968
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
