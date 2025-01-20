@@ -5,17 +5,21 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.antlr.v4.runtime.Token;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.Collections;
 
+@Service
 public class BearerToken extends OncePerRequestFilter {
 
-    TokenService tokenService = new TokenService();
+    @Autowired
+    private TokenService tokenService;
 
     private static final String BEARER_TOKEN = "banana"; // Token fixo para fins de demonstração
 

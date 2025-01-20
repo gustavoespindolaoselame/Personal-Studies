@@ -1,5 +1,7 @@
 package alura.chatforum.chatforum.auth;
 import alura.chatforum.chatforum.controller.UsuarioController;
+import alura.chatforum.chatforum.model.Usuario;
+import alura.chatforum.chatforum.repositories.UsuarioJpaRepository;
 import alura.chatforum.chatforum.repositories.UsuarioRepository;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -8,10 +10,14 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TokenService {
+
+    @Autowired
+    private UsuarioJpaRepository usuarioJpaRepository;
 
     public String generateToken(String usuario) {
         try {
@@ -21,8 +27,8 @@ public class TokenService {
             throw new RuntimeException(e);
         }
     }
+
     public Boolean tokenVerifier(String token) {
-        UsuarioController usuarioController = new UsuarioController();
         System.out.println("Token verified");
         DecodedJWT decodedJWT;
         try {
@@ -30,10 +36,14 @@ public class TokenService {
             JWTVerifier verifier = JWT.require(algorithm)
                     .withIssuer("API Voll.med")
                     .build();
-
-            return usuarioController.containsUsuarioSearch(verifier.verify(token).getSubject());
+            return usuarioLookupToken(verifier.verify(token).getSubject());
         } catch (JWTVerificationException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Boolean usuarioLookupToken(String lookup){
+        return usuarioJpaRepository.findAll().stream()
+                .anyMatch(usuario -> usuario.getUsuario().equals(lookup));
     }
 }

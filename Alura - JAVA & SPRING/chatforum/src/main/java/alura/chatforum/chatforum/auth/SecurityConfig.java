@@ -1,5 +1,6 @@
 package alura.chatforum.chatforum.auth;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,13 +12,16 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Autowired
+    BearerToken bearerToken;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests(auth -> auth
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(new BearerToken(), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(bearerToken, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

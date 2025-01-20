@@ -13,22 +13,11 @@ public class UsuarioController {
     TokenService tokenService = new TokenService();
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     @PostMapping("/{usuario}/{senha}")
     public String registerUsuario(@PathVariable String usuario, @PathVariable String senha){
         usuarioRepository.save(new Usuario(usuario, senha));
         return tokenService.generateToken(usuario);
-    }
-
-    public Boolean containsUsuarioSearch(String usuarioSearch){
-        Iterable<Usuario> foo = usuarioRepository.findAll();
-        Boolean result = false;
-        while(foo.iterator().hasNext()){
-            if(foo.iterator().next().getUsuario().equals(usuarioSearch)){
-                result=true;
-            }
-        }
-        return result;
     }
 }
