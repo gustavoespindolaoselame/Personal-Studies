@@ -15,9 +15,8 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @PostMapping("/{usuario}/{senha}")
-    public String registerUsuario(@PathVariable String usuario, @PathVariable String senha){
-        usuarioRepository.save(new Usuario(usuario, senha));
-        return tokenService.generateToken(usuario);
+    @PostMapping()
+    public void registerUsuario(@RequestBody Usuario request) {
+        usuarioRepository.save(new Usuario(request.getMensagem(), request.getNomeCurso()));
     }
 }
