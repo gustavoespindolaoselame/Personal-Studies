@@ -41,36 +41,26 @@ function getValidWords(arrayPalavras){
             .then(removerLinhasSeIncluir('-->'))
             .then(removerLinhasSeApenasNúmero)
             .then(removerSimbolos(simbols))
+            .then(remvoverVazio)
             .then(mesclarElementos)
             .then(separarPorPalavra)
             .then(resolve);
     });
 }
-
 function removerSeVazio(array){
     return new Promise((resolve) =>resolve(array.trim()));
 }
-
 function removerLinhasSeIncluir(padraoTextual) {
     return function(array){
         return array.filter(el => !el.includes(padraoTextual));
     }
 }
-
 function removerLinhasSeApenasNúmero(array) {
     return array.filter(el => {
         const num = parseInt(el.trim());
         return num !== num;
     });
 }
-
-const mesclarElementos = array => array.join('');
-
-const separarPorPalavra = array => array.split(' ');
-
-const separarPorLinhas = array => array.split('\n');
-
-
 function removerSimbolos(simbolos){
     return function(array){
         return array.map(el => {
@@ -82,6 +72,9 @@ function removerSimbolos(simbolos){
         })
     }
 }
+const mesclarElementos = array => array.join('');
+const separarPorPalavra = array => array.split(' ');
+const separarPorLinhas = array => array.split('\n');
 
 function acharFrequencia(arrayPalavras){
     return new Promise((resolve) => {
