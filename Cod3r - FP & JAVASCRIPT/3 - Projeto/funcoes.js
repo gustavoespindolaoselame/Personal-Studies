@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const simbols = ['-', '?', '-', '"', '♪', '_', '<i>', '</i>', '\r', '[', ']', '(', ')', '.']
 
-function lerArquivo(caminho) {
+function lerArquivo(pageIndex) {
     return new Promise((resolve, reject) => {
-        fs.readFile(caminho, (err, data) => {
+        fs.readFile(path.join(__dirname, 'legendas', `legendas_${pageIndex}.srt`), {encoding: 'utf-8'}, (err, data) => {
             if (err) {
                 reject(err);
             } else {
@@ -16,22 +17,70 @@ function lerArquivo(caminho) {
 async function lerTodosArquivos() {
     let i = 1;
     let resultado = "";
-    while (true) {
-        try {
-            if(i<10){
-                i = "0" + i
+    try{
+        while (true) {
+            try {
+                if(i<10){
+                    i = "0" + i
+                }
+                resultado = resultado + await lerArquivo(i);
+                i++;
+            } catch (e) {
+                return resultado;
             }
-            let filePath = path.join(__dirname, 'legendas', `legendas_${i}.srt`);
-            resultado = resultado + await lerArquivo(filePath);
-            i++;
-        } catch (e) {
-            return resultado;
         }
+    } catch (e) {
+        throw new Error("File couldn't be read");
     }
 }
 
-function pegarSoPalavras(arrayPalavras){
-    return new Promise((resolve) => resolve(arrayPalavras.match(/[a-zA-Z]+/g)));
+function getValidWords(arrayPalavras){
+    return new Promise((resolve) => {
+        removerSeVazio(arrayPalavras)
+            .then(separarPorLinhas)
+            .then(removerLinhasSeIncluir('-->'))
+            .then(removerLinhasSeApenasNúmero)
+            .then(removerSimbolos(simbols))
+            .then(mesclarElementos)
+            .then(separarPorPalavra)
+            .then(resolve);
+    });
+}
+
+function removerSeVazio(array){
+    return new Promise((resolve) =>resolve(array.trim()));
+}
+
+function removerLinhasSeIncluir(padraoTextual) {
+    return function(array){
+        return array.filter(el => !el.includes(padraoTextual));
+    }
+}
+
+function removerLinhasSeApenasNúmero(array) {
+    return array.filter(el => {
+        const num = parseInt(el.trim());
+        return num !== num;
+    });
+}
+
+const mesclarElementos = array => array.join('');
+
+const separarPorPalavra = array => array.split(' ');
+
+const separarPorLinhas = array => array.split('\n');
+
+
+function removerSimbolos(simbolos){
+    return function(array){
+        return array.map(el => {
+            let textoSemSimbolos = el;
+            simbolos.forEach(simbolo => {
+                textoSemSimbolos = textoSemSimbolos.split(simbolo).join('');
+            })
+            return textoSemSimbolos;
+        })
+    }
 }
 
 function acharFrequencia(arrayPalavras){
@@ -63,5 +112,9 @@ function arrayParaObjeto(freqArray){
 }
 
 module.exports = {
-    lerTodosArquivos, lerArquivo, pegarSoPalavras, acharFrequencia, ordenarResultado, arrayParaObjeto
+    lerTodosArquivos, 
+    getValidWords, 
+    acharFrequencia, 
+    ordenarResultado, 
+    arrayParaObjeto
 }
