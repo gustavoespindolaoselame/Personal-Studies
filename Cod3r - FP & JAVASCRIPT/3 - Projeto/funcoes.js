@@ -34,6 +34,18 @@ async function lerTodosArquivos() {
     }
 }
 
+function composicao(...fns){
+    return function(valor){
+        return fns.reduce(async (acc,fn) => {
+            // Verifica se está entrando uma promise
+            if(Promise.resolve(acc) === acc){
+                return fn(await acc);
+            }
+            return fn(acc);
+        }, valor)
+    }
+}
+
 function getValidWords(arrayPalavras){
     return new Promise((resolve) => {
         removerSeVazio(arrayPalavras)
@@ -41,7 +53,6 @@ function getValidWords(arrayPalavras){
             .then(removerLinhasSeIncluir('-->'))
             .then(removerLinhasSeApenasNúmero)
             .then(removerSimbolos(simbols))
-            .then(remvoverVazio)
             .then(mesclarElementos)
             .then(separarPorPalavra)
             .then(resolve);
@@ -109,5 +120,6 @@ module.exports = {
     getValidWords, 
     acharFrequencia, 
     ordenarResultado, 
-    arrayParaObjeto
+    arrayParaObjeto,
+    composicao
 }
