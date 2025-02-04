@@ -8,10 +8,11 @@ import java.util.List;
 
 public class Player {
     private int playerId;
-    private List<Card> cards = new ArrayList();
+    private List<Card> cards = new ArrayList<>();
     private int numCardsInDeck;
     private boolean ownsThisTurn;
     private boolean hasWon;
+    private boolean canCheatCard;
     private MainTurn mainTurn;
 
     public int getPlayerId() {
@@ -42,19 +43,19 @@ public class Player {
     }
 
     public Player(){
-        startGameDraw7Cards();
+        this.startGameDraw7Cards();
     }
 
     public Player(MainTurn mainTurn, int playerId) {
         super();
-        startGameDraw7Cards();
+        this.startGameDraw7Cards();
         this.mainTurn = mainTurn;
         this.playerId = playerId;
     }
 
     public Player(List<Card> cards, int numCardsInDeck, boolean isPlayable, boolean hasWon) {
         super();
-        startGameDraw7Cards();
+        this.startGameDraw7Cards();
         this.cards = cards;
         this.numCardsInDeck = numCardsInDeck;
         this.ownsThisTurn = isPlayable;
@@ -82,7 +83,12 @@ public class Player {
     }
 
     public void setOwnsThisTurn(boolean ownsThisTurn) {
+        System.out.println(this.ownsThisTurn);
         this.ownsThisTurn = ownsThisTurn;
+        if(this.ownsThisTurn) {
+            this.canCheatCard = true;
+            this.endTurnOrPlayCard();
+        }
     }
 
     public boolean isHasWon() {
@@ -98,8 +104,8 @@ public class Player {
     }
 
     public void endTurnOrPlayCard(){
-        choicesToString();
-        cardsInFieldToString();
+        this.choicesToString();
+        this.cardsInFieldToString();
         String choice = playObserver.playObserverGetInstance().getScanner().next();
         switch (choice){
             case "1": this.playCard(); break;
@@ -112,32 +118,33 @@ public class Player {
 
 
     public void playCard(){
-        cardsInHandToString();
-        cardsInFieldToString();
+        this.cardsInHandToString();
+        this.cardsInFieldToString();
         boolean control=true;
         while(control) {
             int chosenCard = playObserver.playObserverGetInstance().getScanner().nextInt() - 1;
             for (int i = 0; i < cards.size(); i++) {
-                if (chosenCard == i && isCardPlayable(cards.get(i))) {
-                    mainTurn.getField().
+                if (chosenCard == i && isCardPlayable(this.cards.get(i))) {
+                    this.mainTurn.getField().
                             setCardInField(
-                                    cards.get(chosenCard));
-                    cards.remove(i);
+                                    this.cards.get(chosenCard));
+                    this.cards.remove(i);
                     drawCard();
                     control=false;
                     break;
                 }
-                if (chosenCard == i && !isCardPlayable(cards.get(i))) {
-                    mainTurn.getField().
+                if (this.canCheatCard && chosenCard == i && !isCardPlayable(this.cards.get(i))) {
+                    this.mainTurn.getField().
                             setCardInField(
-                                    cards.get(chosenCard));
-                    cards.remove(i);
+                                    this.cards.get(chosenCard));
+                    this.cards.remove(i);
                     if(this.playerId==0){
-                        mainTurn.getPlayers()[1].drawCard();
+                        this.mainTurn.getPlayers()[1].drawCard();
                     } else {
-                        mainTurn.getPlayers()[0].drawCard();
+                        this.mainTurn.getPlayers()[0].drawCard();
                     }
                     control=false;
+                    this.canCheatCard=false;
                     break;
                 }
             }
@@ -145,7 +152,7 @@ public class Player {
     }
 
     public boolean isCardPlayable(Card cardInQuestion) {
-        Card fieldCard = mainTurn.getField().getCardInField();
+        Card fieldCard = this.mainTurn.getField().getCardInField();
         return cardInQuestion.getCardValue() == fieldCard.getCardValue() ||
                 cardInQuestion.getCardValue() == fieldCard.getCardValue() + 1 ||
                 cardInQuestion.getCardValue() == fieldCard.getCardValue() - 1 ||
@@ -154,7 +161,7 @@ public class Player {
     }
 
     public void cardsInFieldToString(){
-        System.out.print("Card in field: " + mainTurn.getField().getCardInField().getCardName() + "\n");
+        System.out.print("Card in field: " + this.mainTurn.getField().getCardInField().getCardName() + "\n");
     }
 
     public void choicesToString(){
@@ -163,8 +170,8 @@ public class Player {
 
     public void cardsInHandToString(){
         System.out.println("Cards in hand: ");
-        for(int i = 0; i<cards.size(); i++){
-            System.out.println("(" + (i+1) + ") - " + cards.get(i).getCardName());
+        for(int i = 0; i<this.cards.size(); i++){
+            System.out.println("(" + (i+1) + ") - " + this.cards.get(i).getCardName());
         }
     }
 }

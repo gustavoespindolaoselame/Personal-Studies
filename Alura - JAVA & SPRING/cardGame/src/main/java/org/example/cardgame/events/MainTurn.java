@@ -15,7 +15,7 @@ public class MainTurn {
         field = new Field(new Card());
         players = new Player[]{new Player(this, 0), new AIPlayer(this, 1)};
         while(gameOn) {
-            players[0].endTurnOrPlayCard();
+            flipTurns();
         }
     }
 
