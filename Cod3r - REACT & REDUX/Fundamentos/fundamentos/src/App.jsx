@@ -9,11 +9,27 @@ import Familia from './components/basicos/Familia'
 import FamiliaMembro from './components/basicos/FamiliaMembro'
 import ListaAlunos from './components/repeticao/ListaAlunos'
 import DesafioProduto from './components/repeticao/DesafioProduto'
+import ParOuImpar from './components/condicional/ParOuImpar'
+import UsuarioInfo from './components/condicional/UsuarioInfo'
+import DiretaPai from './components/comunicacao/DiretaPai'
+import IndiretaPai from './components/comunicacao/IndiretaPai'
+
 import './App.css'
 
 export default _ => 
     <div className="App">
         <div className="Cards">
+            <Card titulo="Comunicação Indireta" color ="#3003f6">
+                <IndiretaPai/>
+            </Card> 
+            <Card titulo="Comunicação Direta" color ="#003f63">
+                <DiretaPai/>
+            </Card> 
+            <Card titulo="Renderização Condicional" color ="#033606">
+                <ParOuImpar numero={20}/>
+                <UsuarioInfo usuario={{nome: 'Fernando'}}/>
+                <UsuarioInfo usuario={{email: 'Fernando'}}/>
+            </Card> 
             <Card titulo="DesafioRepeticao" color ="#336060">
                 <DesafioProduto/>
             </Card> 

@@ -12,7 +12,7 @@ export default [{
     nota: 2.6 },{
 
     id: 4,
-    nome: 'Hitler',
+    nome: 'Thanos',
     nota: 6.1 },{
 
     id: 5,
