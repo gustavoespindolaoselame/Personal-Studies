@@ -15,13 +15,17 @@ import DiretaPai from './components/comunicacao/DiretaPai'
 import IndiretaPai from './components/comunicacao/IndiretaPai'
 import Input from './components/formulario/Input'
 import Contador from './components/contador/Contador'
+import Megasena from './components/desafioMegasena/Display'
 
 import './App.css'
 
 export default _ => 
     <div className="App">
         <div className="Cards">
-        <Card titulo="Contador" color ="#f63003">
+            <Card titulo="Desafio Megasena" color ="#3f6300">
+                <Megasena/>
+            </Card> 
+            <Card titulo="Contador" color ="#f63003">
                 <Contador numeroInicial={10} passo={5}/>
             </Card> 
             <Card titulo="Componente Controlado" color ="#63003f">

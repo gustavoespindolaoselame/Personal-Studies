@@ -8,6 +8,8 @@
     flex-direction: column;
     min-width: 400px;
     max-width: 400px;
+
+    text-align: center;
 }
 
 .Card .Title{
