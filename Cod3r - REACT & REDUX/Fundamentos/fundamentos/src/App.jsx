@@ -13,12 +13,20 @@ import ParOuImpar from './components/condicional/ParOuImpar'
 import UsuarioInfo from './components/condicional/UsuarioInfo'
 import DiretaPai from './components/comunicacao/DiretaPai'
 import IndiretaPai from './components/comunicacao/IndiretaPai'
+import Input from './components/formulario/Input'
+import Contador from './components/contador/Contador'
 
 import './App.css'
 
 export default _ => 
     <div className="App">
         <div className="Cards">
+        <Card titulo="Contador" color ="#f63003">
+                <Contador numeroInicial={10} passo={5}/>
+            </Card> 
+            <Card titulo="Componente Controlado" color ="#63003f">
+                <Input/>
+            </Card> 
             <Card titulo="Comunicação Indireta" color ="#3003f6">
                 <IndiretaPai/>
             </Card> 
