@@ -1,0 +1,27 @@
+.albumsBody{
+    background-color: red;
+    width: 80%;
+    min-height: 92vh;
+    margin-left: 10%;
+    justify-items: center;
+}
+
+.albumsCard{
+    margin-top: 5%;
+    min-width: 90%;
+    min-height: 60vh;
+    background-color: yellow;
+    padding:15px;
+}
+
+.albumsCard h1{
+    text-align: center;
+}
+
+.albumsCard p{
+    padding: 0px 10px 10px;
+}
+
+.albumsCard hr{
+    border-width: 2px;
+}

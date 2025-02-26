@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
 
 const sum = (n1,n2) => {
@@ -13,13 +13,13 @@ const UseMemo = (props) => {
     const [getN2, setN2] = useState(0)
     const [getN3, setN3] = useState(0)
 
-    const result = sum(getN1,getN2)
+    const result = useMemo(() => sum(getN1,getN2), [getN1,getN2])
 
     return (
         <div className="UseMemo">
             <PageTitle
                 title="Hook UseMemo"
-                subtitle="Retorna um valor memoizado!"
+                subtitle=<>"Retorna um valor memoizado!"<br/>Tipo um use effect que vai atualizando e talz mas só resolve quando as dependências ocorrerem e retorna só uma variável</>
             />
             <div className='center'>
                 <input type="number" className='input' value={getN1||0} onChange={e=>setN1(parseInt(e.target.value))}/>
