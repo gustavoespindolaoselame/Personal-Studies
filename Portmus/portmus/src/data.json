@@ -1,0 +1,83 @@
+{
+    "artists": [{
+        "artistId": 1,
+        "title": "Graganakth Void",
+        "description": "idk",
+        "specificDescription": "lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, ",
+        "albums":[{
+            "albumId":1,
+            "title": "Last Breath Taken",
+            "description": "Melodic Death Metal",
+            "songs": [{
+                "songID":1,
+                "songTitle":"Teste",
+                "songDescription":"Não sei oque"
+            },{
+                "songID":2,
+                "songTitle":"Teste2",
+                "songDescription":"Não sei oque2"
+            }]
+        },
+        {
+            "albumId":2,
+            "title": "0",
+            "description": "Electronic/Industrial",
+            "songs": [{
+                "songID":3,
+                "songTitle":"Teste",
+                "songDescription":"Não sei oque3"
+            },{
+                "songID":4,
+                "songTitle":"Teste2",
+                "songDescription":"Não sei oque24"
+            }]
+        },
+        {
+            "albumId":5,
+            "title": "Grasping At The Seams",
+            "description": "Black Metal",
+            "songs": [{
+                "songID":1,
+                "songTitle":"Teste",
+                "songDescription":"Não sei oque5"
+            },{
+                "songID":2,
+                "songTitle":"Teste2",
+                "songDescription":"Não sei oque25"
+            }]
+        }]
+    },
+    {
+        "artistId": 2,
+        "title": "Vondale",
+        "description": "idk",
+        "specificDescription": "lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, lorem ipsun, ",
+        "albums": [{
+            "albumId":4,
+            "title": "Last Breath Taken",
+            "description": "Melodic Death Metal",
+            "songs": [{
+                "songID":6,
+                "songTitle":"Teste",
+                "songDescription":"Não sei oque6"
+            },{
+                "songID":7,
+                "songTitle":"Teste2",
+                "songDescription":"Não sei oque27"
+            }]
+        },{
+            "albumId":5,
+            "title": "Last Breath Taken",
+            "description": "Melodic Death Metal",
+            "songs": [{
+                "songID":8,
+                "songTitle":"Teste",
+                "songDescription":"Não sei oque8"
+            },{
+                "songID":9,
+                "songTitle":"Teste2",
+                "songDescription":"Não sei oque9"
+            }]
+        }]
+    }]
+}

@@ -1,28 +1,25 @@
-import React from 'react' 
-import Card from '../albums/card'
+import React, { useContext } from 'react' 
 import './albums.css'
+import { AppContext } from '../../dataProvider'
 
-export default props => {
-    const cardsToBeDisplayed = [
-        (<Card>
-            <h1>Last Breath Taken</h1>
-            <hr/>
-            <p>Melodic Death Metal</p>
-        </Card>),
-        ( <Card>
-            <h1>0</h1>
-            <hr/>
-            <p>Electronic/Industrial</p>
-        </Card>),
-        (<Card>
-            <h1>Grasping at The Seams</h1>
-            <hr/>
-            <p>Black Metal</p>
-        </Card>)]
+// export default props => {
+//     const { albumsData } = useContext(AppContext)
+//     console.log(albumsData)
+//     return (
+//         <div className='albumsBody'>
+//             {albumsData}
+//         </div>
+//     )
+// }
 
+const Body = props => {
+    const { albumsData } = useContext(AppContext)
+    console.log(albumsData)
     return (
         <div className='albumsBody'>
-            {cardsToBeDisplayed}
+            {albumsData}
         </div>
     )
 }
+
+export default Body;

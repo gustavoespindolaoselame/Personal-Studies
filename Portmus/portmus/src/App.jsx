@@ -1,13 +1,13 @@
 import React from 'react'
-import Body from './components/artist/body'
 import Navbar from './components/navbar'
 import './index.css'
+import DataProvider from './dataProvider'
 
 
 export default props => {
 	return (
-		<div className='app'>
+		<DataProvider className='app'>
 		<Navbar />
-		</div>
+		</DataProvider>
 	)
 }
