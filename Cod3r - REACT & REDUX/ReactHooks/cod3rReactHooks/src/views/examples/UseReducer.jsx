@@ -1,38 +1,10 @@
 import React, { useReducer, useState } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
-
-const initialState = {
-    cart:[],
-    products:[{},{}],
-    user:null,
-    //foco ...
-    number:0
-}
-
-const reducer = (state,action) => {
-    switch(action.type){
-        case 'number_add2':
-            return {...state, number:state.number + 2 }
-        case 'number_multiplyby7':
-            return {...state, number:state.number * 7 }
-        case 'number_divideby25':
-            return {...state, number:state.number /25 }
-        case 'number_parsetoint':
-            return {...state, number:parseInt(state.number)}
-        case 'number_add4':
-            return {...state, number:state.number + 4 }
-        case 'number_addn':
-            return {...state, number:state.number + action.payload.number}
-        case 'login':
-            return {...state, user: { name: action.payload.name}}
-        default:
-            return state;
-    }
-}
+import reduceConfig from '../../store/config'
 
 const UseReducer = (props) => {
 
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reduceConfig.reducer, reduceConfig.initialState)
     const [loginName, setLoginName] = useState('null')
     const [nNumber, setNNumber] = useState(0)
 
@@ -52,7 +24,7 @@ const UseReducer = (props) => {
                 }
                 
                 <div>
-                <button className="btn" onClick={()=>dispatch({type:'number_add2'})}>+2</button>
+                <button className="btn" onClick={reduceConfig.actions.number_add2(dispatch)}>+2</button>
                 <button className="btn" onClick={()=>dispatch({type:'number_add4'})}>+4</button>
                 <button className="btn" onClick={()=>dispatch({type:'number_multiplyby7'})}>*7</button>
                 <button className="btn" onClick={()=>dispatch({type:'number_divideby25'})}>/25</button>
@@ -62,7 +34,7 @@ const UseReducer = (props) => {
 
                 <hr/>
                 
-                <button className="btn" onClick={()=>dispatch({type:'login', payload: {name:loginName}})}>login</button>
+                <button className="btn" onClick={reduceConfig.actions.login(dispatch,loginName)}>login</button>
                 <input type='text' value={loginName} onChange={e => setLoginName(e.target.value)}></input>
                 </div>
             </div>
