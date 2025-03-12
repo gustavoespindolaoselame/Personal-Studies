@@ -12,7 +12,11 @@ export default function Inicio(){
         }}>
             <Navegador cor='crimson' destino="/estiloso" texto="estiloso"/>
             <Navegador destino="/exemplo" texto="exemplo"/>
-            <Navegador cor='green' destino="/jsx" texto="Jsx"/>
+            <Navegador cor='crimson' destino="/jsx" texto="Jsx"/>
+            <Navegador destino="/navegacao" texto="Navegação - 01"/>
+            <Navegador cor='crimson' destino="/cliente/sp-2/123" texto="Navegação - 01"/>
+            <Navegador destino="/estado" texto="Estado"/>
+            <Navegador cor='crimson' destino="/integracao" texto="Integracao"/>
         </div>
     )
 }

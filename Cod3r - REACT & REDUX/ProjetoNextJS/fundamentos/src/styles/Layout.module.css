@@ -2,14 +2,14 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: blueviolet;
+    background-color: whitesmoke;
 }
 
 .cabecalho {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: gray;
+    background-color: rgb(38, 39, 39);
 }
 
 .cabecalho a {
@@ -26,6 +26,6 @@
 .conteudo{
     margin: 16px;
     padding: 16px;
-    background-color: purple;
+    background-color: gray;
     height: 100%;
 }
