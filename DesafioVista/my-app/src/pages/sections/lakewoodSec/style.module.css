@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    min-height: 75vw;
+    background-image: url("./../../../../public/defaultBackground2.jpg");
+    background-size: 170%;
+}
+
+.text{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-right: 40vw;
+}
+
+.title1{
+    font-size: 2rem;
+    max-width: 50vw;
+}
+
+.title2{
+    font-size: 3rem;
+    max-width: 70vw;
+}
+
+.paragraph{
+    font-size: 1rem;
+    max-width: 40vw;
+    margin-bottom: 1vh;
+}
+
+.button{
+    border-style: solid;
+    border-width: 0.1rem;
+    max-width: 20vw;
+    margin-right: 1vw;
+    font-size: 1rem;
+}

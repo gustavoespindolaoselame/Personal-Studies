@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    min-height: 75vw;
+}
+
+.imgs{
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vw;
+    max-width: 40vh;
+}
+
+.title{
+    font-size: 2.5rem;
+    max-width: 20vw;
+}
+
+.paragraph{
+    font-size: 1.5rem;
+    max-width: 30vw;
+}
+
+.button{
+    border-style: solid;
+    border-width: 0.15rem;
+
+    font-size: 1.5rem;
+    max-width: 20vw;
+    margin-right: 1vw;
+}

@@ -1,0 +1,10 @@
+.menu{
+    margin-top: 1vh;
+    margin-left: 1vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu a{
+    margin-right: 1vw;
+}

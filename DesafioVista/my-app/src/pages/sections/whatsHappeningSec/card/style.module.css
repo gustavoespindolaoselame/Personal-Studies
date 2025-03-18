@@ -1,0 +1,8 @@
+.card{
+    display: flex;
+    flex-direction: row;
+    background-color: gray;
+    height: 40vh;
+    width: 25vw;
+    margin: 0.5vw;
+}

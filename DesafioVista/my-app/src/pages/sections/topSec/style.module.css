@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    background-image: url("./../../../../public/defaultBackground.jpg");
+    background-size: cover;
+    min-height: 45vw;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15vw;
+    max-width: 40vh;
+    color: white;
+    font-size: 3rem;
+    max-width: 20vw;
+}
+

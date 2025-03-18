@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(70, 70, 230);
+    min-height: 45vw;
+    color: white;
+}
+
+.container hr{
+    width: 90%;
+}
+
+.topSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 1rem;
+}
+
+.botSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.botSection h3{
+    margin: 1rem;
+}
+
+.botSection p{
+    margin: 1rem;
+}
+
+.botSectionQuadrants{
+    width: 30%;
+}
+
