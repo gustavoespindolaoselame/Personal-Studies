@@ -1,0 +1,48 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-image: url("./../../../../public/stayConnected.jpg");
+    background-size: cover;
+    min-height: 75vw;
+    padding: 5vw;
+}
+
+.container h2{
+    margin-bottom: 2vh;
+    font-size: 2rem;
+}
+
+.container h3{
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    font-size: 1.5rem;
+}
+
+.container p{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font-size: 1rem;
+}
+
+.container input{
+    height: 3vh;
+}
+
+.container button{
+    margin-top: 3vh;
+    color: white;
+    border-color: white;
+    background: transparent;
+    font-size: 1.5rem;
+    border-style: solid;
+    border-width: 0.15rem;
+    font-size: 1rem;
+    padding: 3%;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(194, 194, 194);
+    opacity: 80%;
+}

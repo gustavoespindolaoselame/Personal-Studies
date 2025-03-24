@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    min-height: 45vw;
+}
+
+.imgs{
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vw;
+    max-width: 40vh;
+}
+
+.title{
+    font-size: 2.5rem;
+    max-width: 20vw;
+    margin-bottom: 1vh;
+
+}
+
+.paragraph{
+    font-size: 1.5rem;
+    max-width: 30vw;
+    margin-bottom: 1vh;
+
+}
+
+.paragraphSmall{
+    font-size: 1rem;
+    max-width: 30vw;
+    margin-bottom: 2vh;
+}
+
+.button{
+    border-style: solid;
+    border-width: 0.15rem;
+    font-size: 1.2rem;
+    max-width: 20vw;
+    padding: 3%;
+}

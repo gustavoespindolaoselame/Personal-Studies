@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    min-height: 85vw;
+    background-image: url("./../../../../public/latestMessage.jpg");
+    background-size: 170%;
+}
+
+.text{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-right: 40vw;
+}
+
+.title1{
+    font-size: 2rem;
+    max-width: 50vw;
+}
+
+.title2{
+    font-size: 3rem;
+    max-width: 70vw;
+}
+
+.paragraph{
+    margin-top: 1vh;
+    font-size: 1rem;
+    max-width: 40vw;
+    margin-bottom: 1vh;
+}
+
+.button{
+    border-style: solid;
+    border-width: 0.15rem;
+    font-size: 1rem;
+    max-width: 20vw;
+    padding: 3%;
+}
+
+.Links{
+    margin-top: 2vh;
+}

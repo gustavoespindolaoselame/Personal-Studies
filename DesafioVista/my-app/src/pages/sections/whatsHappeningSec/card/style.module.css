@@ -1,8 +1,28 @@
 .card{
     display: flex;
-    flex-direction: row;
-    background-color: gray;
+    flex-direction: column;
+    background-color: rgb(172, 172, 172);
     height: 40vh;
     width: 25vw;
     margin: 0.5vw;
+    padding: 1vw;
+}
+
+.bottomSection{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bottomSection h2{
+    margin-bottom: 1vh;
+}
+
+.bottomSection a{
+    width: fit-content;
+}
+
+.bottomSection a:hover{
+    background-color: gray;
 }

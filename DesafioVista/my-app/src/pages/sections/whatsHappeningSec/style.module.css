@@ -15,10 +15,15 @@
     display: flex;
 }
 
+.buttonFunction{
+    max-width: 60vw;
+}
+
 .bottonButtons{
     width: 2rem;
     height: 0.3rem;
-    margin: 1rem;
+    margin: 0.2vw;
+    margin-top: 1vw;
     border: 0;
     cursor: pointer;
 }
