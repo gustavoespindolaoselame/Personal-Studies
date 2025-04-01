@@ -15,7 +15,7 @@ export default function(){
                 <p className={style.paragraph}>
                 At Lakewood, we believe your best days are still out in front of you. Whether you are joining us in person or online, we invite you to experience our services and be a part of the Lakewood family. The Bible says when you are planted in the house of the Lord, you will flourish. Get ready to step into a new level of your destiny!
                 </p>
-                <div>
+                <div className={style.buttons}>
                     <Link className={style.button} href='./lakewood-experience'>
                             Welcome to Lakewood
                     </Link>

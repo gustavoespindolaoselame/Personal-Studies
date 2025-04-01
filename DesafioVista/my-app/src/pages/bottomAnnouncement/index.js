@@ -2,7 +2,17 @@ import { useEffect, useState } from 'react'
 import Style from './style.module.css'
 
 export default function(){
-    const [date, setDate] = useState([])
+    const [date, setDate] = useState([]);
+
+    const [visible, setVisible] = useState(true);
+
+    useEffect(() => {
+        if(window.scrollY > window.innerHeight * 6){
+            setVisible(false)
+        } else {
+            setVisible(true)
+        }
+    }, date)
 
     useEffect(()=>{
         setInterval(() => {
@@ -12,7 +22,9 @@ export default function(){
     }, [])
 
     return (
-        <div className={Style.announcement}>
+        <div className={Style.announcement} style={{
+            visibility:`${visible?'visible':'hidden'}`
+        }}>
             <span>
             Next Live Service Begins in: {739082-date[0]*365+date[1]*30+date[2]} days, {24 - date[3]} hours, {60 - date[4]} mins, {60 - date[5]} secs
             </span>

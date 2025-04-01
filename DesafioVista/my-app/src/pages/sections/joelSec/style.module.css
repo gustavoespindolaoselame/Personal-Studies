@@ -6,7 +6,12 @@
     min-height: 75vw;
 }
 
-.imgs{
+.img img{
+    width: 30vw;
+}
+.buttons{
+    width: 100vw;
+    flex-wrap: nowrap;
 }
 
 .text{
