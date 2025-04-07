@@ -5,7 +5,7 @@ const app = express();
 const cors = require('cors');
 const port = 3007;
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'http://localhost:8080' }));
 
 app.get('/song', (req, res) => {
 	if(req.query.id){
