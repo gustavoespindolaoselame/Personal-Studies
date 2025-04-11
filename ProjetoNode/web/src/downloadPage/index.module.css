@@ -1,0 +1,7 @@
+.downloadPage{
+    background-color: rgb(185, 185, 185);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 25vw;
+}

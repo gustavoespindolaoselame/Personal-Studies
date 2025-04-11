@@ -1,0 +1,29 @@
+.uploadPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 25vw;
+    height: 100vh;
+    color: white;
+}
+
+.uploadPage input{
+    margin: 1vw;
+    padding: 0.5vw 2vw;
+    text-align: center;
+}
+
+.dropZone{
+    cursor: grab;
+    width: 20vw;
+    height: 4vw;
+    color: white;
+    font-size: 0.8rem;
+    border-color: white;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

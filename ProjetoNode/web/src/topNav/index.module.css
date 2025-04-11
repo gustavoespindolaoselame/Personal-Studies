@@ -1,0 +1,13 @@
+.topNav{
+    background-color: green;
+    width: 100%;
+    min-height: 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topNav a{
+    width: 50%;
+    text-align: center;
+}
