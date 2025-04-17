@@ -3,5 +3,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 25vw;
+}
+
+.cardSpace{
+    display: grid;
+    border-style: solid;
+    width: 75vw;
+    grid-template-columns: repeat(auto-fit, minmax(24vw, 1fr));
+    gap: 1vw;
 }

@@ -40,15 +40,11 @@ function uploadPage(props) {
         formData.append("albumId", albumId || 0);
         formData.append("name", songName);
         formData.append("description", songDescription);
-    
         try {
-            console.log(formData)
-            const response = await fetch("http://localhost:5000/song", {
+            await fetch("http://localhost:5000/song", {
                 method: "POST",
                 body: formData
             });
-            const data = await response.json();
-            console.log(data);
         } catch (error) {
             console.error(error);
         }

@@ -1,29 +1,32 @@
-const express = require("express");
-const multer = require("multer");
-const upload = multer();
-const app = express();
 const connection = require('./conn')
 
 async function saveSong(buffer, artistId, albumId, name, description) {
+    console.log({
+        buffer:buffer,
+        artistId:artistId,
+        albumId:albumId,
+        name:name,
+        description:description
+    })
     try {
-        await connection.promise.execute(
+        connection.execute(
             "INSERT INTO songStreams (song) VALUES (?)",
             [buffer]
         );
 
-        await connection.promise.execute(
+        connection.execute(
             "INSERT INTO songDetails (artistId, albumId, name, descrip) VALUES (?, ?, ?, ?)",
             [artistId, albumId, name, description]
         );
     } catch (err) {
-        throw new Error("Erro ao salvar no banco: " + err.message);
+        throw(err)
     }
 }
 
-app.post("/song", upload.single("song"), (req, res) => {
-    const songBuffer = req.file.buffer;
+const uploadSong = {bySong: (req) => {
     const { artistId, albumId, name, description } = req.body;
-
+    const songBuffer = req.file.buffer;
     saveSong(songBuffer, artistId, albumId, name, description);
-    res.json({ success: true });
-});
+}};
+
+module.exports = uploadSong;

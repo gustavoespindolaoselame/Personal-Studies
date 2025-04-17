@@ -5,8 +5,10 @@ const app = express();
 const cors = require('cors');
 const port = 5000;
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() });
 
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 app.get('/song', (req, res) => {
 	if(req.query.id){
@@ -29,11 +31,9 @@ app.get('/song/size', (req, res) => {
 });
 
 
-app.post('/song', (req,res) => {
-	if(req.query.href){
-		uploadSong(req.query.href.replace(/^'|'$/g, ''), req.query.artistId, req.query.albumId, req.query.name.replace(/^'|'$/g, ''), req.query.description.replace(/^'|'$/g, ''));
-	}
-	res.send(req.query.href.replace(/^'|'$/g, ''));
+app.post('/song', upload.single("song"), (req,res) => {
+	uploadSong.bySong(req);
+	res.send("Post to /song Successfull");
 })
 
 app.listen(port, () => {
