@@ -1,27 +1,34 @@
 .uploadPage{
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    background-color: #2e2e2e;
+    width: 60vw;
+}
+
+.uploadPageIn{
+    display: flex;
+    margin-top: 5vh;
+    flex-direction: column;
     align-items: center;
-    background-color: black;
-    width: 25vw;
-    height: 100vh;
-    color: white;
+    width: 50vw;
+    color: #FBF5E5;
 }
 
 .uploadPage input{
     margin: 1vw;
     padding: 0.5vw 2vw;
+    width: 40vw;
     text-align: center;
 }
 
 .dropZone{
     cursor: grab;
-    width: 20vw;
+    width: 40vw;
     height: 4vw;
-    color: white;
+    color: #FBF5E5;
+    margin-bottom: 1vh;
     font-size: 0.8rem;
-    border-color: white;
+    border-color: #FBF5E5;
     border-style: solid;
     display: flex;
     justify-content: center;

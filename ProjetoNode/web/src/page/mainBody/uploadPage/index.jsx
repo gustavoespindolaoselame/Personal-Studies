@@ -52,21 +52,22 @@ function uploadPage(props) {
 
     return (
         <div className={style.uploadPage}>
-            Upload forms
-            <input value={artistId} onChange={e => {setArtistId(e.target.value)}} type='number' placeholder='Id Artista'/>
-            <input value={albumId} onChange={e => setAlbumId(e.target.value)} type='number' placeholder='Id Album'/>
-            <input value={songName} onChange={e => setSongName(e.target.value)} type='text' placeholder='Nome música'/>
-            <input value={songDescription} onChange={e => setSongDescription(e.target.value)} type='text' placeholder='Descrição música'/>
-
-            <div {...getRootProps()} className={style.dropZone}>
-                <input {...getInputProps()} />
-                {
-                    isDragActive ?
-                    <p>Drop the files here ...</p> :
-                    <p>Drag 'n' drop some files here, or click to select files</p>
-                }
+            <div className={style.uploadPageIn}>
+                Upload forms
+                <input value={artistId} onChange={e => {setArtistId(e.target.value)}} type='number' placeholder='Id Artista'/>
+                <input value={albumId} onChange={e => setAlbumId(e.target.value)} type='number' placeholder='Id Album'/>
+                <input value={songName} onChange={e => setSongName(e.target.value)} type='text' placeholder='Nome música'/>
+                <input value={songDescription} onChange={e => setSongDescription(e.target.value)} type='text' placeholder='Descrição música'/>
+                <div {...getRootProps()} className={style.dropZone}>
+                    <input {...getInputProps()} />
+                    {
+                        isDragActive ?
+                        <p>Drop the files here ...</p> :
+                        <p>Drag 'n' drop some files here, or click to select files</p>
+                    }
+                </div>
+                <button onClick={send}>Send Files</button>
             </div>
-            <button onClick={send}>Send Files</button>
         </div>
     );
 }

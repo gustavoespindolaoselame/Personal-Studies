@@ -1,5 +1,6 @@
 .topNav{
-    background-color: green;
+    background-color: #212121;
+    height: 6%;
     width: 100%;
     min-height: 2vw;
     display: flex;
@@ -8,6 +9,7 @@
 }
 
 .topNav a{
+    color: #FBF5E5;
     width: 50%;
     text-align: center;
 }

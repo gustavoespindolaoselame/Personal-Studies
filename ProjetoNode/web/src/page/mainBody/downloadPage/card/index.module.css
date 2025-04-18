@@ -3,15 +3,16 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	background-color: green;
+	background-color: #242833;
 	margin: 1vw;
-	min-height: 20vw;
+	height: 20vw;
 	padding: 2vw;
 	border-radius: 2vw;
 	max-width: 24vw;
 }
 
 .description{
+	color: #FBF5E5;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
