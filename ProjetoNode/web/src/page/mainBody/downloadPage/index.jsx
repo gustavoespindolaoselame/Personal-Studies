@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 function downloadPage(props) {
 
-    const [numCards, setNumCards] = useState(0);
+    const [numCards, setNumCards] = useState(1);
     const [cardList, setCardList] = useState([]);
 
 
@@ -13,7 +13,9 @@ function downloadPage(props) {
             async function fetchNumSongs() {
                 try{
                     const response = await fetch(`http://localhost:5000/song/size`);
-                    setNumCards(await response.json());
+                    if(response!==0){
+                        setNumCards(await response.json());
+                    }
                 } catch (error){
                     console.log(error);
                 }

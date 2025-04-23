@@ -1,23 +1,22 @@
 const connection = require('./conn')
 
-async function saveSong(buffer, artistId, albumId, name, description) {
-    console.log({
-        buffer:buffer,
-        artistId:artistId,
-        albumId:albumId,
-        name:name,
-        description:description
-    })
+async function saveSong(songFile, artFile, artistId, albumId, name, description) {
     try {
-        connection.execute(
+        await connection.promise().execute(
             "INSERT INTO songStreams (song) VALUES (?)",
-            [buffer]
+            [songFile]
         );
 
-        connection.execute(
+        await connection.promise().execute(
+            "INSERT INTO songArts (art) VALUES (?)",
+            [artFile]
+        );
+
+        await connection.promise().execute(
             "INSERT INTO songDetails (artistId, albumId, name, descrip) VALUES (?, ?, ?, ?)",
             [artistId, albumId, name, description]
         );
+        console.log('Song Saving was Successful!!!!!!')
     } catch (err) {
         throw(err)
     }
@@ -25,8 +24,9 @@ async function saveSong(buffer, artistId, albumId, name, description) {
 
 const uploadSong = {bySong: (req) => {
     const { artistId, albumId, name, description } = req.body;
-    const songBuffer = req.file.buffer;
-    saveSong(songBuffer, artistId, albumId, name, description);
+    const songFile = req.files['song']?.[0];
+    const artFile = req.files['songArt']?.[0];
+    saveSong(songFile.buffer, artFile.buffer, artistId, albumId, name, description);
 }};
 
 module.exports = uploadSong;

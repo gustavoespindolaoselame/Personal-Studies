@@ -1,8 +1,10 @@
 .mainPage{
     display: flex;
     flex-direction: column;
-    background-color: gray;
+    background-color: green;
+    min-height: 100vh;
     min-width: 100vw;
     align-items: center;
-    height: 100vh;
+    margin: 0;
 }
+

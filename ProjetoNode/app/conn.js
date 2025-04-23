@@ -5,23 +5,23 @@ const dbConfig = {
   host: 'db',      // your MySQL host
   user: 'root',  // your MySQL username
   password: '745231968', // your MySQL password
-  database: 'nodeprojeto'  // your database name
+  database: 'nodeprojeto',
+  multipleStatements: true  // your database name
 };
 
-function connectWithRetry() {
-  const connection = mysql.createConnection(dbConfig);
+const connection = () =>{
+  let returnConnection = mysql.createConnection(dbConfig);
 
-  connection.connect(err => {
+  returnConnection.connect(err => {
     if (err) {
-      console.error("DB connection failed, retrying in 3 seconds...", err.message);
-      setTimeout(connectWithRetry, 3000); // Retry after 3 seconds
+      console.error("DB connection failed, retrying in 1 seconds...", err.message);
+      setTimeout(connection, 1000);
     } else {
       console.log("Connected to DB!");
-      // do your setup here
     }
   });
 
-  module.exports = connection;
+  return returnConnection;
 }
 
-connectWithRetry();
+module.exports = connection();

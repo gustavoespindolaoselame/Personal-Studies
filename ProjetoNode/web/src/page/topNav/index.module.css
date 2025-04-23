@@ -1,15 +1,27 @@
 .topNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #212121;
-    height: 6%;
     width: 100%;
-    min-height: 2vw;
+    height: 3.5vw;
+}
+
+.topNavContainer{
+    width: 88%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.topNav a{
-    color: #FBF5E5;
-    width: 50%;
+.topNavContainer a{
+    text-decoration: none;
+    color: #131313;
+    font-size: larger;
+    font-weight: 700;
+    background-color: #fff;
+    width: 12%;
+    padding: 0.8vw;
     text-align: center;
+    border-radius: 1vw;
 }

@@ -1,5 +1,8 @@
 .mainBody{
     display: flex;
-    height: 100%;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 96.5vh;
+    width: 100%;
+    background-color: gray;
 }

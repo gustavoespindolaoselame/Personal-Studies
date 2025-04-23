@@ -4,7 +4,9 @@ import style from './index.module.css';
 function topNav(props) {
     return (
         <div className={style.topNav}>
-            {props.children}
+            <div className={style.topNavContainer}>
+                {props.children}
+            </div>
         </div>
     );
 }

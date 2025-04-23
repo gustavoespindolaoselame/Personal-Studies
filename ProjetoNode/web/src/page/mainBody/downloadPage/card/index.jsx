@@ -1,6 +1,7 @@
 import Playback from './playback';
 import style from './index.module.css';
 import React, { useEffect, useState } from 'react';
+import ImageComponent from './imgComponent';
 
 function Card(props) {
     const [descriptionFetch, setDescriptionFetch] = useState({});
@@ -22,11 +23,14 @@ function Card(props) {
 
     return (
         <div className={style.Card}>
-            <div className={style.description ? style.description : 'Undefined'}>
-                <h2>{descriptionFetch ? descriptionFetch.name : 'Undefined'}</h2>
-                <p>{descriptionFetch ? descriptionFetch.descrip : 'Undefined'}</p>
+            <div className={style.topSection}>
+                <h2>{descriptionFetch ? descriptionFetch.name || 'Undefined Title' : 'Undefined Title'}</h2>
+                <ImageComponent id={props.id}/>
             </div>
-            <Playback id={props.id}/>
+            <div className={style.botSection}>
+                <p>{descriptionFetch ? descriptionFetch.descrip || 'Undefined Description' : 'Undefined Description'}</p>
+                <Playback id={props.id}/>
+            </div>
         </div>
     );
 }

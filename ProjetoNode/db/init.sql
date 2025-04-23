@@ -1,3 +1,7 @@
+-- DROP TABLE `songDetails`;
+-- DROP TABLE `songStreams`;
+-- DROP TABLE `songArts`;
+
 CREATE TABLE IF NOT EXISTS `songDetails` (
   `id` int NOT NULL AUTO_INCREMENT,
   `artistId` int NOT NULL,
@@ -10,5 +14,11 @@ CREATE TABLE IF NOT EXISTS `songDetails` (
 CREATE TABLE IF NOT EXISTS `songStreams` (
   `id` int NOT NULL AUTO_INCREMENT,
   `song` longblob NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `songArts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `art` longblob NOT NULL,
   PRIMARY KEY (`id`)
 );
