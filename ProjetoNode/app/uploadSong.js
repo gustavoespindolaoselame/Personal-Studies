@@ -12,11 +12,23 @@ async function saveSong(songFile, artFile, artistId, albumId, name, description)
             [artFile]
         );
 
-        await connection.promise().execute(
-            "INSERT INTO songDetails (artistId, albumId, name, descrip) VALUES (?, ?, ?, ?)",
-            [artistId, albumId, name, description]
+        const [songResult] = await connection.promise().execute(
+            "INSERT INTO song (name, descrip) VALUES (?, ?)",
+            [name, description]
         );
-        console.log('Song Saving was Successful!!!!!!')
+        const songId = songResult.insertId;
+
+        await connection.promise().execute(
+            "INSERT INTO artistSongRelationship (artistId, songId) VALUES (?, ?)",
+            [artistId, songId]
+        );
+
+        await connection.promise().execute(
+            "INSERT INTO albumSongRelationship (albumId, songId) VALUES (?, ?)",
+            [albumId, songId]
+        );
+
+        console.log('✅ Song saving was successful!');
     } catch (err) {
         throw(err)
     }

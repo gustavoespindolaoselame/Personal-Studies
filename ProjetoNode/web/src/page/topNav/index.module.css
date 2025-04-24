@@ -8,7 +8,7 @@
 }
 
 .topNavContainer{
-    width: 88%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,12 +16,23 @@
 
 .topNavContainer a{
     text-decoration: none;
-    color: #131313;
     font-size: larger;
     font-weight: 700;
-    background-color: #fff;
     width: 12%;
     padding: 0.8vw;
     text-align: center;
     border-radius: 1vw;
+    background-color: #ececec;
+    color: #252525;
+    cursor: pointer;
+}
+
+a:hover{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+a:active{
+    background-color: #ffffff;
+    color: #e0e0e0;
 }

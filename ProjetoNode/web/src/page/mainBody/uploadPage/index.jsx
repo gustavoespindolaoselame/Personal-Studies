@@ -11,37 +11,32 @@ function uploadPage() {
     const [songDescription, setSongDescription] = useState();
     const [songBinary, setSongBinary] = useState();
     const [artBinary, setArtBinary] = useState();
+    const [songFileName, setSongFileName] = useState('Arraste a música ou clique aqui');
+    const [artFileName, setArtFileName] = useState('Arraste a imagem de capa ou clique aqui');
 
 
     const onSongDrop = useCallback(acceptedFiles => {
         const file = acceptedFiles[0];
+        setSongFileName(file.name);
         const reader = new FileReader();
     
         reader.onload = () => {
             const arrayBuffer = reader.result;
-            setSongBinary(arrayBuffer); // agora sim!
+            setSongBinary(arrayBuffer);
             console.log("Arquivo carregado com sucesso!");
         };
-    
-        reader.onerror = () => console.log('Erro ao ler o arquivo');
-        reader.onabort = () => console.log('Leitura do arquivo abortada');
-    
-        reader.readAsArrayBuffer(file); // deve ser chamado aqui!
+        reader.readAsArrayBuffer(file);
     }, []);
 
     const onArtDrop = useCallback(acceptedFiles => {
         const file = acceptedFiles[0];
+        setArtFileName(file.name);
         const reader = new FileReader();
-    
         reader.onload = () => {
             const arrayBuffer = reader.result;
             setArtBinary(arrayBuffer);
             console.log("Imagem carregada com sucesso!");
         };
-    
-        reader.onerror = () => console.log('Erro ao ler a imagem');
-        reader.onabort = () => console.log('Leitura da imagem abortada');
-    
         reader.readAsArrayBuffer(file);
     }, []);
 
@@ -59,20 +54,22 @@ function uploadPage() {
 
     
     const send = async () => {
-        const formData = new FormData();
-        formData.append("song", new Blob([songBinary], { type: "audio/mpeg" }));
-        formData.append("songArt", new Blob([artBinary], { type: "image/jpeg" }));
-        formData.append("artistId", artistId || 0);
-        formData.append("albumId", albumId || 0);
-        formData.append("name", songName);
-        formData.append("description", songDescription);
-        try {
-            await fetch("http://localhost:5000/song", {
-                method: "POST",
-                body: formData
-            });
-        } catch (error) {
-            console.error(error);
+            if(songBinary, artBinary, artistId, albumId, songName, songDescription){
+            const formData = new FormData();
+            formData.append("song", new Blob([songBinary], { type: "audio/mpeg" }));
+            formData.append("songArt", new Blob([artBinary], { type: "image/jpeg" }));
+            formData.append("artistId", artistId || 0);
+            formData.append("albumId", albumId || 0);
+            formData.append("name", songName);
+            formData.append("description", songDescription);
+            try {
+                await fetch("http://localhost:5000/song", {
+                    method: "POST",
+                    body: formData
+                });
+            } catch (error) {
+                console.error(error);
+            }
         }
     }
 
@@ -86,11 +83,11 @@ function uploadPage() {
                 <input value={songDescription} onChange={e => setSongDescription(e.target.value)} type='text' placeholder='Descrição música'/>
                 <div {...getSongRootProps()} className={style.dropZone}>
                     <input {...getSongInputProps()} />
-                    {isSongDragActive ? <p>Solte a música aqui...</p> : <p>Arraste a música ou clique aqui</p>}
+                    {isSongDragActive ? <p>Solte a música aqui...</p> : <p>{songFileName}</p>}
                 </div>
                 <div {...getArtRootProps()} className={style.dropZone}>
                     <input {...getArtInputProps()} />
-                    {isArtDragActive ? <p>Solte a imagem aqui...</p> : <p>Arraste a imagem de capa ou clique aqui</p>}
+                    {isArtDragActive ? <p>Solte a imagem aqui...</p> : <p>{artFileName}</p>}
                 </div>
                 <button onClick={send}>Send Files</button>
             </div>

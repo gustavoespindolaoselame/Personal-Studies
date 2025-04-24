@@ -19,3 +19,19 @@ html, body {
 #root::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
+
+.button{
+  background-color: #ececec;
+  color: #252525;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+button:active{
+  background-color: #ffffff;
+  color: #e0e0e0;
+}
