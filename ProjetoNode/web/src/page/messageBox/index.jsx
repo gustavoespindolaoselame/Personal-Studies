@@ -1,26 +1,36 @@
-// FlashContext.js
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
+import style from './index.module.css';
 
-const FlashContext = createContext();
+export const ErrMsg = createContext();
 
-export function FlashProvider({ children }) {
-    const [isOn, setIsOn] = useState(false);
+export function ErrMsgComponent(){
+    const { errMsg, errMsgText } = useContext(ErrMsg);
+    return (
+        <div className={errMsg ? style.isOn : style.isOff}>
+            {errMsgText}
+        </div>
+    )
+}
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIsOn(true);
-            setTimeout(() => setIsOn(false), 500);
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
+export function useFlashErrMsg(text) {
+    const { setErrMsgText, setErrMsg } = useContext(ErrMsg);
+    function flash() {
+        setErrMsgText(text)
+        setErrMsg(true);
+        setTimeout(() => {
+            setErrMsg(false);
+        }, 1500);
+    }
+    return flash;
+}
+
+export default function(props){
+    const [errMsg, setErrMsg] = useState(false);
+    const [errMsgText, setErrMsgText] = useState('Default Error Message Text');
 
     return (
-        <FlashContext.Provider value={{ isOn }}>
-        {children}
-        </FlashContext.Provider>
+        <ErrMsg.Provider value={{errMsg, setErrMsg, errMsgText, setErrMsgText}}>
+            {props.children}
+        </ErrMsg.Provider>
     );
-}
-
-export function useFlash() {
-    return useContext(FlashContext);    
-}
+};

@@ -12,7 +12,8 @@ import MessageBox from './page/messageBox'
 
 
 createRoot(document.getElementById('root')).render(
-	<Router>
+  <MessageBox>
+    <Router>
       <Page>
 			<TopNav>
         <a href="/download">SONGS</a>
@@ -20,7 +21,6 @@ createRoot(document.getElementById('root')).render(
         <a href="/upload">UPLOAD</a>
         <a href="/developer">DEV</a>
       </TopNav>
-      <MessageBox>Olá</MessageBox>
       <Routes>
         <Route path="/upload" element={<MainBody><UploadPage/></MainBody>} />
         <Route path="/download" element={<MainBody><DownloadPage/></MainBody>} />
@@ -29,4 +29,5 @@ createRoot(document.getElementById('root')).render(
       </Routes>
       </Page>
     </Router>
+  </MessageBox>
 )

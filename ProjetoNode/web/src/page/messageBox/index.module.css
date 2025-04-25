@@ -1,9 +1,28 @@
-.messageBox{
+.isOn{
+    text-align: center;
     position: fixed;
     top: 80%;
-    left: 50%;
-    height: 20%;
+    left: 25%;
+    height: fit-content;
+    padding: 1vw;
+    border-radius: 1vw;
     width: 50%;
     background-color: white;
     color: black;
+    display: block;
+}
+
+.isOff{
+    text-align: center;
+    position: fixed;
+    top: 80%;
+    left: 25%;
+    height: fit-content;
+    padding: 1vw;
+    border-radius: 1vw;
+    width: 50%;
+    /* background-color: white; */
+    color: black;
+    background-color: blue;
+    display: none;
 }

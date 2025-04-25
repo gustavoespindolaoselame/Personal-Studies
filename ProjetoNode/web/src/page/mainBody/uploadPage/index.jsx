@@ -2,6 +2,7 @@ import { useState } from 'react';
 import style from './index.module.css';
 import {useDropzone} from 'react-dropzone'
 import { useCallback } from 'react';
+import { useFlashErrMsg } from '../../messageBox'
 
 function uploadPage() {
 
@@ -52,9 +53,12 @@ function uploadPage() {
         isDragActive: isArtDragActive
     } = useDropzone({ onDrop: onArtDrop, multiple: false });
 
-    
+    const flashErrMsg = useFlashErrMsg(' Failed to send files. ');
+
+    const sendable = songBinary&&artBinary&&artistId&&albumId&&songName&&songDescription;
+
     const send = async () => {
-            if(songBinary, artBinary, artistId, albumId, songName, songDescription){
+            if(sendable){
             const formData = new FormData();
             formData.append("song", new Blob([songBinary], { type: "audio/mpeg" }));
             formData.append("songArt", new Blob([artBinary], { type: "image/jpeg" }));
@@ -73,6 +77,7 @@ function uploadPage() {
         }
     }
 
+
     return (
         <div className={style.uploadPage}>
             <div className={style.uploadPageIn}>
@@ -89,7 +94,7 @@ function uploadPage() {
                     <input {...getArtInputProps()} />
                     {isArtDragActive ? <p>Solte a imagem aqui...</p> : <p>{artFileName}</p>}
                 </div>
-                <button onClick={send}>Send Files</button>
+                <button onClick={sendable ? send : flashErrMsg}>Send Files</button>
             </div>
         </div>
     );
