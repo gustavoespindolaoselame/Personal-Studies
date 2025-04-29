@@ -1,0 +1,16 @@
+input{
+    margin: 1vw;
+    padding: 0.5vw 2vw;
+    width: 40vw;
+    text-align: center;
+}
+
+.backSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5vw;
+}
