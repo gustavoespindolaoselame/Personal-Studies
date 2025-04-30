@@ -1,4 +1,4 @@
-import style from './index.module.css';
+import style from './valueInput.module.css';
 
 function ValueInput(props) {
     const [inputValue, setInputValue] = props.state;

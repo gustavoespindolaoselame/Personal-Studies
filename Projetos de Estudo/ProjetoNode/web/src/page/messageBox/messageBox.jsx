@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import style from './index.module.css';
+import style from './messageBox.module.css';
 
 export const ErrMsg = createContext();
 

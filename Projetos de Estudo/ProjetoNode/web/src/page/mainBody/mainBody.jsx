@@ -1,4 +1,4 @@
-import style from './index.module.css';
+import style from './mainBody.module.css';
 
 function mainBody(props) {
     return (

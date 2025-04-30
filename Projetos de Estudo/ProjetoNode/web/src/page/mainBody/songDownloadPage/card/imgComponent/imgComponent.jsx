@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import style from './index.module.css';
+import style from './imgComponent.module.css';
 
 function ImageComponent({ id }) {
 const [imageUrl, setImageUrl] = useState(null);

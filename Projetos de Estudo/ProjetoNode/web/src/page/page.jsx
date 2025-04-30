@@ -1,5 +1,5 @@
-import style from './index.module.css';
-import {ErrMsgComponent} from './messageBox'
+import style from './page.module.css';
+import {ErrMsgComponent} from './messageBox/messageBox'
 
 function mainPage(props) {
     return (

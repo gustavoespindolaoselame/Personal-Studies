@@ -1,4 +1,4 @@
-import style from './index.module.css';
+import style from './topNav.module.css';
 
 
 function topNav(props) {

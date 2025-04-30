@@ -1,7 +1,7 @@
-import Playback from './playback';
-import style from './index.module.css';
+import Playback from './playback/playback';
+import style from './card.module.css';
 import React, { useEffect, useState } from 'react';
-import ImageComponent from './imgComponent';
+import ImageComponent from './imgComponent/imgComponent';
 
 function Card(props) {
     const [descriptionFetch, setDescriptionFetch] = useState({});

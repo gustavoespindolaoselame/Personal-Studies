@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/gustavo/Documents/GitHub/Personal-Studies/SENAC - PTI POO/WebApplication1/WebApplication1.csproj": {}
+    "/home/gustavo/Documents/GitHub/Personal-Studies/Projetos de Estudo/SENAC - PTI POO/WebApplication1/WebApplication1.csproj": {}
   },
   "projects": {
-    "/home/gustavo/Documents/GitHub/Personal-Studies/SENAC - PTI POO/WebApplication1/WebApplication1.csproj": {
+    "/home/gustavo/Documents/GitHub/Personal-Studies/Projetos de Estudo/SENAC - PTI POO/WebApplication1/WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gustavo/Documents/GitHub/Personal-Studies/SENAC - PTI POO/WebApplication1/WebApplication1.csproj",
+        "projectUniqueName": "/home/gustavo/Documents/GitHub/Personal-Studies/Projetos de Estudo/SENAC - PTI POO/WebApplication1/WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "/home/gustavo/Documents/GitHub/Personal-Studies/SENAC - PTI POO/WebApplication1/WebApplication1.csproj",
+        "projectPath": "/home/gustavo/Documents/GitHub/Personal-Studies/Projetos de Estudo/SENAC - PTI POO/WebApplication1/WebApplication1.csproj",
         "packagesPath": "/home/gustavo/.nuget/packages/",
-        "outputPath": "/home/gustavo/Documents/GitHub/Personal-Studies/SENAC - PTI POO/WebApplication1/obj/",
+        "outputPath": "/home/gustavo/Documents/GitHub/Personal-Studies/Projetos de Estudo/SENAC - PTI POO/WebApplication1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/gustavo/.nuget/NuGet/NuGet.Config"

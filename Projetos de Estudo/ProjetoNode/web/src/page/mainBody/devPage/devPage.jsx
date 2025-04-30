@@ -1,4 +1,4 @@
-import style from './index.module.css';
+import style from './devPage.module.css';
 
 
 const devPage = (props) => {

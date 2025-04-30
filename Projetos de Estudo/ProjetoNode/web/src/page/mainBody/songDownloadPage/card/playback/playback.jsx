@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import style from './index.module.css';
+import style from './playback.module.css';
 
 function Playback({ id }) {
 

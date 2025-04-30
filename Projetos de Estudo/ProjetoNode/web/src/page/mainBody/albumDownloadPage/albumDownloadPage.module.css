@@ -1,0 +1,8 @@
+.AlbumDownloadPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2e2e2e;
+    width: 60vw;
+    height: 96.5vh;
+}

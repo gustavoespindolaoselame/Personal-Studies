@@ -1,6 +1,6 @@
 const connection = require('./conn')
 
-async function saveSong(songFile, artFile, artistId, albumId, name, description) {
+async function saveSong(songFile, artFile, artistId = [], albumId, name, description) {
     try {
         await connection.promise().execute(
             "INSERT INTO songStreams (song) VALUES (?)",
@@ -16,17 +16,24 @@ async function saveSong(songFile, artFile, artistId, albumId, name, description)
             "INSERT INTO song (name, descrip) VALUES (?, ?)",
             [name, description]
         );
+
         const songId = songResult.insertId;
+        const artistIds = Array.isArray(artistId) ? artistId : artistId.split(',');
+        const albumIds = Array.isArray(albumId) ? albumId : albumId.split(',');
 
-        await connection.promise().execute(
-            "INSERT INTO artistSongRelationship (artistId, songId) VALUES (?, ?)",
-            [artistId, songId]
-        );
-
-        await connection.promise().execute(
-            "INSERT INTO albumSongRelationship (albumId, songId) VALUES (?, ?)",
-            [albumId, songId]
-        );
+        artistIds.forEach(id => {
+            connection.promise().execute(
+                "INSERT INTO artistSongRelationship (artistId, songId) VALUES (?, ?)",
+                [id, songId]
+            );
+        });
+        
+        albumIds.forEach(id => {
+            connection.promise().execute(
+                "INSERT INTO albumSongRelationship (albumId, songId) VALUES (?, ?)",
+                [id, songId]
+            );
+        });
 
         console.log('✅ Song saving was successful!');
     } catch (err) {

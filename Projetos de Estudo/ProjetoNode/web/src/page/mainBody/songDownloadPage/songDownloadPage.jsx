@@ -1,7 +1,7 @@
-import style from './index.module.css';
-import Card from './card'
+import style from './songDownloadPage.module.css';
+import Card from './card/card'
 import { useEffect, useState } from 'react';
-import { useFlashErrMsg } from '../../messageBox'
+import { useFlashErrMsg } from '../../messageBox/messageBox'
 
 function downloadPage(props) {
 

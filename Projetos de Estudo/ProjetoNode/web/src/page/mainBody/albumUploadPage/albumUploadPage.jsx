@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import style from './index.module.css';
-import ValueInput from '../../../elements/valueInput'
+import style from './albumUploadPage.module.css';
+import ValueInput from '../../../elements/valueInput/valueInput'
 
 function AlbumUploadPage() {
     const [artistId, setArtistId] = useState([undefined]);

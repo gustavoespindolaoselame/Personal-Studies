@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import style from './index.module.css';
+import style from './songUploadPage.module.css';
 import {useDropzone} from 'react-dropzone'
 import { useCallback } from 'react';
-import { useFlashErrMsg } from '../../messageBox'
+import { useFlashErrMsg } from '../../messageBox/messageBox'
+import ValueInput from '../../../elements/valueInput/valueInput';
 
 function uploadPage() {
 
-    const [artistId, setArtistId] = useState();
-    const [albumId, setAlbumId] = useState();
+    const [artistId, setArtistId] = useState([undefined]);
+    const [albumId, setAlbumId] = useState([undefined]);
     const [songName, setSongName] = useState();
     const [songDescription, setSongDescription] = useState();
     const [songBinary, setSongBinary] = useState();
@@ -62,8 +63,8 @@ function uploadPage() {
             const formData = new FormData();
             formData.append("song", new Blob([songBinary], { type: "audio/mpeg" }));
             formData.append("songArt", new Blob([artBinary], { type: "image/jpeg" }));
-            formData.append("artistId", artistId || 0);
-            formData.append("albumId", albumId || 0);
+            formData.append("artistId", artistId.filter(item => item !== undefined) || []);
+            formData.append("albumId", albumId.filter(item => item !== undefined) || []);
             formData.append("name", songName);
             formData.append("description", songDescription);
             try {
@@ -72,6 +73,7 @@ function uploadPage() {
                     body: formData
                 });
             } catch (error) {
+                flashErrMsg('Failed to Connect to Server');
                 console.error(error);
             }
         }
@@ -82,10 +84,11 @@ function uploadPage() {
         <div className={style.uploadPage}>
             <div className={style.uploadPageIn}>
                 Upload forms
-                <input value={artistId} onChange={e => {setArtistId(e.target.value)}} type='number' placeholder='Id Artista'/>
-                <input value={albumId} onChange={e => setAlbumId(e.target.value)} type='number' placeholder='Id Album'/>
+
                 <input value={songName} onChange={e => setSongName(e.target.value)} type='text' placeholder='Nome música'/>
                 <input value={songDescription} onChange={e => setSongDescription(e.target.value)} type='text' placeholder='Descrição música'/>
+                <ValueInput title='Artist Id Type' type='number' state={[artistId, setArtistId]} />
+                <ValueInput title='Album Id Type' type='number' state={[albumId, setAlbumId]} />
                 <div {...getSongRootProps()} className={style.dropZone}>
                     <input {...getSongInputProps()} />
                     {isSongDragActive ? <p>Solte a música aqui...</p> : <p>{songFileName}</p>}
