@@ -1,8 +1,16 @@
-input{
-    margin: 1vw;
-    padding: 0.5vw 2vw;
+.inputButtonBox input{
     width: 40vw;
+    height: 2vw;
     text-align: center;
+    margin: 0;
+    margin-right: 0.2vw;
+}
+
+.inputButtonBox button{
+    width: 2vw;
+    height: 2vw;
+    margin: 0;
+    margin-left: 0.8vw;
 }
 
 .backSection{
@@ -13,4 +21,12 @@ input{
     margin: 0.5vw;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 0.5vw;
+}
+
+.inputButtonBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1vw;
 }

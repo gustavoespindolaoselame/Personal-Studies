@@ -6,3 +6,25 @@
     width: 60vw;
     height: 96.5vh;
 }
+
+input{
+    width: 40vw;
+    height: 2vw;
+    margin: 1vh;
+    margin-bottom: 3vh;
+    text-align: center;
+}
+
+.dropZone{
+    cursor: grab;
+    width: 40vw;
+    height: 4vw;
+    color: #FBF5E5;
+    margin-bottom: 1vh;
+    font-size: 0.8rem;
+    border-color: #FBF5E5;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

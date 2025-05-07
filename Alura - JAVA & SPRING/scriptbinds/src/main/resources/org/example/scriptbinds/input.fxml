@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.scriptbinds.components.InputController" spacing="10" alignment="CENTER" prefWidth="300" prefHeight="200">
-    <TextField fx:id="hotkeyField" promptText="Enter your name" />
     <TextField fx:id="scriptField" promptText="Enter your name" />
+    <Button text="observe key" onAction="#observeButton" />
     <Button text="Submit" onAction="#handleSubmit" />
 </VBox>

@@ -14,7 +14,7 @@ function downloadPage(props) {
         () => {
             async function fetchNumSongs() {
                 try{
-                    const response = await fetch(`http://localhost:5000/song/size`);
+                    const response = await fetch(`${import.meta.env.VITE_API_URL}/song/size`);
                     if(response!==0){
                         setNumCards(await response.json());
                     } else {
@@ -33,7 +33,7 @@ function downloadPage(props) {
         if(numCards>0){
             const newCardList = [];
         for (let i = 1; i < numCards+1; i++) {
-            newCardList.push(<Card id={i} />);
+            newCardList.push(<Card id={i} key={i}/>);
         }
         setCardList(newCardList);
         }

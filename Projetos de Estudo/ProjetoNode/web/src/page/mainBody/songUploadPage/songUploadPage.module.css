@@ -6,6 +6,10 @@
     height: 96.5vh;
 }
 
+.uploadPage h1{
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .uploadPageIn{
     display: flex;
     margin-top: 5vh;

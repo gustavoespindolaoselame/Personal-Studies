@@ -7,12 +7,15 @@ services:
       context: ./web
       dockerfile: dockerfile
     volumes:
-      - ./web/src:/app/src
-      - ./web/public:/app/public
+    - ./web:/app
+      # - ./web/src:/app/src
+      # - ./web/public:/app/public
     ports:
       - "5173:3000"
     networks:
       - web
+    env_file:
+      - .env
   app:
     build: ./app
     volumes:
@@ -24,13 +27,14 @@ services:
       - db
     depends_on:
       - db
+    env_file:
+      - .env
   db:
     image: mysql:8
     restart: always
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-    environment:
-      MYSQL_ROOT_PASSWORD: 745231968
-      MYSQL_DATABASE: nodeprojeto
+    env_file:
+      - .env
     networks:
       - db

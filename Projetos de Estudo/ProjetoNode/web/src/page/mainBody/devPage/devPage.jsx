@@ -4,7 +4,7 @@ import style from './devPage.module.css';
 const devPage = (props) => {
     async function dropDB(){
         try {
-            const reset = await fetch("http://localhost:5000/reset", {
+            const reset = await fetch(`${import.meta.env.VITE_API_URL}/reset`, {
                 method: "GET"
             });
             console.log(await reset.json());
@@ -15,7 +15,7 @@ const devPage = (props) => {
 
     async function logDB(){
         try {
-            const log = await fetch("http://localhost:5000/tables", {
+            const log = await fetch(`${import.meta.env.VITE_API_URL}/tables`, {
                 method: "GET"
             });
             console.log(await log.json());

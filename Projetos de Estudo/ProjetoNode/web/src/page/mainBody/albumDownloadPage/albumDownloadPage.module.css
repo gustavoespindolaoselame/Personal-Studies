@@ -1,8 +1,17 @@
 .AlbumDownloadPage{
+    background-color: #2e2e2e;
+    padding-left: 3vw;
+    padding-right: 3vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #2e2e2e;
-    width: 60vw;
-    height: 96.5vh;
+    padding-bottom: 50vh;
+}
+
+.cardSpace{
+    display: grid;
+    width: 75vw;
+    grid-template-columns: repeat(auto-fit, minmax(24vw, 1fr));
+    gap: 1vw;
+    max-height: 80vh;
 }

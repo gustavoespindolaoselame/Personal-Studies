@@ -35,6 +35,12 @@ CREATE TABLE IF NOT EXISTS `songArts` (
   PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `albumArts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `art` longblob NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
 CREATE TABLE IF NOT EXISTS `albumSongRelationship` (
   `albumId` INT,
   `songId` INT,

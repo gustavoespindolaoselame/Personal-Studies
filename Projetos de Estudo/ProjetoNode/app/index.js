@@ -1,22 +1,18 @@
-const uploadSong = require('./uploadSong');
-const downloadSong = require('./downloadSong');
+const uploads = require('./uploads');
+const downloads = require('./downloads');
 const express = require('express');
 const app = express();
 const cors = require('cors');
 const port = 5000;
 
 const multer = require("multer");
-const upload = multer({ storage: multer.memoryStorage() });
+const memStorage = multer({ storage: multer.memoryStorage() });
 
-const fs = require('fs');
-const path = require('path');
-
-
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'http://localhost:'+ process.env.WEB_PORT }));
 
 app.get('/song', async (req, res) => {
 	if(req.query.id){
-		await downloadSong.songByID(req.query.id).then(result => {
+		await downloads.songByID(req.query.id).then(result => {
 			res.setHeader('Content-Type', 'audio/mpeg');
 			res.send(result);
 	});
@@ -27,35 +23,59 @@ app.get('/song', async (req, res) => {
 
 app.get('/song/details', (req, res) => {
 	if(req.query.id){
-		downloadSong.detailsByID(req.query.id).then(result => res.send(result));
+		downloads.songDetailsByID(req.query.id).then(result => res.send(result));
 	} else {
-		downloadSong.detailsByAny().then(result => res.send(result));
+		downloads.songDetailsByAny().then(result => res.send(result));
 	}
 });
 
 app.get('/song/arts', (req, res) => {
 	if(req.query.id){
-		downloadSong.artByID(req.query.id).then(result => res.send(result));
+		downloads.songArtByID(req.query.id).then(result => res.send(result));
 	}
 });
 
 app.get('/song/size', (_, res) => {
-	downloadSong.arraySizeByAny().then(result => res.send(result));
+	downloads.songArraySizeByAny().then(result => res.send(result));
 });
 
 app.get('/tables', (_, res) => {
-	downloadSong.tableForLogging().then(result => res.send(result));
+	downloads.tableForLogging().then(result => res.send(result));
 });
 
 app.get('/reset', (_, res) => {
-	downloadSong.resetTables().then(result => res.send(result));
+	downloads.resetTables().then(result => res.send(result));
 });
 
-app.post('/song', upload.fields([{ name: 'song', maxCount: 1 },{ name: 'songArt', maxCount: 1 }]), (req,res) => {
-	uploadSong.bySong(req);
+app.post('/song', memStorage.fields([{ name: 'song', maxCount: 1 },{ name: 'songArt', maxCount: 1 }]), (req,res) => {
+	uploads.uploadSong.bySong(req);
 	res.send("Post to /song Successfull");
 })
 
-app.listen(port, () => {
+app.post('/album', memStorage.fields([{ name: 'albumArt', maxCount: 1 }]), (req,res) => {
+	console.log("Album Upload Started");
+	uploads.uploadAlbum.bySong(req);
+	res.send("Post to /album Successfull");
+})
+
+app.get('/album/details', (req, res) => {
+	if(req.query.id){
+		downloads.albumDetailsByID(req.query.id).then(result => res.send(result));
+	} else {
+		downloads.albumDetailsByAny().then(result => res.send(result));
+	}
+});
+
+app.get('/album/size', (_, res) => {
+	downloads.albumArraySizeByAny().then(result => res.send(result));
+});
+
+app.get('/album/arts', (req, res) => {
+	if(req.query.id){
+		downloads.albumArtByID(req.query.id).then(result => res.send(result));
+	}
+});
+
+app.listen(port, '0.0.0.0', () => {
 	console.log(`http://localhost:${port}`);
 });

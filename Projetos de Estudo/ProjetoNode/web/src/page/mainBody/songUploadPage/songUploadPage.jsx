@@ -7,14 +7,14 @@ import ValueInput from '../../../elements/valueInput/valueInput';
 
 function uploadPage() {
 
-    const [artistId, setArtistId] = useState([undefined]);
-    const [albumId, setAlbumId] = useState([undefined]);
-    const [songName, setSongName] = useState();
-    const [songDescription, setSongDescription] = useState();
+    const [artistId, setArtistId] = useState([""]);
+    const [albumId, setAlbumId] = useState([""]);
+    const [songName, setSongName] = useState("");
+    const [songDescription, setSongDescription] = useState("");
     const [songBinary, setSongBinary] = useState();
     const [artBinary, setArtBinary] = useState();
-    const [songFileName, setSongFileName] = useState('Arraste a música ou clique aqui');
-    const [artFileName, setArtFileName] = useState('Arraste a imagem de capa ou clique aqui');
+    const [songFileName, setSongFileName] = useState('Drag Song MP3 Here');
+    const [artFileName, setArtFileName] = useState('Drag Song Image Here');
 
 
     const onSongDrop = useCallback(acceptedFiles => {
@@ -56,19 +56,19 @@ function uploadPage() {
 
     const flashErrMsg = useFlashErrMsg(' Failed to send files. ');
 
-    const sendable = songBinary&&artBinary&&artistId&&albumId&&songName&&songDescription;
+    const sendable = songBinary&&artBinary&&artistId!==""&&albumId!==""&&songName!==""&&songDescription!=="";
 
     const send = async () => {
             if(sendable){
             const formData = new FormData();
             formData.append("song", new Blob([songBinary], { type: "audio/mpeg" }));
             formData.append("songArt", new Blob([artBinary], { type: "image/jpeg" }));
-            formData.append("artistId", artistId.filter(item => item !== undefined) || []);
-            formData.append("albumId", albumId.filter(item => item !== undefined) || []);
+            formData.append("artistId", artistId.filter(item => item !== "") || []);
+            formData.append("albumId", albumId.filter(item => item !== "") || []);
             formData.append("name", songName);
             formData.append("description", songDescription);
             try {
-                await fetch("http://localhost:5000/song", {
+                await fetch(`${import.meta.env.VITE_API_URL}/song`, {
                     method: "POST",
                     body: formData
                 });
@@ -83,8 +83,7 @@ function uploadPage() {
     return (
         <div className={style.uploadPage}>
             <div className={style.uploadPageIn}>
-                Upload forms
-
+                <h1>Upload Forms</h1>
                 <input value={songName} onChange={e => setSongName(e.target.value)} type='text' placeholder='Nome música'/>
                 <input value={songDescription} onChange={e => setSongDescription(e.target.value)} type='text' placeholder='Descrição música'/>
                 <ValueInput title='Artist Id Type' type='number' state={[artistId, setArtistId]} />

@@ -25,6 +25,7 @@ const fetchSong = {
             `DROP TABLE album`,
             `DROP TABLE songStreams`,
             `DROP TABLE songArts`,
+            `DROP TABLE albumArts`,
 
             `CREATE TABLE IF NOT EXISTS song (
             id int NOT NULL AUTO_INCREMENT,
@@ -59,6 +60,12 @@ const fetchSong = {
             PRIMARY KEY (id)
             )`,
 
+            `CREATE TABLE IF NOT EXISTS albumArts (
+            id int NOT NULL AUTO_INCREMENT,
+            art longblob NOT NULL,
+            PRIMARY KEY (id)
+            )`,
+
             `CREATE TABLE IF NOT EXISTS albumSongRelationship (
             albumId INT,
             songId INT,
@@ -84,14 +91,14 @@ const fetchSong = {
     
         return {};
     },
-    detailsByID:async function(index){
+    songDetailsByID:async function(index){
         const [rows] = await connection.promise().execute(
             'SELECT * FROM song WHERE `id` = ?;',
             [index]
         );
         return rows ? rows : [];
     },
-    detailsByAny:async function(){
+    songDetailsByAny:async function(){
         const [rows] = await connection.promise().execute(
             'SELECT * FROM song;',
         );
@@ -104,7 +111,7 @@ const fetchSong = {
         );
         return await rows[0] ? rows[0].song : 0;
     },
-    artByID: async function(index){
+    songArtByID: async function(index){
         const [rows] = await connection.promise().execute(
             'SELECT art FROM songArts WHERE `id` = ?;',
             [index]
@@ -117,11 +124,37 @@ const fetchSong = {
         );
         return rows ? rows : [];
     },
-    arraySizeByAny:async function(){
+    songArraySizeByAny:async function(){
         const [rows] = await connection.promise().execute(
-            'SELECT * FROM songStreams;'
+            'SELECT * FROM song;'
         );
         return rows.length ? rows.length : null;
+    },
+    albumDetailsByID:async function(index){
+        const [rows] = await connection.promise().execute(
+            'SELECT * FROM album WHERE `id` = ?;',
+            [index]
+        );
+        return rows ? rows : [];
+    },
+    albumDetailsByAny:async function(){
+        const [rows] = await connection.promise().execute(
+            'SELECT * FROM album;',
+        );
+        return rows ? rows : [];
+    },
+    albumArraySizeByAny:async function(){
+        const [rows] = await connection.promise().execute(
+            'SELECT * FROM album;'
+        );
+        return rows.length ? rows.length : null;
+    },
+    albumArtByID: async function(index){
+        const [rows] = await connection.promise().execute(
+            'SELECT art FROM albumArts WHERE `id` = ?;',
+            [index]
+        );
+        return await rows[0] ? rows[0].art : 0;
     }
 }
 
