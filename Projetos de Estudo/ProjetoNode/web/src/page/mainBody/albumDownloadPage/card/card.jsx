@@ -3,18 +3,16 @@ import React, { useEffect, useState } from 'react';
 import ImageComponent from './imgComponent/imgComponent';
 
 function Card(props) {
-    const [descriptionFetch, setDescriptionFetch] = useState({});
+    const [descriptionFetch, setDescriptionFetch] = useState({id:"",name:"",descrip:""});
 
     useEffect(
         () => {
             async function fetchDescription() {
-                try{
-                    const response = await fetch(`http://localhost:5000/album/details?id=${props.id}`);
-                    const dataArray = await response.json();
-                    setDescriptionFetch(dataArray[0]);
-                } catch (error){
-                    console.log(error);
-                }
+                const response = await fetch(`http://localhost:5000/album/details?id=${props.id}`);
+                const dataArray = await response.json();
+                const albumsongsResponse = await fetch(`http://localhost:5000/albumssongs/name?id=${props.id}`);
+                const albumsongsDataArray = await albumsongsResponse.json();
+                setDescriptionFetch({id: dataArray[0].id, name:dataArray[0].name, descrip:dataArray[0].descrip + " Songs:" + albumsongsDataArray.map(matches=>matches[0].name).join(' ')});
             }
             fetchDescription();
         }, []

@@ -2,11 +2,11 @@ const mysql = require("mysql2");
 
 const dbConfig = {
   multipleStatements: true,
-  host: 'db',      // your MySQL host
-  user: 'root',  // your MySQL username
-  password: process.env.MYSQL_ROOT_PASSWORD, // your MySQL password
+  host: 'db',
+  user: 'root',
+  password: process.env.MYSQL_ROOT_PASSWORD,
   database: process.env.MYSQL_DATABASE,
-  multipleStatements: true  // your database name
+  multipleStatements: true 
 };
 
 const connection = () =>{

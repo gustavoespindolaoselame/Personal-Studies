@@ -7,7 +7,7 @@ const [imageUrl, setImageUrl] = useState(null);
 useEffect(() => {
     async function fetchSource() {
       try {
-        const response = await fetch(`http://localhost:5000/album/arts?id=${id}`);
+        const response = await fetch(`http://localhost:5000/album/art?id=${id}`);
         const blob = await response.blob();
         const objectUrl = URL.createObjectURL(blob);
         setImageUrl(objectUrl);

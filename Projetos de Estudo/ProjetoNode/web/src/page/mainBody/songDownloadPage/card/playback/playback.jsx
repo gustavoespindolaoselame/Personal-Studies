@@ -8,7 +8,7 @@ function Playback({ id }) {
   useEffect(() => {
     async function fetchSource() {
       try {
-        const response = await fetch(`http://localhost:5000/song?id=${id}`);
+        const response = await fetch(`http://localhost:5000/song/stream?id=${id}`);
         const blob = await response.blob();
         const objectUrl = URL.createObjectURL(blob);
         setUrl(objectUrl);

@@ -1,4 +1,4 @@
-const connection = require('./conn')
+const connection = require('../conn')
 
 const fetchSong = {
     tableForLogging:async function(){
@@ -90,71 +90,6 @@ const fetchSong = {
         }
     
         return {};
-    },
-    songDetailsByID:async function(index){
-        const [rows] = await connection.promise().execute(
-            'SELECT * FROM song WHERE `id` = ?;',
-            [index]
-        );
-        return rows ? rows : [];
-    },
-    songDetailsByAny:async function(){
-        const [rows] = await connection.promise().execute(
-            'SELECT * FROM song;',
-        );
-        return rows ? rows : [];
-    },
-    songByID: async function(index){
-        const [rows] = await connection.promise().execute(
-            'SELECT song FROM songStreams WHERE `id` = ?;',
-            [index]
-        );
-        return await rows[0] ? rows[0].song : 0;
-    },
-    songArtByID: async function(index){
-        const [rows] = await connection.promise().execute(
-            'SELECT art FROM songArts WHERE `id` = ?;',
-            [index]
-        );
-        return await rows[0] ? rows[0].art : 0;
-    },
-    songByAny: async function(){
-        const [rows] = await connection.promise().execute(
-            'SELECT * FROM songStreams;'
-        );
-        return rows ? rows : [];
-    },
-    songArraySizeByAny:async function(){
-        const [rows] = await connection.promise().execute(
-            'SELECT * FROM song;'
-        );
-        return rows.length ? rows.length : null;
-    },
-    albumDetailsByID:async function(index){
-        const [rows] = await connection.promise().execute(
-            'SELECT * FROM album WHERE `id` = ?;',
-            [index]
-        );
-        return rows ? rows : [];
-    },
-    albumDetailsByAny:async function(){
-        const [rows] = await connection.promise().execute(
-            'SELECT * FROM album;',
-        );
-        return rows ? rows : [];
-    },
-    albumArraySizeByAny:async function(){
-        const [rows] = await connection.promise().execute(
-            'SELECT * FROM album;'
-        );
-        return rows.length ? rows.length : null;
-    },
-    albumArtByID: async function(index){
-        const [rows] = await connection.promise().execute(
-            'SELECT art FROM albumArts WHERE `id` = ?;',
-            [index]
-        );
-        return await rows[0] ? rows[0].art : 0;
     }
 }
 

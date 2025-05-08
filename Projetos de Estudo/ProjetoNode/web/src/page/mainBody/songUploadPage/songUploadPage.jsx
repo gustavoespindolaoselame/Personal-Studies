@@ -16,7 +16,6 @@ function uploadPage() {
     const [songFileName, setSongFileName] = useState('Drag Song MP3 Here');
     const [artFileName, setArtFileName] = useState('Drag Song Image Here');
 
-
     const onSongDrop = useCallback(acceptedFiles => {
         const file = acceptedFiles[0];
         setSongFileName(file.name);
@@ -68,7 +67,7 @@ function uploadPage() {
             formData.append("name", songName);
             formData.append("description", songDescription);
             try {
-                await fetch(`${import.meta.env.VITE_API_URL}/song`, {
+                await fetch(`${import.meta.env.VITE_API_URL}/song/stream`, {
                     method: "POST",
                     body: formData
                 });
@@ -86,8 +85,8 @@ function uploadPage() {
                 <h1>Upload Forms</h1>
                 <input value={songName} onChange={e => setSongName(e.target.value)} type='text' placeholder='Nome música'/>
                 <input value={songDescription} onChange={e => setSongDescription(e.target.value)} type='text' placeholder='Descrição música'/>
-                <ValueInput title='Artist Id Type' type='number' state={[artistId, setArtistId]} />
-                <ValueInput title='Album Id Type' type='number' state={[albumId, setAlbumId]} />
+                <ValueInput selectionArray={[0,1,2]} title='Artist Id Type' type='number' state={[artistId, setArtistId]} />
+                <ValueInput selectionArray={[0,1,2]} title='Album Id Type' type='number' state={[albumId, setAlbumId]} />
                 <div {...getSongRootProps()} className={style.dropZone}>
                     <input {...getSongInputProps()} />
                     {isSongDragActive ? <p>Solte a música aqui...</p> : <p>{songFileName}</p>}

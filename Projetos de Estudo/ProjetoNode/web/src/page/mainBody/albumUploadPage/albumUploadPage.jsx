@@ -45,7 +45,7 @@ function AlbumUploadPage() {
             formData.append("name", albumName);
             formData.append("description", albumDescription);
             try {
-                await fetch(`${import.meta.env.VITE_API_URL}/album`, {
+                await fetch(`${import.meta.env.VITE_API_URL}/album/stream`, {
                     method: "POST",
                     body: formData
                 });
@@ -58,8 +58,8 @@ function AlbumUploadPage() {
 
     return (
         <div className={style.uploadPage}>
-            <ValueInput title='Artist Id' type='number' state={[artistId, setArtistId]} />
-            <ValueInput title='Song Id' type='number' state={[songId, setSongId]}/>
+            <ValueInput selectionArray={[0,1,2]} title='Artist Id' type='number' state={[artistId, setArtistId]} />
+            <ValueInput selectionArray={[0,1,2]} title='Song Id' type='number' state={[songId, setSongId]}/>
             <input value={albumDescription} onChange={e => setAlbumDescription(e.target.value)} type='text' placeholder='Album Description'/>
             <input value={albumName} onChange={e => setAlbumName(e.target.value)} type='text' placeholder='Album Name'/>
             <div {...getArtRootProps()} className={style.dropZone}>
