@@ -1,56 +1,60 @@
-.inputButtonBox input{
+.backSection{
+    margin-bottom: 0.5vw;
+    background-color: #363636;
+    padding-right: 1vw;
+    padding-left: 1vw;
+    padding-bottom: 1vw;
+}
+
+.backSection input{
+    margin: 1vw;
+    height: 3vw;
+    margin-right: 0;
     width: 40vw;
-    height: 2vw;
     text-align: center;
     margin: 0;
+    margin-top: 1vw;
 }
 
-.inputBoxAndSelection{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(114, 114, 114);
-}
-
-.inputBoxAndSelection .selection{
-    color: black;
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 0.5vw;
-    padding: 0.2vw;
-    justify-content: center;
-    background-color: rgb(153, 153, 153);
-    margin-top: 0.2vh;
-    margin-bottom: 0.1vh;
-    cursor: pointer;
-}
-
-.inputBoxAndSelection .selection:hover{
-    background-color: white;
-}
-
-.inputButtonBox button{
-    width: 2vw;
-    height: 2vw;
+.backSection button{
+    width: 3vw;
+    height: 3vw;
     margin: 0;
-    margin-left: 0.8vw;
+    margin-top: 1vw;
 }
 
-.backSection{
+.scrollContainer li{
+    background-color: #525252;
+}
+
+.scrollContainer li:hover{
+    background-color: white;
+    color: black;
+}
+
+.inputAndButtons{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: 0.5vw;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 0.5vw;
-}
+    justify-content: center;
 
-.inputButtonBox{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1vw;
+    justify-content: space-between;
+    width: 50vw;
 }
+
+.scrollContainer{
+    margin-top: 0.1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scroll{
+    margin-top: 0;
+    max-height: 10vh;
+    overflow-y: auto;
+    width: 96%;
+}
+

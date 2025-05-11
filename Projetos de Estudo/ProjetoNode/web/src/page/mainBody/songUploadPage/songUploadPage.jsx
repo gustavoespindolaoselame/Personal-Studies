@@ -83,9 +83,9 @@ function uploadPage() {
         <div className={style.uploadPage}>
             <div className={style.uploadPageIn}>
                 <h1>Upload Forms</h1>
-                <input value={songName} onChange={e => setSongName(e.target.value)} type='text' placeholder='Nome música'/>
-                <input value={songDescription} onChange={e => setSongDescription(e.target.value)} type='text' placeholder='Descrição música'/>
-                <ValueInput selectionArray={[0,1,2]} title='Artist Id Type' type='number' state={[artistId, setArtistId]} />
+                <input className={style.singleInput} value={songName} onChange={e => setSongName(e.target.value)} type='text' placeholder='Nome música'/>
+                <input className={style.singleInput} value={songDescription} onChange={e => setSongDescription(e.target.value)} type='text' placeholder='Descrição música'/>
+                <ValueInput selectionArray={[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]} title='Artist Id Type' type='number' state={[artistId, setArtistId]} />
                 <ValueInput selectionArray={[0,1,2]} title='Album Id Type' type='number' state={[albumId, setAlbumId]} />
                 <div {...getSongRootProps()} className={style.dropZone}>
                     <input {...getSongInputProps()} />

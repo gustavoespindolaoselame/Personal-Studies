@@ -60,8 +60,8 @@ function AlbumUploadPage() {
         <div className={style.uploadPage}>
             <ValueInput selectionArray={[0,1,2]} title='Artist Id' type='number' state={[artistId, setArtistId]} />
             <ValueInput selectionArray={[0,1,2]} title='Song Id' type='number' state={[songId, setSongId]}/>
-            <input value={albumDescription} onChange={e => setAlbumDescription(e.target.value)} type='text' placeholder='Album Description'/>
-            <input value={albumName} onChange={e => setAlbumName(e.target.value)} type='text' placeholder='Album Name'/>
+            <input className={style.singleInput} value={albumDescription} onChange={e => setAlbumDescription(e.target.value)} type='text' placeholder='Album Description'/>
+            <input className={style.singleInput} value={albumName} onChange={e => setAlbumName(e.target.value)} type='text' placeholder='Album Name'/>
             <div {...getArtRootProps()} className={style.dropZone}>
                 <input {...getArtInputProps()} />
                 {isArtDragActive ? <p>Solte a imagem aqui...</p> : <p>{artFileName}</p>}

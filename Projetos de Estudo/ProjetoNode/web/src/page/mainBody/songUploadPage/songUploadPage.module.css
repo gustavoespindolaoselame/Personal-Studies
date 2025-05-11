@@ -19,7 +19,7 @@
     color: #FBF5E5;
 }
 
-.uploadPage input{
+.uploadPage .singleInput{
     margin: 1vw;
     padding: 0.5vw 2vw;
     width: 40vw;
