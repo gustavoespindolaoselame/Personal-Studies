@@ -9,7 +9,9 @@ module.exports = (app, memStorage) => {
     }),
 
     app.get('/album/details', (req, res) => {
-        albumsDownloads.details(req.query.id).then(result => res.send(result));
+        req.query.id?
+        albumsDownloads.details(req.query.id).then(result => res.send(result)):
+        albumsDownloads.detailsAny().then(result => res.send(result));
     });
 
     app.get('/album/size', (_, res) => {

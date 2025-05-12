@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from './songUploadPage.module.css';
 import {useDropzone} from 'react-dropzone'
 import { useCallback } from 'react';
@@ -15,6 +15,7 @@ function uploadPage() {
     const [artBinary, setArtBinary] = useState();
     const [songFileName, setSongFileName] = useState('Drag Song MP3 Here');
     const [artFileName, setArtFileName] = useState('Drag Song Image Here');
+    const [availableAlbums, setAvaliableAlbums] = useState([]);
 
     const onSongDrop = useCallback(acceptedFiles => {
         const file = acceptedFiles[0];
@@ -78,6 +79,20 @@ function uploadPage() {
         }
     }
 
+    useEffect(
+        () => {
+            async function fetchDescription() {
+                try{
+                    const response = await fetch(`http://localhost:5000/album/details`);
+                    const dataArray = await response.json();
+                    setAvaliableAlbums(dataArray);
+                } catch (error){
+                    console.log(error);
+                }
+            }
+            fetchDescription();
+        }, []
+    )
 
     return (
         <div className={style.uploadPage}>

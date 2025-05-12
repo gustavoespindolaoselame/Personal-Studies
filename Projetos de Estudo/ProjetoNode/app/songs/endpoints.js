@@ -10,7 +10,9 @@ module.exports = (app, memStorage) => {
 	});
 
 	app.get('/song/details', (req, res) => {
-		songsDownloads.details(req.query.id).then(result => res.send(result));
+		req.query.id?
+		songsDownloads.details(req.query.id).then(result => res.send(result)):
+		songsDownloads.detailsAny().then(result => res.send(result));
 	});
 
 	app.get('/song/art', (req, res) => {

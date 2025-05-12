@@ -39,8 +39,8 @@ function ValueInput(props) {
         closeSelection();
         let newArray=[...isSelectionVisible];
         newArray[index]=true;
-        setOldIndex(index);
         setIsSelectionVisible(newArray);
+        setOldIndex(index);
     }
     
     const closeSelection = () => {
@@ -70,7 +70,7 @@ function ValueInput(props) {
         isSelectionVisible[index] && selectionArray.map((value, listId)=>
         <li 
             key={listId}
-            onClick={_=>defInputOnSelect(value, index)}
+            onMouseDown={_=>defInputOnSelect(value, index)}
             >{value}
         </li>))
 

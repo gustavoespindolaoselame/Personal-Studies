@@ -8,6 +8,12 @@ const fetchSongsFromDb = {
         );
         return rows ? rows : [];
     },
+    detailsAny:async function(){
+        const [rows] = await connection.promise().execute(
+            'SELECT * FROM song'
+        );
+        return rows ? rows : [];
+    },
     stream: async function(index){
         const [rows] = await connection.promise().execute(
             'SELECT song FROM songStreams WHERE `id` = ?;',

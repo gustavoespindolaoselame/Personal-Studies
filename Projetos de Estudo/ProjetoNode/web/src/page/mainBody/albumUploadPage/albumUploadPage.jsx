@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import style from './albumUploadPage.module.css';
 import ValueInput from '../../../elements/valueInput/valueInput'
 import { useDropzone } from 'react-dropzone';
@@ -7,11 +7,13 @@ import { useFlashErrMsg } from '../../messageBox/messageBox';
 function AlbumUploadPage() {
     
     const [artistId, setArtistId] = useState([""]);
-    const [songId, setSongId] = useState([""]);
+    const [songName, setSongName] = useState([""]);
     const [albumDescription, setAlbumDescription] = useState("");
     const [albumName, setAlbumName] = useState("");
     const [artBinary, setArtBinary] = useState();
     const [artFileName,setArtFileName] = useState("Drag Album Image Here");
+
+    const [availableSongs, setAvaliableSongs] = useState([]);
 
     const onArtDrop = useCallback(acceptedFiles => {
         const file = acceptedFiles[0];
@@ -33,7 +35,7 @@ function AlbumUploadPage() {
 
     const flashErrMsg = useFlashErrMsg(' Failed to send files. ');
 
-    const sendable = artistId!==""&&songId!==""&&albumDescription!==""&&artBinary&&artFileName;
+    const sendable = artistId!==""&&songName!==""&&albumDescription!==""&&artBinary&&artFileName;
 
     const send = async () => {
         
@@ -41,7 +43,18 @@ function AlbumUploadPage() {
             const formData = new FormData();
             formData.append("albumArt", new Blob([artBinary], { type: "image/jpeg" }));
             formData.append("artistId", artistId.filter(item => item !== "") || []);
-            formData.append("songId", songId.filter(item => item !== "") || []);
+
+            let songIds = [];
+                    songName.forEach(songNameFor => {
+                        availableSongs.forEach(song => {
+                            song.name == songNameFor?
+                            songIds.push(song.name):
+                            {}
+                        });
+                    });
+            console.log(songIds);
+            
+            formData.append("songId", songIds);
             formData.append("name", albumName);
             formData.append("description", albumDescription);
             try {
@@ -56,10 +69,29 @@ function AlbumUploadPage() {
         }
     }
 
+    useEffect(
+        () => {
+            async function fetchDescription() {
+                try{
+                    const response = await fetch(`http://localhost:5000/song/details`);
+                    const dataArray = await response.json();
+                    setAvaliableSongs(dataArray);
+                } catch (error){
+                    console.log(error);
+                }
+            }
+            fetchDescription();
+
+            
+        }, []
+    )
+
+
     return (
         <div className={style.uploadPage}>
-            <ValueInput selectionArray={[0,1,2]} title='Artist Id' type='number' state={[artistId, setArtistId]} />
-            <ValueInput selectionArray={[0,1,2]} title='Song Id' type='number' state={[songId, setSongId]}/>
+            <h1>Upload Forms</h1>
+            <ValueInput selectionArray={[]} title='Artist Id' type='number' state={[artistId, setArtistId]} />
+            <ValueInput selectionArray={availableSongs.map(e=>e.name)} title='Song Id' type='text' state={[songName, setSongName]}/>
             <input className={style.singleInput} value={albumDescription} onChange={e => setAlbumDescription(e.target.value)} type='text' placeholder='Album Description'/>
             <input className={style.singleInput} value={albumName} onChange={e => setAlbumName(e.target.value)} type='text' placeholder='Album Name'/>
             <div {...getArtRootProps()} className={style.dropZone}>

@@ -8,6 +8,12 @@ const fetchAlbumsFromDB = {
         );
         return rows ? rows : [];
     },
+    detailsAny:async function(){
+        const [rows] = await connection.promise().execute(
+            'SELECT * FROM album'
+        );
+        return rows ? rows : [];
+    },
     size:async function(){
         const [rows] = await connection.promise().execute(
             'SELECT * FROM album;'

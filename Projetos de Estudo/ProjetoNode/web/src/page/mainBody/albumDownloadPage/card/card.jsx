@@ -12,7 +12,15 @@ function Card(props) {
                 const dataArray = await response.json();
                 const albumsongsResponse = await fetch(`http://localhost:5000/albumssongs/name?id=${props.id}`);
                 const albumsongsDataArray = await albumsongsResponse.json();
-                setDescriptionFetch({id: dataArray[0].id, name:dataArray[0].name, descrip:dataArray[0].descrip + " Songs:" + albumsongsDataArray.map(matches=>matches[0].name).join(' ')});
+                let descriptionHandler = {
+                    id: 
+                    dataArray[0].id||'0', 
+                    name:
+                    dataArray[0].name||'Default Name', 
+                    descrip:
+                    dataArray[0].descrip + " Songs:" + albumsongsDataArray.map(matches=>matches[0].name).join(' ')||'Default description'
+                }
+                setDescriptionFetch(descriptionHandler);
             }
             fetchDescription();
         }, []
@@ -21,11 +29,11 @@ function Card(props) {
     return (
         <div className={style.Card}>
             <div className={style.topSection}>
-                <h2>{descriptionFetch ? descriptionFetch.name || 'Undefined Title' : 'Undefined Title'}</h2>
+                <h2>{descriptionFetch.name}</h2>
                 <ImageComponent id={props.id}/>
             </div>
             <div className={style.botSection}>
-                <p>{descriptionFetch ? descriptionFetch.descrip || 'Undefined Description' : 'Undefined Description'}</p>
+                <p>{descriptionFetch.descrip}</p>
             </div>
         </div>
     );
