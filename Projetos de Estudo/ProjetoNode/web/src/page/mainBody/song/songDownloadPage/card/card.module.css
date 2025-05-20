@@ -1,0 +1,33 @@
+.Card{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #242833;
+	margin: 1vw;
+	height: 25vw;
+	padding: 1vw;
+	padding-top: 0vw;
+	border-radius: 2vw;
+	max-width: 24vw;
+}
+
+img {
+	width: 12vw;
+}
+
+.topSection{
+	color: #FBF5E5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.botSection{
+	color: #FBF5E5;
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
+	flex-direction: column;
+	align-items: center;
+}
+

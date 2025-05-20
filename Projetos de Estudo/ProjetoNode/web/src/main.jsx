@@ -3,31 +3,29 @@ import './main.css'
 import Page from './page/page'
 import MainBody from './page/mainBody/mainBody'
 import TopNav from './page/topNav/topNav'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import DownloadPage from './page/mainBody/songDownloadPage/songDownloadPage'
-import UploadPage from './page/mainBody/songUploadPage/songUploadPage'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import SongDownload from './page/mainBody/song/songDownloadPage/songDownloadPage'
+import SongUpload from './page/mainBody/song/songUploadPage/songUploadPage'
 import DevPage from './page/mainBody/devPage/devPage'
-import AlbumDownloadPage from './page/mainBody/albumDownloadPage/albumDownloadPage'
-import AlbumUploadPage from './page/mainBody/albumUploadPage/albumUploadPage'
-import MessageBox from './page/messageBox/messageBox'
-
+import AlbumDownload from './page/mainBody/album/albumDownloadPage/albumDownloadPage'
+import AlbumUpload from './page/mainBody/album/albumUploadPage/albumUploadPage'
+import ArtistDownload from './page/mainBody/artist/artistDownloadPage/artistDownloadPage'
+import ArtistUpload from './page/mainBody/artist/artistUploadPage/artistUploadPage'
+import MessageBox from './elements/messageBox/messageBox'
+import Dropdown from './elements/dropdown/dropdown'
 
 createRoot(document.getElementById('root')).render(
   <MessageBox>
     <Router>
+      <TopNav/>
       <Page>
-			<TopNav>
-        <a href="/albums/download">ALBUM - Downloads</a>
-        <a href="/albums/upload">ALBUM - Uploads</a>
-        <a href="/songs/download">SONG - Downloads</a>
-        <a href="/songs/upload">SONG - Uploads</a>
-        <a href="/developer">DEV</a>
-      </TopNav>
       <Routes>
-        <Route path="/albums/download" element={<MainBody><AlbumDownloadPage/></MainBody>} />
-        <Route path="/albums/upload" element={<MainBody><AlbumUploadPage/></MainBody>} />
-        <Route path="/songs/download" element={<MainBody><DownloadPage/></MainBody>} />
-        <Route path="/songs/upload" element={<MainBody><UploadPage/></MainBody>} />
+        <Route path="/albums/download" element={<MainBody><AlbumDownload/></MainBody>} />
+        <Route path="/albums/upload" element={<MainBody><AlbumUpload/></MainBody>} />
+        <Route path="/songs/download" element={<MainBody><SongDownload/></MainBody>} />
+        <Route path="/songs/upload" element={<MainBody><SongUpload/></MainBody>} />
+        <Route path="/artist/download" element={<MainBody><ArtistDownload/></MainBody>} />
+        <Route path="/artist/upload" element={<MainBody><ArtistUpload/></MainBody>} />
         <Route path="/developer" element={<MainBody><DevPage/></MainBody>} />
       </Routes>
       </Page>

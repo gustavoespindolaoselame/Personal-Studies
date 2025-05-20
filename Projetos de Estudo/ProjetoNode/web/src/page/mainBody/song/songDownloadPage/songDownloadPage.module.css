@@ -1,4 +1,4 @@
-.AlbumDownloadPage{
+.downloadPage{
     background-color: #2e2e2e;
     padding-left: 3vw;
     padding-right: 3vw;
@@ -13,5 +13,5 @@
     width: 75vw;
     grid-template-columns: repeat(auto-fit, minmax(24vw, 1fr));
     gap: 1vw;
-    max-height: 80vh;
+    min-height: 80vh;
 }

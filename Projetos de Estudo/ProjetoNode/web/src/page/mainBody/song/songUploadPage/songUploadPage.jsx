@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import style from './songUploadPage.module.css';
 import {useDropzone} from 'react-dropzone'
 import { useCallback } from 'react';
-import { useFlashErrMsg } from '../../messageBox/messageBox'
-import ValueInput from '../../../elements/valueInput/valueInput';
+import { useFlashErrMsg } from '../../../../elements/messageBox/messageBox'
+import ValueInput from '../../../../elements/valueInput/valueInput';
 
 function uploadPage() {
 
-    const [artistId, setArtistId] = useState([""]);
-    const [albumId, setAlbumId] = useState([""]);
+    const [artistIds, setArtistIds] = useState([""]);
+    const [albumNames, setAlbumNames] = useState([""]);
     const [songName, setSongName] = useState("");
     const [songDescription, setSongDescription] = useState("");
     const [songBinary, setSongBinary] = useState();
@@ -56,15 +56,25 @@ function uploadPage() {
 
     const flashErrMsg = useFlashErrMsg(' Failed to send files. ');
 
-    const sendable = songBinary&&artBinary&&artistId!==""&&albumId!==""&&songName!==""&&songDescription!=="";
+    const sendable = songBinary&&artBinary&&artistIds!==""&&albumNames!==""&&songName!==""&&songDescription!=="";
 
     const send = async () => {
             if(sendable){
             const formData = new FormData();
+
+            let albumIds = [];
+            albumNames.forEach(albumNameFor => {
+                availableAlbums.forEach(album => {
+                    album.name == albumNameFor?
+                    albumIds.push(album.id):
+                    {}
+                });
+            });
+
+            formData.append("albumId", albumIds || []);
             formData.append("song", new Blob([songBinary], { type: "audio/mpeg" }));
             formData.append("songArt", new Blob([artBinary], { type: "image/jpeg" }));
-            formData.append("artistId", artistId.filter(item => item !== "") || []);
-            formData.append("albumId", albumId.filter(item => item !== "") || []);
+            formData.append("artistId", artistIds.filter(item => item !== "") || []);
             formData.append("name", songName);
             formData.append("description", songDescription);
             try {
@@ -100,8 +110,8 @@ function uploadPage() {
                 <h1>Upload Forms</h1>
                 <input className={style.singleInput} value={songName} onChange={e => setSongName(e.target.value)} type='text' placeholder='Nome música'/>
                 <input className={style.singleInput} value={songDescription} onChange={e => setSongDescription(e.target.value)} type='text' placeholder='Descrição música'/>
-                <ValueInput selectionArray={[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]} title='Artist Id Type' type='number' state={[artistId, setArtistId]} />
-                <ValueInput selectionArray={[0,1,2]} title='Album Id Type' type='number' state={[albumId, setAlbumId]} />
+                <ValueInput selectionArray={[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]} title='Artist Id Type' type='number' state={[artistIds, setArtistIds]} />
+                <ValueInput selectionArray={availableAlbums.map(e=>e.name)} title='Album Name' state={[albumNames, setAlbumNames]} />
                 <div {...getSongRootProps()} className={style.dropZone}>
                     <input {...getSongInputProps()} />
                     {isSongDragActive ? <p>Solte a música aqui...</p> : <p>{songFileName}</p>}

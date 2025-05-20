@@ -1,20 +1,19 @@
-import style from './songDownloadPage.module.css';
+import style from './albumDownloadPage.module.css';
 import Card from './card/card'
 import { useEffect, useState } from 'react';
-import { useFlashErrMsg } from '../../messageBox/messageBox'
+import { useFlashErrMsg } from '../../../../elements/messageBox/messageBox'
 
-function downloadPage(props) {
+function albumDownloadPage(props) {
 
     const [numCards, setNumCards] = useState(0);
     const [cardList, setCardList] = useState([]);
     const flashErrMsg = useFlashErrMsg('No Amount Of Songs Retrieved');
 
-
     useEffect(
         () => {
             async function fetchNumSongs() {
                 try{
-                    const response = await fetch(`${import.meta.env.VITE_API_URL}/song/size`);
+                    const response = await fetch(`${import.meta.env.VITE_API_URL}/album/size`);
                     if(response!==0){
                         setNumCards(await response.json());
                     } else {
@@ -42,7 +41,7 @@ function downloadPage(props) {
 
 
     return (
-        <div className={style.downloadPage}>
+        <div className={style.AlbumDownloadPage}>
             <div className={style.cardSpace}>
                 {cardList}
             </div>
@@ -50,4 +49,4 @@ function downloadPage(props) {
     );
 }
 
-export default downloadPage;
+export default albumDownloadPage;

@@ -1,18 +1,16 @@
 import { useCallback, useEffect, useState } from 'react';
 import style from './albumUploadPage.module.css';
-import ValueInput from '../../../elements/valueInput/valueInput'
+import ValueInput from '../../../../elements/valueInput/valueInput'
 import { useDropzone } from 'react-dropzone';
-import { useFlashErrMsg } from '../../messageBox/messageBox';
+import { useFlashErrMsg } from '../../../../elements/messageBox/messageBox';
 
 function AlbumUploadPage() {
-    
     const [artistId, setArtistId] = useState([""]);
     const [songName, setSongName] = useState([""]);
     const [albumDescription, setAlbumDescription] = useState("");
     const [albumName, setAlbumName] = useState("");
     const [artBinary, setArtBinary] = useState();
     const [artFileName,setArtFileName] = useState("Drag Album Image Here");
-
     const [availableSongs, setAvaliableSongs] = useState([]);
 
     const onArtDrop = useCallback(acceptedFiles => {
@@ -37,26 +35,35 @@ function AlbumUploadPage() {
 
     const sendable = artistId!==""&&songName!==""&&albumDescription!==""&&artBinary&&artFileName;
 
-    const send = async () => {
-        
-        if(sendable){
-            const formData = new FormData();
-            formData.append("albumArt", new Blob([artBinary], { type: "image/jpeg" }));
-            formData.append("artistId", artistId.filter(item => item !== "") || []);
+    const appendFormData = (formData) => {
+        formData.append("albumArt", 
+            new Blob([artBinary], 
+            { type: "image/jpeg" }));
+        formData.append("artistId", 
+            artistId.filter(item => item !== "") || []);
+        formData.append("songId", 
+            songNamesToSongIds());
+        formData.append("name", 
+            albumName);
+        formData.append("description", 
+            albumDescription);
+        return formData;
+    }
 
-            let songIds = [];
-                    songName.forEach(songNameFor => {
-                        availableSongs.forEach(song => {
-                            song.name == songNameFor?
-                            songIds.push(song.name):
-                            {}
-                        });
-                    });
-            console.log(songIds);
-            
-            formData.append("songId", songIds);
-            formData.append("name", albumName);
-            formData.append("description", albumDescription);
+    const songNamesToSongIds = () => {
+        songIds = [];
+        songName.forEach(songNameFor => {
+            availableSongs.forEach(song => {
+                song.name == songNameFor?
+                songIds.push(song.name):{}
+            });
+        });
+        return songIds;
+    }
+
+    const send = async () => {
+        if(sendable){
+            const formData = appendFormData(new FormData());
             try {
                 await fetch(`${import.meta.env.VITE_API_URL}/album/stream`, {
                     method: "POST",
@@ -68,7 +75,7 @@ function AlbumUploadPage() {
             }
         }
     }
-
+    
     useEffect(
         () => {
             async function fetchDescription() {
@@ -81,11 +88,8 @@ function AlbumUploadPage() {
                 }
             }
             fetchDescription();
-
-            
         }, []
     )
-
 
     return (
         <div className={style.uploadPage}>

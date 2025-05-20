@@ -11,7 +11,7 @@ function Card(props) {
                 const response = await fetch(`http://localhost:5000/album/details?id=${props.id}`);
                 const dataArray = await response.json();
                 const albumsongsResponse = await fetch(`http://localhost:5000/albumssongs/name?id=${props.id}`);
-                const albumsongsDataArray = await albumsongsResponse.json();
+                const albumsongsDataArray = await albumsongsResponse.json(); 
                 let descriptionHandler = {
                     id: 
                     dataArray[0].id||'0', 
